@@ -13,10 +13,16 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start; /* Align to the left */
-  gap: 5px; /* Gap between icons and text */
 }
 
 .card-icons {
   display: flex;
-  gap: 61px; /* Space between CardAllIcon and SkinCareIcon (132px - 49px - 22px width) */
+  gap: 61px; /* Space between CardAllIcon+Text and SkinCareIcon+Text pairs */
+}
+
+.icon-text-pair {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center icon above text */
+  gap: 5px; /* Space between icon and text */
 }
