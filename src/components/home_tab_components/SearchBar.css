@@ -1,0 +1,7 @@
+/* src/components/SearchBar.css */
+.search-bar {
+  width: 346px;
+  height: 48px;
+  background-color: #F4EFF1;
+  border-radius: 14px;
+}

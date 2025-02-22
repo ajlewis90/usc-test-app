@@ -1,0 +1,69 @@
+/* src/App.css */
+.mobile-container {
+  max-width: 480px; /* Mobile screen width */
+  margin: 0 auto;   /* Center horizontally */
+  padding: 20px;    /* Spacing for content */
+  min-height: 100vh; /* Full height */
+  display: flex;
+  flex-direction: column;
+  position: relative; /* For tab bar positioning */
+}
+
+.home-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Space between components */
+  align-items: flex-start; /* Align to the left */
+}
+
+.content {
+  flex: 1; /* Takes remaining space above tab bar */
+  padding-bottom: 60px; /* Space for tab bar */
+}
+
+.tab-bar {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 480px; /* Match mobile container */
+  max-width: 100%; /* Responsive */
+  display: flex;
+  justify-content: space-around;
+  background-color: #fff;
+  border-top: 1px solid #ddd;
+  padding: 10px 0;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  padding: 5px;
+  cursor: pointer;
+  color: #666; /* Inactive color */
+  background: none;
+  border: none;
+}
+
+.tab.active {
+  color: #007bff; /* Active color (Home starts active) */
+}
+
+.tab-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.tab-label {
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+/* Reset body margin */
+body {
+  margin: 0;
+}
