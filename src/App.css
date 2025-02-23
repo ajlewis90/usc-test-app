@@ -9,11 +9,32 @@
   position: relative; /* For tab bar positioning */
 }
 
-.home-content {
+.search-section {
   display: flex;
   flex-direction: column;
-  gap: 10px; /* Space between components */
-  align-items: flex-start; /* Align to the left */
+  gap: 15px; /* Space between Search text and SearchBar */
+}
+
+.category-tabs {
+  display: flex;
+  overflow-x: auto; /* Horizontal scrolling */
+  gap: 20px; /* Space between category tabs */
+  padding-bottom: 10px; /* Space below tabs */
+  white-space: nowrap; /* Prevent wrapping */
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
+  margin-top: 10px; /* Space between SearchBar and category tab icons */
+}
+
+.category-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px; /* Space between icon and text */
+  min-width: 60px; /* Ensure enough space for each tab */
+}
+
+.category-tab.active div[class$="-text"] {
+  color: #030303; /* Active text color for any category text component */
 }
 
 .content {

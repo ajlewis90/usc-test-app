@@ -5,24 +5,32 @@
   background-color: #ffffff;
   box-shadow: 0px 1px 0px rgba(3, 3, 3, 0.1);
   display: flex;
-  align-items: center; /* Vertically center the card-content */
-  padding-left: 32px; /* Space from left edge to card-content */
+  align-items: center;
+  padding-left: 32px;
 }
 
 .card-content {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Align to the left */
+  align-items: flex-start;
 }
 
 .card-icons {
   display: flex;
-  gap: 61px; /* Space between CardAllIcon+Text and SkinCareIcon+Text pairs */
+  gap: 61px; /* Space between filter tabs */
 }
 
 .icon-text-pair {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center icon above text */
-  gap: 5px; /* Space between icon and text */
+  align-items: center;
+  gap: 5px;
+  cursor: pointer; /* Indicate clickability */
 }
+
+.icon-text-pair.active .card-all-text,
+.icon-text-pair.active .skin-care-text {
+  color: #030303; /* Active text color (black) */
+}
+
+/* Default inactive text color handled in CardAllText.css and SkinCareText.css */
