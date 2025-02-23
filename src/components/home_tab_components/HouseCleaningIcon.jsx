@@ -3,9 +3,9 @@ import React from 'react';
 import './HouseCleaningIcon.css';
 
 const defaultProps = {
-  image: 'https://via.placeholder.com/40?text=House+Cleaning', // Placeholder image
+  image: 'https://assets.api.uizard.io/api/cdn/stream/2104919d-afa4-49df-9cb9-f7e13bd84e86.png',
   onClick: () => {},
-};
+}
 
 const HouseCleaningIcon = ({ image, onClick }) => {
   return (

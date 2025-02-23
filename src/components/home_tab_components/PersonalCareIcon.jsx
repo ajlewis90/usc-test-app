@@ -3,7 +3,7 @@ import React from 'react';
 import './PersonalCareIcon.css';
 
 const defaultProps = {
-  image: 'https://via.placeholder.com/40?text=Personal+Care', // Placeholder image
+  image: 'https://assets.api.uizard.io/api/cdn/stream/13ede680-9310-49f6-adc6-5535a5459301.png',
   onClick: () => {},
 };
 

@@ -7,10 +7,13 @@ const defaultProps = {
   onClick: () => {},
 };
 
-const HouseCleaningText = ({ text, onClick }) => {
+const HouseCleaningText = ({ text = defaultProps.text, onClick }) => {
+  const [firstWord, secondWord] = text.split(' ');
+
   return (
     <div className="house-cleaning-text" onClick={onClick}>
-      {text ?? defaultProps.text}
+      <span className="first-word">{firstWord}</span>
+      <span className="second-word">{secondWord}</span>
     </div>
   );
 };
