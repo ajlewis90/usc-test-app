@@ -10,6 +10,8 @@ import SkinCareText from './SkinCareText';
 import EyesText from './EyesText';
 import HairText from './HairText';
 import NailsText from './NailsText';
+import BeautyProductImageOne from './BeautyProductImageOne';
+import BeautyProductTextOne from './BeautyProductTextOne';
 import './Card.css';
 
 const Card = ({ activeFilter, onFilterClick }) => {
@@ -53,6 +55,12 @@ const Card = ({ activeFilter, onFilterClick }) => {
             <NailsText />
           </div>
         </div>
+        {activeFilter === 'All' && (
+          <>
+            <BeautyProductImageOne />
+            <BeautyProductTextOne />
+          </>
+        )}
       </div>
     </div>
   );

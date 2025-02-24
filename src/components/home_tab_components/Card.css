@@ -1,23 +1,24 @@
 /* src/components/home_tab_components/Card.css */
 .card {
   width: 371px;
-  height: 76px;
+  height: auto; /* Changed from 76px to fit BeautyProductImageOne */
   background-color: #ffffff;
   box-shadow: 0px 1px 0px rgba(3, 3, 3, 0.1);
   display: flex;
-  align-items: center;
-  padding-left: 20px; /* Reduced from 32px for more space */
+  align-items: flex-start; /* Changed from center to align content at top */
+  padding: 20px; /* Adjusted padding for consistency */
 }
 
 .card-content {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  gap: 10px; /* Space between filter tabs and image */
 }
 
 .card-icons {
   display: flex;
-  gap: 30px; /* Reduced from 61px to fit 5 tabs */
+  gap: 30px; /* Space between filter tabs */
 }
 
 .icon-text-pair {
