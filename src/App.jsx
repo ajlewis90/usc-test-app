@@ -22,9 +22,9 @@ import Card from './components/home_tab_components/Card';
 import './App.css';
 
 function App() {
-  const [activeTab, setActiveTab] = useState('Home'); // Main tab
-  const [activeCategory, setActiveCategory] = useState('Beauty'); // Sub-tab category
-  const [activeFilter, setActiveFilter] = useState('All'); // Filter tab under Beauty
+  const [activeTab, setActiveTab] = useState('Home');
+  const [activeCategory, setActiveCategory] = useState('Beauty');
+  const [activeFilter, setActiveFilter] = useState('All');
 
   const mainTabs = [
     { name: 'Home', icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M218.83,103.77l-80-75.48a16,16,0,0,0-21.53,0L37.17,103.77A16,16,0,0,0,32,115.55V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V115.55A16,16,0,0,0,218.83,103.77Z" /></svg> },
@@ -47,15 +47,15 @@ function App() {
   const handleCategoryClick = (category) => {
     setActiveCategory(category);
     if (category === 'Beauty') {
-      setActiveFilter('All'); // Reset to "All" when Beauty is selected
+      setActiveFilter('All');
     }
   };
 
   const handleMainTabClick = (tabName) => {
     setActiveTab(tabName);
     if (tabName === 'Home') {
-      setActiveCategory('Beauty'); // Reset to Beauty when Home is selected
-      setActiveFilter('All'); // Reset to "All" when Home is selected
+      setActiveCategory('Beauty');
+      setActiveFilter('All');
     }
   };
 
@@ -69,7 +69,7 @@ function App() {
         <>
           <div className="search-section">
             <Text text="Search" />
-            <SearchBar />
+            <SearchBar className="fixed-search-bar" />
           </div>
           <div className="category-tabs">
             {categoryTabs.map(({ name, Icon, Text }) => (

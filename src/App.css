@@ -15,6 +15,15 @@
   gap: 15px; /* Space between Search text and SearchBar */
 }
 
+.fixed-search-bar {
+  position: fixed;
+  top: 61px; /* 20px container padding + 41px Search text height */
+  left: 5%; /* 5% padding from left */
+  width: 90%; /* 90% of 480px = 432px */
+  max-width: calc(480px - 40px); /* Respect container padding (20px each side) */
+  z-index: 10; /* Ensure it stays above scrolling content */
+}
+
 .category-tabs {
   display: flex;
   overflow-x: auto; /* Horizontal scrolling */
@@ -22,7 +31,7 @@
   padding-bottom: 10px; /* Space below tabs */
   white-space: nowrap; /* Prevent wrapping */
   -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
-  margin-top: 10px; /* Space between SearchBar and category tab icons */
+  margin-top: 109px; /* Space for Search text (41px) + SearchBar (48px) + 20px padding */
 }
 
 .category-tab {
