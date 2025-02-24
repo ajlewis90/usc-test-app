@@ -12,6 +12,11 @@ import HairText from './HairText';
 import NailsText from './NailsText';
 import BeautyProductImageOne from './BeautyProductImageOne';
 import BeautyProductTextOne from './BeautyProductTextOne';
+import BeautyProductOneIndividualPriceText from './BeautyProductOneIndividualPriceText';
+import BeautyProductOneSizesText from './BeautyProductOneSizesText';
+import JoinGroupButton from './JoinGroupButton';
+import GroupBuyIcon from './GroupBuyIcon';
+import BeautyProductOneGroupCondition from './BeautyProductOneGroupCondition';
 import './Card.css';
 
 const Card = ({ activeFilter, onFilterClick }) => {
@@ -59,6 +64,16 @@ const Card = ({ activeFilter, onFilterClick }) => {
           <>
             <BeautyProductImageOne />
             <BeautyProductTextOne />
+            <BeautyProductOneIndividualPriceText />
+            <div className="product-details-row">
+              <BeautyProductOneSizesText />
+              <div className="spacer" />
+              <JoinGroupButton />
+            </div>
+            <div className="group-buy-row">
+              <GroupBuyIcon />
+              <BeautyProductOneGroupCondition />
+            </div>
           </>
         )}
       </div>
