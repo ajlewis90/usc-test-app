@@ -6,7 +6,7 @@
   box-shadow: 0px 1px 0px rgba(3, 3, 3, 0.1);
   display: flex;
   align-items: center;
-  padding-left: 32px;
+  padding-left: 20px; /* Reduced from 32px for more space */
 }
 
 .card-content {
@@ -17,7 +17,7 @@
 
 .card-icons {
   display: flex;
-  gap: 61px; /* Space between filter tabs */
+  gap: 30px; /* Reduced from 61px to fit 5 tabs */
 }
 
 .icon-text-pair {
@@ -29,8 +29,9 @@
 }
 
 .icon-text-pair.active .card-all-text,
-.icon-text-pair.active .skin-care-text {
+.icon-text-pair.active .skin-care-text,
+.icon-text-pair.active .eyes-text,
+.icon-text-pair.active .hair-text,
+.icon-text-pair.active .nails-text {
   color: #030303; /* Active text color (black) */
 }
-
-/* Default inactive text color handled in CardAllText.css and SkinCareText.css */
