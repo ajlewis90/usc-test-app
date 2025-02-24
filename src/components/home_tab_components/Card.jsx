@@ -17,6 +17,8 @@ import BeautyProductOneSizesText from './BeautyProductOneSizesText';
 import JoinGroupButton from './JoinGroupButton';
 import GroupBuyIcon from './GroupBuyIcon';
 import BeautyProductOneGroupCondition from './BeautyProductOneGroupCondition';
+import BeautyProductImageTwo from './BeautyProductImageTwo';
+import BeautyProductTextTwo from './BeautyProductTextTwo';
 import './Card.css';
 
 const Card = ({ activeFilter, onFilterClick }) => {
@@ -74,6 +76,8 @@ const Card = ({ activeFilter, onFilterClick }) => {
               <GroupBuyIcon />
               <BeautyProductOneGroupCondition />
             </div>
+            <BeautyProductImageTwo />
+            <BeautyProductTextTwo />
           </>
         )}
       </div>

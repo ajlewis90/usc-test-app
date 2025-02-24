@@ -2,11 +2,10 @@
 .mobile-container {
   max-width: 480px; /* Mobile screen width */
   margin: 0 auto;   /* Center horizontally */
-  padding: 20px;    /* Spacing for content */
-  min-height: 100vh; /* Full height */
+  min-height: 100vh; /* Full viewport height */
   display: flex;
-  flex-direction: column;
-  position: relative; /* For tab bar positioning */
+  flex-direction: column; /* Stack content and tab bar */
+  padding: 20px;    /* Padding for all content */
 }
 
 .search-section {
@@ -24,6 +23,23 @@
   z-index: 10; /* Ensure it stays above scrolling content */
 }
 
+/* src/App.css (snippet) */
+.fixed-carts-text {
+  position: fixed;
+  top: 61px; /* Match SearchBar position */
+  left: 5%; /* 5% padding from left */
+  width: 90%; /* 90% of 480px = 432px, matches SearchBar */
+  max-width: calc(480px - 40px); /* Respect container padding (20px each side) */
+  z-index: 10; /* Ensure it stays above scrolling content */
+}
+
+.scrollable-content {
+  margin-top: 109px; /* Space below fixed SearchBar or CartsText (48px height + 61px top) */
+  width: 100%; /* Full width */
+  padding-bottom: 120px; /* Ensure full visibility of all components, including future ones */
+  overflow-y: auto; /* Enable vertical scrolling for content */
+}
+
 .category-tabs {
   display: flex;
   overflow-x: auto; /* Horizontal scrolling */
@@ -31,7 +47,7 @@
   padding-bottom: 10px; /* Space below tabs */
   white-space: nowrap; /* Prevent wrapping */
   -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
-  margin-top: 80px; /* Reduced from 109px to decrease gap */
+  margin-top: 10px; /* Space between SearchBar and category tabs */
 }
 
 .category-tab {
@@ -44,11 +60,6 @@
 
 .category-tab.active div[class$="-text"] {
   color: #030303; /* Active text color for any category text component */
-}
-
-.content {
-  flex: 1; /* Takes remaining space above tab bar */
-  padding-bottom: 60px; /* Space for tab bar */
 }
 
 .tab-bar {
@@ -64,6 +75,7 @@
   border-top: 1px solid #ddd;
   padding: 10px 0;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 10; /* Stay above scrolling content */
 }
 
 .tab {
