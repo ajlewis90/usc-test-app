@@ -19,6 +19,8 @@ import GroupBuyIcon from './GroupBuyIcon';
 import BeautyProductOneGroupCondition from './BeautyProductOneGroupCondition';
 import BeautyProductImageTwo from './BeautyProductImageTwo';
 import BeautyProductTextTwo from './BeautyProductTextTwo';
+import BeautyProductTwoIndivdualPriceText from './BeautyProductTwoIndivdualPriceText';
+import BeautyProductTwoColorsText from './BeautyProductTwoColorsText';
 import './Card.css';
 
 const Card = ({ activeFilter, onFilterClick }) => {
@@ -78,6 +80,8 @@ const Card = ({ activeFilter, onFilterClick }) => {
             </div>
             <BeautyProductImageTwo />
             <BeautyProductTextTwo />
+            <BeautyProductTwoIndivdualPriceText />
+            <BeautyProductTwoColorsText />
           </>
         )}
       </div>
