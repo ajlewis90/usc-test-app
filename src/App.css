@@ -31,13 +31,30 @@
   width: 90%; /* 90% of 480px = 432px, matches SearchBar */
   max-width: calc(480px - 40px); /* Respect container padding (20px each side) */
   z-index: 10; /* Ensure it stays above scrolling content */
+  display: flex; /* Use flexbox for centering */
+  justify-content: center; /* Center the text horizontally */
+  align-items: center; /* Vertically center the text */
 }
 
 .scrollable-content {
-  margin-top: 109px; /* Space below fixed SearchBar or CartsText (48px height + 61px top) */
+  margin-top: 10px; /* Space below fixed SearchBar or CartsText (48px height + 61px top) */
   width: 100%; /* Full width */
   padding-bottom: 120px; /* Ensure full visibility of all components, including future ones */
   overflow-y: auto; /* Enable vertical scrolling for content */
+}
+
+.cart-row {
+  display: flex;
+  align-items: center; /* Vertically center all components */
+  gap: 10px; /* Space between CartOneImage, cart-column, and ViewBusinessOneCartButton */
+  padding: 0 20px; /* Match card padding for alignment within 440px width */
+  justify-content: space-between; /* Distribute space evenly, pushing ViewBusinessOneCartButton to the right end */
+}
+
+.cart-column {
+  display: flex;
+  flex-direction: column; /* Stack CartOneBusinessName and CartOneBusinessPrice vertically */
+  gap: 5px; /* Small gap between CartOneBusinessName and CartOneBusinessPrice */
 }
 
 .category-tabs {

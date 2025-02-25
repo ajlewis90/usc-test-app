@@ -20,6 +20,10 @@ import PersonalCareIcon from './components/home_tab_components/PersonalCareIcon'
 import PersonalCareText from './components/home_tab_components/PersonalCareText';
 import Card from './components/home_tab_components/Card';
 import CartsText from './components/home_tab_components/CartsText';
+import CartOneImage from './components/home_tab_components/CartOneImage';
+import CartOneBusinessName from './components/home_tab_components/CartOneBusinessName';
+import CartOneBusinessPrice from './components/home_tab_components/CartOneBusinessPrice';
+import ViewBusinessOneCartButton from './components/home_tab_components/ViewBusinessOneCartButton';
 import './App.css';
 
 function App() {
@@ -105,7 +109,14 @@ function App() {
         <>
           <CartsText className="fixed-carts-text" />
           <div className="scrollable-content">
-            <p>Active Tab: Carts</p>
+            <div className="cart-row">
+              <CartOneImage />
+              <div className="cart-column">
+                <CartOneBusinessName />
+                <CartOneBusinessPrice />
+              </div>
+              <ViewBusinessOneCartButton />
+            </div>
           </div>
         </>
       )}
