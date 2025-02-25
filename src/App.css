@@ -122,6 +122,19 @@
   margin-top: 2px;
 }
 
+/* src/App.css (snippet) */
+.companion-chat {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Fill available space */
+}
+
+.chat-messages {
+  flex-grow: 1; /* Allow messages to take up available space */
+  padding: 20px;
+  overflow-y: auto; /* Enable scrolling for messages if they exceed height */
+}
+
 /* Reset body margin */
 body {
   margin: 0;

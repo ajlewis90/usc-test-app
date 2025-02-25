@@ -24,12 +24,29 @@ import CartOneImage from './components/home_tab_components/CartOneImage';
 import CartOneBusinessName from './components/home_tab_components/CartOneBusinessName';
 import CartOneBusinessPrice from './components/home_tab_components/CartOneBusinessPrice';
 import ViewBusinessOneCartButton from './components/home_tab_components/ViewBusinessOneCartButton';
+import CompanionChatHeader from './components/companion_tab_components/CompanionChatHeader';
+import ChatMessage from './components/companion_tab_components/ChatMessage';
+import ChatInput from './components/companion_tab_components/ChatInput';
 import './App.css';
 
 function App() {
   const [activeTab, setActiveTab] = useState('Home');
   const [activeCategory, setActiveCategory] = useState('Beauty');
   const [activeFilter, setActiveFilter] = useState('All');
+  const [messages, setMessages] = useState([
+    { isBot: true, text: "Hi, welcome to Eva! I can help you find and buy what you're looking for. What are you shopping for today?", avatar: 'https://assets.api.uizard.io/api/cdn/stream/11a1a79c-9d9a-40b6-a7d7-5b2d1e6b4f70.png' },
+  ]);
+
+  const handleSendMessage = (newMessage) => {
+    setMessages([...messages, { isBot: false, text: newMessage, avatar: null }]);
+    // Simulate bot response (for now, a simple reply; add logic for shopping preferences later)
+    setTimeout(() => {
+      setMessages((prev) => [
+        ...prev,
+        { isBot: true, text: "Great! I can help you find products in that category. Would you like to browse or search for something specific?", avatar: 'https://assets.api.uizard.io/api/cdn/stream/11a1a79c-9d9a-40b6-a7d7-5b2d1e6b4f70.png' },
+      ]);
+    }, 1000);
+  };
 
   const mainTabs = [
     { name: 'Home', icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M218.83,103.77l-80-75.48a16,16,0,0,0-21.53,0L37.17,103.77A16,16,0,0,0,32,115.55V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V115.55A16,16,0,0,0,218.83,103.77Z" /></svg> },
@@ -96,8 +113,14 @@ function App() {
         </>
       )}
       {activeTab === 'Companion' && (
-        <div className="scrollable-content">
-          <p>Active Tab: Companion</p>
+        <div className="scrollable-content companion-chat">
+          <CompanionChatHeader />
+          <div className="chat-messages">
+            {messages.map((message, index) => (
+              <ChatMessage key={index} isBot={message.isBot} text={message.text} avatar={message.avatar} />
+            ))}
+          </div>
+          <ChatInput onSend={handleSendMessage} />
         </div>
       )}
       {activeTab === 'Me' && (

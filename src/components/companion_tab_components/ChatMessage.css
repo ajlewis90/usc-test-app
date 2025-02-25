@@ -1,0 +1,45 @@
+/* src/components/home_tab_components/ChatMessage.css */
+.chat-message {
+  display: flex;
+  margin: 10px 0;
+  max-width: 80%;
+}
+
+.bot-message {
+  flex-direction: row;
+  align-items: flex-start;
+  margin-left: 20px;
+}
+
+.user-message {
+  flex-direction: row-reverse;
+  align-items: flex-start;
+  margin-right: 20px;
+}
+
+.message-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+  margin-left: -10px; /* Adjust to overlap slightly with bubble */
+}
+
+.message-bubble {
+  padding: 10px 15px;
+  border-radius: 15px;
+  background-color: #f0f0f0;
+  font-size: 14px;
+  font-family: "Mulish", sans-serif;
+  line-height: 20px;
+  color: #333;
+}
+
+.bot-message .message-bubble {
+  background-color: #e8f5e9;
+}
+
+.user-message .message-bubble {
+  background-color: #bbdefb;
+}
