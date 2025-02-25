@@ -93,9 +93,6 @@ const Card = ({ activeFilter, onFilterClick }) => {
               <GroupBuyIconTwo />
               <BeautyProductTwoGroupCondition />
             </div>
-            <BeautyProductImageTwo />
-            <BeautyProductTextTwo />
-            <BeautyProductTwoIndivdualPriceText />
           </>
         )}
       </div>
