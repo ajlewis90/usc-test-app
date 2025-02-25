@@ -62,3 +62,17 @@
 .join-group-button-two {
   margin-right: 37px; /* Shifts button left by 10% of 371px, matching JoinGroupButton */
 }
+
+/* src/components/home_tab_components/Card.css (snippet) */
+.group-buy-row {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between GroupBuyIcon and BeautyProductOneGroupCondition */
+}
+
+/* src/components/home_tab_components/Card.css (snippet) */
+.group-buy-row-two {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between GroupBuyIcon and BeautyProductOneGroupCondition */
+}

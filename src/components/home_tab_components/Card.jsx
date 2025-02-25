@@ -17,11 +17,13 @@ import BeautyProductOneSizesText from './BeautyProductOneSizesText';
 import JoinGroupButton from './JoinGroupButton';
 import JoinGroupButtonTwo from './JoinGroupButtonTwo';
 import GroupBuyIcon from './GroupBuyIcon';
+import GroupBuyIconTwo from './GroupBuyIconTwo';
 import BeautyProductOneGroupCondition from './BeautyProductOneGroupCondition';
 import BeautyProductImageTwo from './BeautyProductImageTwo';
 import BeautyProductTextTwo from './BeautyProductTextTwo';
 import BeautyProductTwoIndivdualPriceText from './BeautyProductTwoIndivdualPriceText';
 import BeautyProductTwoColorsText from './BeautyProductTwoColorsText';
+import BeautyProductTwoGroupCondition from './BeautyProductTwoGroupCondition';
 import './Card.css';
 
 const Card = ({ activeFilter, onFilterClick }) => {
@@ -87,6 +89,13 @@ const Card = ({ activeFilter, onFilterClick }) => {
               <div className="spacer" />
               <JoinGroupButtonTwo />
             </div>
+            <div className="group-buy-row-two">
+              <GroupBuyIconTwo />
+              <BeautyProductTwoGroupCondition />
+            </div>
+            <BeautyProductImageTwo />
+            <BeautyProductTextTwo />
+            <BeautyProductTwoIndivdualPriceText />
           </>
         )}
       </div>

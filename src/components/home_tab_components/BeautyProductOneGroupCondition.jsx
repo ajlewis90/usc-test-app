@@ -3,7 +3,7 @@ import React from 'react';
 import './BeautyProductOneGroupCondition.css';
 
 const defaultProps = {
-  text: '2 people want this, 3 more needed ... Group Price:$ 300.00',
+  text: '2 people want this, 3 more needed to complete the group. Group Price: $300.00',
 };
 
 const BeautyProductOneGroupCondition = ({ text = defaultProps.text }) => {
