@@ -15,6 +15,7 @@ import BeautyProductTextOne from './BeautyProductTextOne';
 import BeautyProductOneIndividualPriceText from './BeautyProductOneIndividualPriceText';
 import BeautyProductOneSizesText from './BeautyProductOneSizesText';
 import JoinGroupButton from './JoinGroupButton';
+import JoinGroupButtonTwo from './JoinGroupButtonTwo';
 import GroupBuyIcon from './GroupBuyIcon';
 import BeautyProductOneGroupCondition from './BeautyProductOneGroupCondition';
 import BeautyProductImageTwo from './BeautyProductImageTwo';
@@ -81,7 +82,11 @@ const Card = ({ activeFilter, onFilterClick }) => {
             <BeautyProductImageTwo />
             <BeautyProductTextTwo />
             <BeautyProductTwoIndivdualPriceText />
-            <BeautyProductTwoColorsText />
+            <div className="product-details-row-two">
+              <BeautyProductTwoColorsText />
+              <div className="spacer" />
+              <JoinGroupButtonTwo />
+            </div>
           </>
         )}
       </div>

@@ -45,16 +45,20 @@
   width: 371px; /* Keeps alignment of SizesText and JoinGroupButton */
 }
 
+.product-details-row-two {
+  display: flex;
+  align-items: center;
+  width: 371px; /* Matches product-details-row for consistent alignment */
+}
+
 .spacer {
-  flex-grow: 1; /* Pushes JoinGroupButton to the right within 371px */
+  flex-grow: 1; /* Pushes JoinGroupButton and JoinGroupButtonTwo to the right within 371px */
 }
 
 .join-group-button {
   margin-right: 37px; /* Shifts button left by 10% of 371px */
 }
 
-.group-buy-row {
-  display: flex;
-  align-items: center;
-  gap: 10px; /* Space between GroupBuyIcon and BeautyProductOneGroupCondition */
+.join-group-button-two {
+  margin-right: 37px; /* Shifts button left by 10% of 371px, matching JoinGroupButton */
 }
