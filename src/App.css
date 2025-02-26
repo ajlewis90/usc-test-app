@@ -24,6 +24,7 @@
 }
 
 /* src/App.css (snippet) */
+/* src/App.css (snippet) */
 .fixed-carts-text {
   position: fixed;
   top: 61px; /* Match SearchBar position */
@@ -37,7 +38,7 @@
 }
 
 .scrollable-content {
-  margin-top: 10px; /* Space below fixed SearchBar or CartsText (48px height + 61px top) */
+  margin-top: 10px; /* Small gap below CartsText */
   width: 100%; /* Full width */
   padding-bottom: 120px; /* Ensure full visibility of all components, including future ones */
   overflow-y: auto; /* Enable vertical scrolling for content */
@@ -51,10 +52,30 @@
   justify-content: space-between; /* Distribute space evenly, pushing ViewBusinessOneCartButton to the right end */
 }
 
+.cart-row-two {
+  display: flex;
+  align-items: center; /* Vertically center all components */
+  gap: 10px; /* Space between CartTwoImage, cart-column-two, and cart-button-two */
+  padding: 0 20px; /* Match card padding for alignment within 440px width */
+  justify-content: space-between; /* Distribute space evenly, pushing cart-button-two to the right end */
+}
+
 .cart-column {
   display: flex;
   flex-direction: column; /* Stack CartOneBusinessName and CartOneBusinessPrice vertically */
   gap: 5px; /* Small gap between CartOneBusinessName and CartOneBusinessPrice */
+}
+
+.cart-column-two {
+  display: flex;
+  flex-direction: column; /* Stack potential future components vertically */
+  gap: 5px; /* Small gap for future components */
+}
+
+.cart-button-two {
+  /* Placeholder styling, can be updated with a button component later */
+  width: 94px; /* Matches ViewBusinessOneCartButton for consistency */
+  height: 32px; /* Matches ViewBusinessOneCartButton for consistency */
 }
 
 .category-tabs {
