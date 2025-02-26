@@ -26,17 +26,7 @@ import BeautyProductTwoColorsText from './BeautyProductTwoColorsText';
 import BeautyProductTwoGroupCondition from './BeautyProductTwoGroupCondition';
 import './Card.css';
 
-const Card = ({ activeFilter, onFilterClick }) => {
-  const handleProductOneClick = () => {
-    console.log('Navigating to product: La Mer The Moisturizing Soft Cream');
-    // You can replace this with actual navigation logic if needed later, e.g., alert or custom state management
-  };
-
-  const handleProductTwoClick = () => {
-    console.log('Navigating to product: Dior Dway Slide Sandal');
-    // You can replace this with actual navigation logic if needed later, e.g., alert or custom state management
-  };
-
+const Card = ({ activeFilter, onFilterClick, onProductOneClick, onProductTwoClick }) => {
   return (
     <div className="card">
       <div className="card-content">
@@ -79,7 +69,7 @@ const Card = ({ activeFilter, onFilterClick }) => {
         </div>
         {activeFilter === 'All' && (
           <>
-            <div className="product-group" onClick={handleProductOneClick}>
+            <div className="product-group" onClick={onProductOneClick}>
               <BeautyProductImageOne />
               <BeautyProductTextOne />
               <BeautyProductOneIndividualPriceText />
@@ -93,7 +83,7 @@ const Card = ({ activeFilter, onFilterClick }) => {
                 <BeautyProductOneGroupCondition />
               </div>
             </div>
-            <div className="product-group" onClick={handleProductTwoClick}>
+            <div className="product-group" onClick={onProductTwoClick}>
               <BeautyProductImageTwo />
               <BeautyProductTextTwo />
               <BeautyProductTwoIndivdualPriceText />
