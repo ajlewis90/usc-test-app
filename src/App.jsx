@@ -25,6 +25,9 @@ import CartOneBusinessName from './components/home_tab_components/CartOneBusines
 import CartOneBusinessPrice from './components/home_tab_components/CartOneBusinessPrice';
 import ViewBusinessOneCartButton from './components/home_tab_components/ViewBusinessOneCartButton';
 import CartTwoImage from './components/home_tab_components/CartTwoImage';
+import CartTwoBusinessName from './components/home_tab_components/CartTwoBusinessName';
+import CartTwoBusinessPrice from './components/home_tab_components/CartTwoBusinessPrice';
+import ViewBusinessTwoCartButton from './components/home_tab_components/ViewBusinessTwoCartButton';
 import CompanionChatHeader from './components/companion_tab_components/CompanionChatHeader';
 import ChatMessage from './components/companion_tab_components/ChatMessage';
 import ChatInput from './components/companion_tab_components/ChatInput';
@@ -144,11 +147,10 @@ function App() {
             <div className="cart-row-two">
               <CartTwoImage />
               <div className="cart-column-two">
-                {/* Placeholder for potential future components, e.g., business name and price for CartTwo */}
+                <CartTwoBusinessName />
+                <CartTwoBusinessPrice />
               </div>
-              <div className="cart-button-two">
-                {/* Placeholder for potential future button, e.g., View Cart for CartTwo */}
-              </div>
+              <ViewBusinessTwoCartButton />
             </div>
           </div>
         </>
