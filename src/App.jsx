@@ -47,7 +47,6 @@ function App() {
 
   const handleSendMessage = (newMessage) => {
     setMessages([...messages, { isBot: false, text: newMessage, avatar: null }]);
-    // Simulate bot response (for now, a simple reply; add logic for shopping preferences later)
     setTimeout(() => {
       setMessages((prev) => [
         ...prev,
@@ -79,6 +78,7 @@ function App() {
     if (category === 'Beauty') {
       setActiveFilter('All');
     }
+    setActiveTab('Home');
   };
 
   const handleMainTabClick = (tabName) => {

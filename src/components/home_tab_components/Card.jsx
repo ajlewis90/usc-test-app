@@ -29,14 +29,12 @@ import './Card.css';
 const Card = ({ activeFilter, onFilterClick }) => {
   const handleProductOneClick = () => {
     console.log('Navigating to product: La Mer The Moisturizing Soft Cream');
-    // You can replace this with actual navigation, e.g., history.push('/product/1') if using React Router
-    // alert('Clicked on La Mer The Moisturizing Soft Cream');
+    // You can replace this with actual navigation logic if needed later, e.g., alert or custom state management
   };
 
   const handleProductTwoClick = () => {
     console.log('Navigating to product: Dior Dway Slide Sandal');
-    // You can replace this with actual navigation, e.g., history.push('/product/2') if using React Router
-    // alert('Clicked on Dior Dway Slide Sandal');
+    // You can replace this with actual navigation logic if needed later, e.g., alert or custom state management
   };
 
   return (
