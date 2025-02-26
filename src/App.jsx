@@ -28,6 +28,10 @@ import CartTwoImage from './components/home_tab_components/CartTwoImage';
 import CartTwoBusinessName from './components/home_tab_components/CartTwoBusinessName';
 import CartTwoBusinessPrice from './components/home_tab_components/CartTwoBusinessPrice';
 import ViewBusinessTwoCartButton from './components/home_tab_components/ViewBusinessTwoCartButton';
+import CartThreeImage from './components/home_tab_components/CartThreeImage';
+import CartThreeBusinessName from './components/home_tab_components/CartThreeBusinessName';
+import CartThreeBusinessPrice from './components/home_tab_components/CartThreeBusinessPrice';
+import ViewBusinessThreeCartButton from './components/home_tab_components/ViewBusinessThreeCartButton';
 import CompanionChatHeader from './components/companion_tab_components/CompanionChatHeader';
 import ChatMessage from './components/companion_tab_components/ChatMessage';
 import ChatInput from './components/companion_tab_components/ChatInput';
@@ -151,6 +155,14 @@ function App() {
                 <CartTwoBusinessPrice />
               </div>
               <ViewBusinessTwoCartButton />
+            </div>
+            <div className="cart-row-three">
+              <CartThreeImage />
+              <div className="cart-column-three">
+                <CartThreeBusinessName />
+                <CartThreeBusinessPrice />
+              </div>
+              <ViewBusinessThreeCartButton />
             </div>
           </div>
         </>

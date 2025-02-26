@@ -50,14 +50,25 @@
   gap: 10px; /* Space between CartOneImage, cart-column, and ViewBusinessOneCartButton */
   padding: 0 20px; /* Match card padding for alignment within 440px width */
   justify-content: space-between; /* Distribute space evenly, pushing ViewBusinessOneCartButton to the right end */
+  margin-bottom: 20px; /* Increased gap between rows */
 }
 
 .cart-row-two {
   display: flex;
   align-items: center; /* Vertically center all components */
-  gap: 10px; /* Space between CartTwoImage, cart-column-two, and cart-button-two */
+  gap: 10px; /* Space between CartTwoImage, cart-column-two, and ViewBusinessTwoCartButton */
   padding: 0 20px; /* Match card padding for alignment within 440px width */
-  justify-content: space-between; /* Distribute space evenly, pushing cart-button-two to the right end */
+  justify-content: space-between; /* Distribute space evenly, pushing ViewBusinessTwoCartButton to the right end */
+  margin-bottom: 20px; /* Increased gap between rows */
+}
+
+.cart-row-three {
+  display: flex;
+  align-items: center; /* Vertically center all components */
+  gap: 10px; /* Space between CartThreeImage, cart-column-three, and ViewBusinessThreeCartButton */
+  padding: 0 20px; /* Match card padding for alignment within 440px width */
+  justify-content: space-between; /* Distribute space evenly, pushing ViewBusinessThreeCartButton to the right end */
+  margin-bottom: 20px; /* Increased gap between rows */
 }
 
 .cart-column {
@@ -68,10 +79,15 @@
 
 .cart-column-two {
   display: flex;
-  flex-direction: column; /* Stack potential future components vertically */
-  gap: 5px; /* Small gap for future components */
+  flex-direction: column; /* Stack CartTwoBusinessName and CartTwoBusinessPrice vertically */
+  gap: 5px; /* Small gap between CartTwoBusinessName and CartTwoBusinessPrice */
 }
 
+.cart-column-three {
+  display: flex;
+  flex-direction: column; /* Stack CartThreeBusinessName and CartThreeBusinessPrice vertically */
+  gap: 5px; /* Small gap between CartThreeBusinessName and CartThreeBusinessPrice */
+}
 .cart-button-two {
   /* Placeholder styling, can be updated with a button component later */
   width: 94px; /* Matches ViewBusinessOneCartButton for consistency */
