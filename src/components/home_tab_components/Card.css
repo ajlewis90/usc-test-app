@@ -1,78 +1,64 @@
 /* src/components/home_tab_components/Card.css */
 .card {
-  width: 440px; /* Matches BeautyProductImageOne to fit screen edges */
-  height: auto;
-  background-color: #ffffff;
-  box-shadow: 0px 1px 0px rgba(3, 3, 3, 0.1);
-  display: flex;
-  align-items: flex-start;
-  padding: 0; /* No padding on card to fit screen edges */
+  width: 100%;
+  max-width: 440px; /* Match scrollable-content width after padding */
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  overflow: hidden;
 }
 
 .card-content {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 10px; /* Space between filter tabs, image, texts, and rows */
-  width: 100%;
-  padding: 20px; /* Internal padding for content */
+  padding: 20px;
 }
 
 .card-icons {
   display: flex;
-  gap: 30px;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 20px;
 }
 
 .icon-text-pair {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5px;
+  padding: 10px 0;
   cursor: pointer;
+  background-color: #f9f9f9;
 }
 
-.icon-text-pair.active .card-all-text,
-.icon-text-pair.active .skin-care-text,
-.icon-text-pair.active .eyes-text,
-.icon-text-pair.active .hair-text,
-.icon-text-pair.active .nails-text {
-  color: #030303;
+.icon-text-pair.active {
+  background-color: #fff;
+  border-bottom: 2px solid #4caf50;
 }
 
-.product-details-row {
-  display: flex;
-  align-items: center;
-  width: 371px; /* Keeps alignment of SizesText and JoinGroupButton */
-}
-
+.product-details-row,
 .product-details-row-two {
   display: flex;
   align-items: center;
-  width: 371px; /* Matches product-details-row for consistent alignment */
+  gap: 10px;
+  margin-bottom: 5px;
+  width: 100%;
 }
 
 .spacer {
-  flex-grow: 1; /* Pushes JoinGroupButton and JoinGroupButtonTwo to the right within 371px */
+  flex-grow: 1; /* Pushes JoinGroupButton to the right */
 }
 
-.join-group-button {
-  margin-right: 37px; /* Shifts button left by 10% of 371px */
-}
-
-.join-group-button-two {
-  margin-right: 37px; /* Shifts button left by 10% of 371px, matching JoinGroupButton */
-}
-
-/* src/components/home_tab_components/Card.css (snippet) */
-.group-buy-row {
-  display: flex;
-  align-items: center;
-  gap: 10px; /* Space between GroupBuyIcon and BeautyProductOneGroupCondition */
-}
-
-/* src/components/home_tab_components/Card.css (snippet) */
+.group-buy-row,
 .group-buy-row-two {
   display: flex;
   align-items: center;
-  gap: 10px; /* Space between GroupBuyIcon and BeautyProductOneGroupCondition */
+  gap: 5px;
+  margin-bottom: 20px; /* Space between product groups */
+}
+
+.product-group {
+  cursor: pointer; /* Indicate clickable area */
+}
+
+.product-group:hover {
+  background-color: #f5f5f5; /* Optional: Add hover effect for better UX */
 }

@@ -1,5 +1,5 @@
 // src/components/home_tab_components/CartThreeBusinessPrice.jsx
-import React from 'reat';
+import React from 'react';
 import './CartThreeBusinessPrice.css';
 
 const defaultProps = {

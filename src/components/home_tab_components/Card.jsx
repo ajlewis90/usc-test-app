@@ -27,6 +27,18 @@ import BeautyProductTwoGroupCondition from './BeautyProductTwoGroupCondition';
 import './Card.css';
 
 const Card = ({ activeFilter, onFilterClick }) => {
+  const handleProductOneClick = () => {
+    console.log('Navigating to product: La Mer The Moisturizing Soft Cream');
+    // You can replace this with actual navigation, e.g., history.push('/product/1') if using React Router
+    // alert('Clicked on La Mer The Moisturizing Soft Cream');
+  };
+
+  const handleProductTwoClick = () => {
+    console.log('Navigating to product: Dior Dway Slide Sandal');
+    // You can replace this with actual navigation, e.g., history.push('/product/2') if using React Router
+    // alert('Clicked on Dior Dway Slide Sandal');
+  };
+
   return (
     <div className="card">
       <div className="card-content">
@@ -69,29 +81,33 @@ const Card = ({ activeFilter, onFilterClick }) => {
         </div>
         {activeFilter === 'All' && (
           <>
-            <BeautyProductImageOne />
-            <BeautyProductTextOne />
-            <BeautyProductOneIndividualPriceText />
-            <div className="product-details-row">
-              <BeautyProductOneSizesText />
-              <div className="spacer" />
-              <JoinGroupButton />
+            <div className="product-group" onClick={handleProductOneClick}>
+              <BeautyProductImageOne />
+              <BeautyProductTextOne />
+              <BeautyProductOneIndividualPriceText />
+              <div className="product-details-row">
+                <BeautyProductOneSizesText />
+                <div className="spacer" />
+                <JoinGroupButton />
+              </div>
+              <div className="group-buy-row">
+                <GroupBuyIcon />
+                <BeautyProductOneGroupCondition />
+              </div>
             </div>
-            <div className="group-buy-row">
-              <GroupBuyIcon />
-              <BeautyProductOneGroupCondition />
-            </div>
-            <BeautyProductImageTwo />
-            <BeautyProductTextTwo />
-            <BeautyProductTwoIndivdualPriceText />
-            <div className="product-details-row-two">
-              <BeautyProductTwoColorsText />
-              <div className="spacer" />
-              <JoinGroupButtonTwo />
-            </div>
-            <div className="group-buy-row-two">
-              <GroupBuyIconTwo />
-              <BeautyProductTwoGroupCondition />
+            <div className="product-group" onClick={handleProductTwoClick}>
+              <BeautyProductImageTwo />
+              <BeautyProductTextTwo />
+              <BeautyProductTwoIndivdualPriceText />
+              <div className="product-details-row-two">
+                <BeautyProductTwoColorsText />
+                <div className="spacer" />
+                <JoinGroupButtonTwo />
+              </div>
+              <div className="group-buy-row-two">
+                <GroupBuyIconTwo />
+                <BeautyProductTwoGroupCondition />
+              </div>
             </div>
           </>
         )}
