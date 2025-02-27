@@ -3,16 +3,16 @@
   display: flex;
   align-items: flex-start;
   margin: 10px 0;
-  max-width: 70%;
+  max-width: 90%; /* Increased from 70% to occupy more width */
 }
 
 .chat-message.bot {
-  margin-left: 20px;
+  margin-left: 10px; /* Unchanged */
   flex-direction: row;
 }
 
 .chat-message.user {
-  margin-right: 20px;
+  margin-right: 10px; /* Unchanged */
   flex-direction: row-reverse;
 }
 
@@ -26,6 +26,7 @@
 .message-content {
   display: flex;
   flex-direction: column;
+  width: 100%; /* Ensure message content uses full width of chat-message */
 }
 
 .message-bubble {
@@ -50,6 +51,7 @@
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Ensure product recommendations use full width of message content */
 }
 
 .product-row,
@@ -61,7 +63,7 @@
   align-items: flex-start; /* Align items to the left */
   gap: 10px; /* Space between elements */
   margin-bottom: 20px; /* Match cart row spacing */
-  width: 100%;
+  width: 100%; /* Ensure each row uses full width of product-recommendations */
   padding: 10px; /* Add padding to contain all elements neatly */
   background-color: #fff; /* Ensure white background for each row */
   border: 1px solid #ddd; /* Match cart row border */
