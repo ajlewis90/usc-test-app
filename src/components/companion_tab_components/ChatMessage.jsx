@@ -17,10 +17,13 @@ const ChatMessage = ({ isBot, text, avatar, products }) => {
         </div>
         {isBot && products && products.length > 0 && (
           <div className="product-recommendations">
-            {products.map((product) => (
-              <div key={product.id} className="product-item">
+            {products.map((product, index) => (
+              <div 
+                key={product.id} 
+                className={`product-row ${index === 0 ? 'product-row-one' : index === 1 ? 'product-row-two' : 'product-row-three'}`}
+              >
                 <img src={product.image} alt={product.name} className="product-image" />
-                <div className="product-details">
+                <div className={`product-column ${index === 0 ? 'product-column-one' : index === 1 ? 'product-column-two' : 'product-column-three'}`}>
                   <div className="product-name">{product.name}</div>
                   <div className="product-price">{product.price}</div>
                 </div>

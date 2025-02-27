@@ -56,9 +56,9 @@ function App() {
     if (suggestionOptions.some(option => newMessage.includes(option)) || newMessage.toLowerCase().includes('dress')) {
       setTimeout(() => {
         const products = [
-          { name: 'Mango Textured Coat', price: '$129', image: 'https://example.com/mango-coat.jpg', id: 1 },
-          { name: 'Zara Double breasted Coat', price: '$199', image: 'https://example.com/zara-coat.jpg', id: 2 },
-          { name: 'H&M Wool-blend Coat', price: '$99', image: 'https://example.com/hm-coat.jpg', id: 3 },
+          { name: 'Mango Textured Coat', price: '$129.99', image: 'https://assets.api.uizard.io/api/cdn/stream/1bd902b0-209c-4d5f-8e63-99d55c9016ba.png', id: 1 },
+          { name: 'Zara Double breasted Coat', price: '$199.00', image: 'https://assets.api.uizard.io/api/cdn/stream/fecff665-0ba6-4922-888b-84d485e1e917.png', id: 2 },
+          { name: 'H&M Wool-blend Coat', price: '$99.99', image: 'https://assets.api.uizard.io/api/cdn/stream/d20da14a-9c71-4b23-9104-66542fb7ab2b.png', id: 3 },
         ];
         setMessages((prev) => [
           ...prev,
