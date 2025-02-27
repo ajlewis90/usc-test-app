@@ -35,7 +35,8 @@ import ViewBusinessThreeCartButton from './components/home_tab_components/ViewBu
 import CompanionChatHeader from './components/companion_tab_components/CompanionChatHeader';
 import ChatMessage from './components/companion_tab_components/ChatMessage';
 import ChatInput from './components/companion_tab_components/ChatInput';
-import ProductDetailOne from './components/home_tab_components/ProductDetailOne'; // Kept for reference, but not used yet
+import ProductDetailOne from './components/home_tab_components/ProductDetailOne';
+import ProductDetailTwo from './components/home_tab_components/ProductDetailTwo'; // New component
 import './App.css';
 
 function App() {
@@ -45,7 +46,8 @@ function App() {
   const [messages, setMessages] = useState([
     { isBot: true, text: "Hi, welcome to Eva! I can help you find and buy what you're looking for. What are you shopping for today?", avatar: 'https://assets.api.uizard.io/api/cdn/stream/11a1a79c-9d9a-40b6-a7d7-5b2d1e6b4f70.png' },
   ]);
-  const [showProductDetail, setShowProductDetail] = useState(false); // New state for product details modal
+  const [showProductDetailOne, setShowProductDetailOne] = useState(false); // State for ProductDetailOne
+  const [showProductDetailTwo, setShowProductDetailTwo] = useState(false); // New state for ProductDetailTwo
 
   const handleSendMessage = (newMessage) => {
     setMessages([...messages, { isBot: false, text: newMessage, avatar: null }]);
@@ -96,16 +98,22 @@ function App() {
   };
 
   const handleProductOneClick = () => {
-    setShowProductDetail(true);
+    setShowProductDetailOne(true);
   };
 
   const handleProductTwoClick = () => {
-    console.log('Navigating to product: Dior Dway Slide Sandal');
-    // You can add similar modal logic for the second product later if needed
+    setShowProductDetailTwo(true);
   };
 
-  const handleCloseProductDetail = () => {
-    setShowProductDetail(false);
+  const handleCloseProductDetailOne = () => {
+    setShowProductDetailOne(false);
+    setActiveTab('Home'); // Ensure returning to Home tab
+    setActiveCategory('Beauty');
+    setActiveFilter('All');
+  };
+
+  const handleCloseProductDetailTwo = () => {
+    setShowProductDetailTwo(false);
     setActiveTab('Home'); // Ensure returning to Home tab
     setActiveCategory('Beauty');
     setActiveFilter('All');
@@ -202,8 +210,11 @@ function App() {
           </button>
         ))}
       </div>
-      {showProductDetail && (
-        <ProductDetailOne onClose={handleCloseProductDetail} />
+      {showProductDetailOne && (
+        <ProductDetailOne onClose={handleCloseProductDetailOne} />
+      )}
+      {showProductDetailTwo && (
+        <ProductDetailTwo onClose={handleCloseProductDetailTwo} />
       )}
     </div>
   );
