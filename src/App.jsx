@@ -36,7 +36,7 @@ import CompanionChatHeader from './components/companion_tab_components/Companion
 import ChatMessage from './components/companion_tab_components/ChatMessage';
 import ChatInput from './components/companion_tab_components/ChatInput';
 import ProductDetailOne from './components/home_tab_components/ProductDetailOne';
-import ProductDetailTwo from './components/home_tab_components/ProductDetailTwo'; // New component
+import ProductDetailTwo from './components/home_tab_components/ProductDetailTwo';
 import './App.css';
 
 function App() {
@@ -46,18 +46,39 @@ function App() {
   const [messages, setMessages] = useState([
     { isBot: true, text: "Hi, welcome to Eva! I can help you find and buy what you're looking for. What are you shopping for today?", avatar: 'https://assets.api.uizard.io/api/cdn/stream/11a1a79c-9d9a-40b6-a7d7-5b2d1e6b4f70.png' },
   ]);
-  const [showProductDetailOne, setShowProductDetailOne] = useState(false); // State for ProductDetailOne
-  const [showProductDetailTwo, setShowProductDetailTwo] = useState(false); // New state for ProductDetailTwo
+  const [showProductDetailOne, setShowProductDetailOne] = useState(false);
+  const [showProductDetailTwo, setShowProductDetailTwo] = useState(false);
 
   const handleSendMessage = (newMessage) => {
-    setMessages([...messages, { isBot: false, text: newMessage, avatar: null }]);
-    setTimeout(() => {
-      setMessages((prev) => [
-        ...prev,
-        { isBot: true, text: "Great! I can help you find products in that category. Would you like to browse or search for something specific?", avatar: 'https://assets.api.uizard.io/api/cdn/stream/11a1a79c-9d9a-40b6-a7d7-5b2d1e6b4f70.png' },
-      ]);
-    }, 1000);
+    setMessages((prev) => [...prev, { isBot: false, text: newMessage, avatar: null }]);
+
+    // Simulate Eva's response with product recommendations if the message is a prompt or dress-related
+    if (suggestionOptions.some(option => newMessage.includes(option)) || newMessage.toLowerCase().includes('dress')) {
+      setTimeout(() => {
+        const products = [
+          { name: 'Mango Textured Coat', price: '$129', image: 'https://example.com/mango-coat.jpg', id: 1 },
+          { name: 'Zara Double breasted Coat', price: '$199', image: 'https://example.com/zara-coat.jpg', id: 2 },
+          { name: 'H&M Wool-blend Coat', price: '$99', image: 'https://example.com/hm-coat.jpg', id: 3 },
+        ];
+        setMessages((prev) => [
+          ...prev,
+          { 
+            isBot: true, 
+            text: "I found some options for you. You can tap the link to see more details.", 
+            avatar: 'https://assets.api.uizard.io/api/cdn/stream/11a1a79c-9d9a-40b6-a7d7-5b2d1e6b4f70.png', 
+            products 
+          },
+        ]);
+      }, 1000);
+    }
   };
+
+  const suggestionOptions = [
+    'What type of dress are you looking for...',
+    'Are you shopping for a specific occasion...',
+    'Do you have a favorite brand or design...',
+    'How much would you like to spend?',
+  ];
 
   const mainTabs = [
     { name: 'Home', icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M218.83,103.77l-80-75.48a16,16,0,0,0-21.53,0L37.17,103.77A16,16,0,0,0,32,115.55V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V115.55A16,16,0,0,0,218.83,103.77Z" /></svg> },
@@ -107,14 +128,14 @@ function App() {
 
   const handleCloseProductDetailOne = () => {
     setShowProductDetailOne(false);
-    setActiveTab('Home'); // Ensure returning to Home tab
+    setActiveTab('Home');
     setActiveCategory('Beauty');
     setActiveFilter('All');
   };
 
   const handleCloseProductDetailTwo = () => {
     setShowProductDetailTwo(false);
-    setActiveTab('Home'); // Ensure returning to Home tab
+    setActiveTab('Home');
     setActiveCategory('Beauty');
     setActiveFilter('All');
   };
@@ -156,7 +177,7 @@ function App() {
           <CompanionChatHeader />
           <div className="chat-messages">
             {messages.map((message, index) => (
-              <ChatMessage key={index} isBot={message.isBot} text={message.text} avatar={message.avatar} />
+              <ChatMessage key={index} isBot={message.isBot} text={message.text} avatar={message.avatar} products={message.products} />
             ))}
           </div>
           <ChatInput onSend={handleSendMessage} />

@@ -1,13 +1,36 @@
-// src/components/home_tab_components/ChatMessage.jsx
+// src/components/companion_tab_components/ChatMessage.jsx
 import React from 'react';
 import './ChatMessage.css';
 
-const ChatMessage = ({ isBot, text, avatar }) => {
+const ChatMessage = ({ isBot, text, avatar, products }) => {
+  const handleViewItem = (productId) => {
+    console.log(`Viewing item with ID: ${productId}`);
+    // You can replace this with actual navigation or modal logic later, e.g., opening a product details page
+  };
+
   return (
-    <div className={`chat-message ${isBot ? 'bot-message' : 'user-message'}`}>
-      {isBot && avatar && <img src={avatar} alt="Bot Avatar" className="message-avatar" />}
-      <div className="message-bubble">
-        {text}
+    <div className={`chat-message ${isBot ? 'bot' : 'user'}`}>
+      {isBot && avatar && <img src={avatar} alt="Bot Avatar" className="avatar" />}
+      <div className="message-content">
+        <div className="message-bubble">
+          {text}
+        </div>
+        {isBot && products && products.length > 0 && (
+          <div className="product-recommendations">
+            {products.map((product) => (
+              <div key={product.id} className="product-item">
+                <img src={product.image} alt={product.name} className="product-image" />
+                <div className="product-details">
+                  <div className="product-name">{product.name}</div>
+                  <div className="product-price">{product.price}</div>
+                </div>
+                <button className="view-item-button" onClick={() => handleViewItem(product.id)}>
+                  View item
+                </button>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
