@@ -13,7 +13,7 @@ const ProductDetailOne = ({ onClose }) => {
         </div>
         <div className="product-detail-content">
           <img
-            src="https://assets.api.uizard.io/api/cdn/stream/6c7b7d9c-4a3b-4e2a-8f9e-1b5c9d2e3f4a.png" // Same image as BeautyProductImageOne
+            src="https://assets.api.uizard.io/api/cdn/stream/fbe819f5-01ef-4c42-b37c-0ebcb7c3fda5.png" // Same image as BeautyProductImageOne
             alt="La Mer The Moisturizing Soft Cream"
             className="product-image"
           />
