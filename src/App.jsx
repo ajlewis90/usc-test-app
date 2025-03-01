@@ -19,7 +19,8 @@ import HouseCleaningText from './components/home_tab_components/HouseCleaningTex
 import PersonalCareIcon from './components/home_tab_components/PersonalCareIcon';
 import PersonalCareText from './components/home_tab_components/PersonalCareText';
 import Card from './components/home_tab_components/Card';
-import ApparelCard from './components/home_tab_components/ApparelCard'; // New component for Apparel sub-categories
+import ApparelCard from './components/home_tab_components/ApparelCard';
+import ToysCard from './components/home_tab_components/ToysCard';
 import CartsText from './components/home_tab_components/CartsText';
 import CartOneImage from './components/home_tab_components/CartOneImage';
 import CartOneBusinessName from './components/home_tab_components/CartOneBusinessName';
@@ -101,7 +102,7 @@ function App() {
 
   const handleCategoryClick = (category) => {
     setActiveCategory(category);
-    if (category === 'Beauty' || category === 'Apparel') {
+    if (category === 'Beauty' || category === 'Apparel' || category === 'Toys') {
       setActiveFilter('All');
     }
     setActiveTab('Home');
@@ -172,6 +173,12 @@ function App() {
             )}
             {activeCategory === 'Apparel' && (
               <ApparelCard
+                activeFilter={activeFilter}
+                onFilterClick={handleFilterClick}
+              />
+            )}
+            {activeCategory === 'Toys' && (
+              <ToysCard
                 activeFilter={activeFilter}
                 onFilterClick={handleFilterClick}
               />
