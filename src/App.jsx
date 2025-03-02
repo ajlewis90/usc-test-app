@@ -39,6 +39,7 @@ import ChatMessage from './components/companion_tab_components/ChatMessage';
 import ChatInput from './components/companion_tab_components/ChatInput';
 import ProductDetailOne from './components/home_tab_components/ProductDetailOne';
 import ProductDetailTwo from './components/home_tab_components/ProductDetailTwo';
+import MeCard from './components/me_tab_components/MeCard'; // Added import
 import './App.css';
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
   ]);
   const [showProductDetailOne, setShowProductDetailOne] = useState(false);
   const [showProductDetailTwo, setShowProductDetailTwo] = useState(false);
+  const [meTabTrigger, setMeTabTrigger] = useState(0); // Added state to trigger MeCard reset
 
   const handleSendMessage = (newMessage) => {
     setMessages((prev) => [...prev, { isBot: false, text: newMessage, avatar: null }]);
@@ -113,6 +115,8 @@ function App() {
     if (tabName === 'Home') {
       setActiveCategory('Beauty');
       setActiveFilter('All');
+    } else if (tabName === 'Me') {
+      setMeTabTrigger((prev) => prev + 1); // Trigger MeCard reset
     }
   };
 
@@ -199,7 +203,7 @@ function App() {
       )}
       {activeTab === 'Me' && (
         <div className="scrollable-content">
-          <p>Active Tab: Me</p>
+          <MeCard onMeTabChange={meTabTrigger} />
         </div>
       )}
       {activeTab === 'Carts' && (
