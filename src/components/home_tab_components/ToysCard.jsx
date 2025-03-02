@@ -10,9 +10,49 @@ import RemoteControlText from './RemoteControlText';
 import BlocksText from './BlocksText';
 import ActionText from './ActionText';
 import DollsText from './DollsText';
+import ToysProductImageOne from './ToysProductImageOne';
+import ToysProductTextOne from './ToysProductTextOne';
+import ToysProductOneIndividualPriceText from './ToysProductOneIndividualPriceText';
+import ToysProductOneAgeRangeText from './ToysProductOneAgeRangeText';
+import JoinGroupButtonThree from './JoinGroupButtonThree'; // New component
+import GroupBuyIconThree from './GroupBuyIconThree'; // New component
+import ToysProductOneGroupCondition from './ToysProductOneGroupCondition';
+import ToysProductImageTwo from './ToysProductImageTwo';
+import ToysProductTextTwo from './ToysProductTextTwo';
+import ToysProductTwoIndividualPriceText from './ToysProductTwoIndividualPriceText';
+import ToysProductTwoAgeRangeText from './ToysProductTwoAgeRangeText';
+import JoinGroupButtonFour from './JoinGroupButtonFour'; // New component
+import GroupBuyIconFour from './GroupBuyIconFour'; // New component
+import ToysProductTwoGroupCondition from './ToysProductTwoGroupCondition';
+import ProductDetailThree from './ProductDetailThree';
+import ProductDetailFour from './ProductDetailFour';
 import './ToysCard.css';
 
 const ToysCard = ({ activeFilter, onFilterClick }) => {
+  const [showProductDetailThree, setShowProductDetailThree] = React.useState(false);
+  const [showProductDetailFour, setShowProductDetailFour] = React.useState(false);
+
+  const handleProductThreeClick = () => {
+    setShowProductDetailThree(true);
+  };
+
+  const handleProductFourClick = () => {
+    setShowProductDetailFour(true);
+  };
+
+  const handleCloseProductDetailThree = () => {
+    setShowProductDetailThree(false);
+  };
+
+  const handleCloseProductDetailFour = () => {
+    setShowProductDetailFour(false);
+  };
+
+  const handleJoinGroupClick = (e) => {
+    e.stopPropagation();
+    console.log('Join Group clicked');
+  };
+
   return (
     <div className="toys-card">
       <div className="toys-card-content">
@@ -53,7 +93,45 @@ const ToysCard = ({ activeFilter, onFilterClick }) => {
             <DollsText />
           </div>
         </div>
+        {activeFilter === 'All' && (
+          <>
+            <div className="product-group" onClick={handleProductThreeClick}>
+              <ToysProductImageOne />
+              <ToysProductTextOne />
+              <ToysProductOneIndividualPriceText />
+              <div className="product-details-row">
+                <ToysProductOneAgeRangeText />
+                <div className="spacer" />
+                <div onClick={handleJoinGroupClick}>
+                  <JoinGroupButtonThree /> {/* Updated to JoinGroupButtonThree */}
+                </div>
+              </div>
+              <div className="group-buy-row">
+                <GroupBuyIconThree /> {/* Updated to GroupBuyIconThree */}
+                <ToysProductOneGroupCondition />
+              </div>
+            </div>
+            <div className="product-group" onClick={handleProductFourClick}>
+              <ToysProductImageTwo />
+              <ToysProductTextTwo />
+              <ToysProductTwoIndividualPriceText />
+              <div className="product-details-row-two">
+                <ToysProductTwoAgeRangeText />
+                <div className="spacer" />
+                <div onClick={handleJoinGroupClick}>
+                  <JoinGroupButtonFour /> {/* Updated to JoinGroupButtonFour */}
+                </div>
+              </div>
+              <div className="group-buy-row-two">
+                <GroupBuyIconFour /> {/* Updated to GroupBuyIconFour */}
+                <ToysProductTwoGroupCondition />
+              </div>
+            </div>
+          </>
+        )}
       </div>
+      {showProductDetailThree && <ProductDetailThree onClose={handleCloseProductDetailThree} />}
+      {showProductDetailFour && <ProductDetailFour onClose={handleCloseProductDetailFour} />}
     </div>
   );
 };
