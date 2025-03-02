@@ -5,9 +5,12 @@ import './CompanionChatHeader.css';
 const CompanionChatHeader = () => {
   return (
     <div className="companion-chat-header">
-      <img src="https://assets.api.uizard.io/api/cdn/stream/11a1a79c-9d9a-40b6-a7d7-5b2d1e6b4f70.png" alt="Eva" className="avatar" />
-      <span className="header-text">Chat with companion</span>
-      <span className="close-icon">⨯</span>
+      <img
+        src="https://assets.api.uizard.io/api/cdn/stream/57326620-2a53-4912-9b70-e6a4f364b204.png"
+        alt="Daxedax Avatar"
+        className="companion-avatar"
+      />
+      <h1 className="companion-title">Chat with Daxedax</h1>
     </div>
   );
 };

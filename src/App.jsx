@@ -39,7 +39,7 @@ import ChatMessage from './components/companion_tab_components/ChatMessage';
 import ChatInput from './components/companion_tab_components/ChatInput';
 import ProductDetailOne from './components/home_tab_components/ProductDetailOne';
 import ProductDetailTwo from './components/home_tab_components/ProductDetailTwo';
-import MeCard from './components/me_tab_components/MeCard'; // Added import
+import MeCard from './components/me_tab_components/MeCard';
 import './App.css';
 
 function App() {
@@ -47,16 +47,16 @@ function App() {
   const [activeCategory, setActiveCategory] = useState('Beauty');
   const [activeFilter, setActiveFilter] = useState('All');
   const [messages, setMessages] = useState([
-    { isBot: true, text: "Hi, welcome to Eva! I can help you find and buy what you're looking for. What are you shopping for today?", avatar: 'https://assets.api.uizard.io/api/cdn/stream/11a1a79c-9d9a-40b6-a7d7-5b2d1e6b4f70.png' },
+    { isBot: true, text: "Hi, welcome to Daxedax! I can help you find and buy what you're looking for. What are you shopping for today?", avatar: 'https://assets.api.uizard.io/api/cdn/stream/57326620-2a53-4912-9b70-e6a4f364b204.png' },
   ]);
   const [showProductDetailOne, setShowProductDetailOne] = useState(false);
   const [showProductDetailTwo, setShowProductDetailTwo] = useState(false);
-  const [meTabTrigger, setMeTabTrigger] = useState(0); // Added state to trigger MeCard reset
+  const [meTabTrigger, setMeTabTrigger] = useState(0);
 
   const handleSendMessage = (newMessage) => {
     setMessages((prev) => [...prev, { isBot: false, text: newMessage, avatar: null }]);
 
-    // Simulate Eva's response with product recommendations if the message is a prompt or dress-related
+    // Simulate Daxedax's response with product recommendations if the message is a prompt or dress-related
     if (suggestionOptions.some(option => newMessage.includes(option)) || newMessage.toLowerCase().includes('dress')) {
       setTimeout(() => {
         const products = [
@@ -69,7 +69,7 @@ function App() {
           { 
             isBot: true, 
             text: "I found some options for you. You can tap the link to see more details.", 
-            avatar: 'https://assets.api.uizard.io/api/cdn/stream/11a1a79c-9d9a-40b6-a7d7-5b2d1e6b4f70.png', 
+            avatar: 'https://assets.api.uizard.io/api/cdn/stream/57326620-2a53-4912-9b70-e6a4f364b204.png', 
             products 
           },
         ]);
@@ -116,7 +116,7 @@ function App() {
       setActiveCategory('Beauty');
       setActiveFilter('All');
     } else if (tabName === 'Me') {
-      setMeTabTrigger((prev) => prev + 1); // Trigger MeCard reset
+      setMeTabTrigger((prev) => prev + 1);
     }
   };
 

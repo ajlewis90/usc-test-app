@@ -10,7 +10,7 @@ const ChatMessage = ({ isBot, text, avatar, products }) => {
 
   return (
     <div className={`chat-message ${isBot ? 'bot' : 'user'}`}>
-      {isBot && avatar && <img src={avatar} alt="Bot Avatar" className="avatar" />}
+      {isBot && avatar && <img src={avatar} alt="Daxedax Avatar" className="avatar" />}
       <div className="message-content">
         <div className="message-bubble">
           {text}
