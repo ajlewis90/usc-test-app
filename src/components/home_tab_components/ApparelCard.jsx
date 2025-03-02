@@ -1,24 +1,58 @@
 // src/components/home_tab_components/ApparelCard.jsx
 import React from 'react';
 import ApparelAllIcon from './ApparelAllIcon';
-import ShirtsIcon from './ShirtsIcon';
-import DressesIcon from './DressesIcon';
-import SuitsIcon from './SuitsIcon';
-import JeansIcon from './JeansIcon';
-import SkirtsIcon from './SkirtsIcon';
+import MenIcon from './MenIcon';
+import WomenIcon from './WomenIcon';
 import KidsIcon from './KidsIcon';
-import SocksIcon from './SocksIcon';
+import AccessoriesIcon from './AccessoriesIcon';
 import ApparelAllText from './ApparelAllText';
-import ShirtsText from './ShirtsText';
-import DressesText from './DressesText';
-import SuitsText from './SuitsText';
-import JeansText from './JeansText';
-import SkirtsText from './SkirtsText';
+import MenText from './MenText';
+import WomenText from './WomenText';
 import KidsText from './KidsText';
-import SocksText from './SocksText';
+import AccessoriesText from './AccessoriesText';
+import ApparelProductImageOne from './ApparelProductImageOne';
+import ApparelProductTextOne from './ApparelProductTextOne';
+import ApparelProductOneIndividualPriceText from './ApparelProductOneIndividualPriceText';
+import ApparelProductOneSizesText from './ApparelProductOneSizesText';
+import JoinGroupButtonFive from './JoinGroupButtonFive';
+import GroupBuyIconFive from './GroupBuyIconFive';
+import ApparelProductOneGroupCondition from './ApparelProductOneGroupCondition';
+import ApparelProductImageTwo from './ApparelProductImageTwo';
+import ApparelProductTextTwo from './ApparelProductTextTwo';
+import ApparelProductTwoIndividualPriceText from './ApparelProductTwoIndividualPriceText';
+import ApparelProductTwoColorsText from './ApparelProductTwoColorsText';
+import JoinGroupButtonSix from './JoinGroupButtonSix';
+import GroupBuyIconSix from './GroupBuyIconSix';
+import ApparelProductTwoGroupCondition from './ApparelProductTwoGroupCondition';
+import ProductDetailFive from './ProductDetailFive';
+import ProductDetailSix from './ProductDetailSix';
 import './ApparelCard.css';
 
 const ApparelCard = ({ activeFilter, onFilterClick }) => {
+  const [showProductDetailFive, setShowProductDetailFive] = React.useState(false);
+  const [showProductDetailSix, setShowProductDetailSix] = React.useState(false);
+
+  const handleProductFiveClick = () => {
+    setShowProductDetailFive(true);
+  };
+
+  const handleProductSixClick = () => {
+    setShowProductDetailSix(true);
+  };
+
+  const handleCloseProductDetailFive = () => {
+    setShowProductDetailFive(false);
+  };
+
+  const handleCloseProductDetailSix = () => {
+    setShowProductDetailSix(false);
+  };
+
+  const handleJoinGroupClick = (e) => {
+    e.stopPropagation();
+    console.log('Join Group clicked');
+  };
+
   return (
     <div className="apparel-card">
       <div className="apparel-card-content">
@@ -31,39 +65,18 @@ const ApparelCard = ({ activeFilter, onFilterClick }) => {
             <ApparelAllText />
           </div>
           <div
-            className={`icon-text-pair ${activeFilter === 'Shirts' ? 'active' : ''}`}
-            onClick={() => onFilterClick('Shirts')}
+            className={`icon-text-pair ${activeFilter === 'Men' ? 'active' : ''}`}
+            onClick={() => onFilterClick('Men')}
           >
-            <ShirtsIcon />
-            <ShirtsText />
+            <MenIcon />
+            <MenText />
           </div>
           <div
-            className={`icon-text-pair ${activeFilter === 'Dresses' ? 'active' : ''}`}
-            onClick={() => onFilterClick('Dresses')}
+            className={`icon-text-pair ${activeFilter === 'Women' ? 'active' : ''}`}
+            onClick={() => onFilterClick('Women')}
           >
-            <DressesIcon />
-            <DressesText />
-          </div>
-          <div
-            className={`icon-text-pair ${activeFilter === 'Suits' ? 'active' : ''}`}
-            onClick={() => onFilterClick('Suits')}
-          >
-            <SuitsIcon />
-            <SuitsText />
-          </div>
-          <div
-            className={`icon-text-pair ${activeFilter === 'Jeans' ? 'active' : ''}`}
-            onClick={() => onFilterClick('Jeans')}
-          >
-            <JeansIcon />
-            <JeansText />
-          </div>
-          <div
-            className={`icon-text-pair ${activeFilter === 'Skirts' ? 'active' : ''}`}
-            onClick={() => onFilterClick('Skirts')}
-          >
-            <SkirtsIcon />
-            <SkirtsText />
+            <WomenIcon />
+            <WomenText />
           </div>
           <div
             className={`icon-text-pair ${activeFilter === 'Kids' ? 'active' : ''}`}
@@ -73,14 +86,52 @@ const ApparelCard = ({ activeFilter, onFilterClick }) => {
             <KidsText />
           </div>
           <div
-            className={`icon-text-pair ${activeFilter === 'Socks' ? 'active' : ''}`}
-            onClick={() => onFilterClick('Socks')}
+            className={`icon-text-pair ${activeFilter === 'Accessories' ? 'active' : ''}`}
+            onClick={() => onFilterClick('Accessories')}
           >
-            <SocksIcon />
-            <SocksText />
+            <AccessoriesIcon />
+            <AccessoriesText />
           </div>
         </div>
+        {activeFilter === 'All' && (
+          <>
+            <div className="product-group" onClick={handleProductFiveClick}>
+              <ApparelProductImageOne />
+              <ApparelProductTextOne />
+              <ApparelProductOneIndividualPriceText />
+              <div className="product-details-row">
+                <ApparelProductOneSizesText />
+                <div className="spacer" />
+                <div onClick={handleJoinGroupClick}>
+                  <JoinGroupButtonFive />
+                </div>
+              </div>
+              <div className="group-buy-row">
+                <GroupBuyIconFive />
+                <ApparelProductOneGroupCondition />
+              </div>
+            </div>
+            <div className="product-group" onClick={handleProductSixClick}>
+              <ApparelProductImageTwo />
+              <ApparelProductTextTwo />
+              <ApparelProductTwoIndividualPriceText />
+              <div className="product-details-row-two">
+                <ApparelProductTwoColorsText />
+                <div className="spacer" />
+                <div onClick={handleJoinGroupClick}>
+                  <JoinGroupButtonSix />
+                </div>
+              </div>
+              <div className="group-buy-row-two">
+                <GroupBuyIconSix />
+                <ApparelProductTwoGroupCondition />
+              </div>
+            </div>
+          </>
+        )}
       </div>
+      {showProductDetailFive && <ProductDetailFive onClose={handleCloseProductDetailFive} />}
+      {showProductDetailSix && <ProductDetailSix onClose={handleCloseProductDetailSix} />}
     </div>
   );
 };
