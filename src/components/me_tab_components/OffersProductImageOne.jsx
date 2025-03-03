@@ -3,7 +3,7 @@ import React from 'react';
 import './OffersProductImageOne.css';
 
 const defaultProps = {
-  image: 'https://example.com/retro-sneakers.jpg',
+  image: 'https://assets.api.uizard.io/api/cdn/stream/92f317f8-23b6-42a2-8122-4d4f16fdf84f.png',
 };
 
 const OffersProductImageOne = ({ image }) => {

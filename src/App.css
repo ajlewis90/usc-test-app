@@ -66,7 +66,7 @@
   align-items: center; /* Vertically center all components */
   gap: 10px; /* Space between CartThreeImage, cart-column-three, and ViewBusinessThreeCartButton */
   padding: 0 20px; /* Match card padding for alignment within 440px width */
-  justify-content: space-between; /* Distribute space evenly, pushing ViewBusinessThreeCartButton to the right end */
+  justify-content: space-between; /* Distribute space evenly, pushing ViewBusinessOneCartButton to the right end */
   margin-bottom: 20px; /* Increased gap between rows */
 }
 
@@ -218,6 +218,9 @@
 
 .me-tab-content .product-group {
   cursor: default; /* No click handler needed for Offers for me */
+  display: flex; /* Added to control child alignment */
+  flex-direction: column;
+  align-items: flex-start; /* Left-align children */
 }
 
 .me-tab-content .product-group:hover {

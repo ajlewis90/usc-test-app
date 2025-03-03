@@ -3,7 +3,7 @@ import React from 'react';
 import './OffersProductImageThree.css';
 
 const defaultProps = {
-  image: 'https://example.com/coffee-machine.jpg',
+  image: 'https://assets.api.uizard.io/api/cdn/stream/8f965042-a7ff-4f50-bd40-27caa9853275.png',
 };
 
 const OffersProductImageThree = ({ image }) => {

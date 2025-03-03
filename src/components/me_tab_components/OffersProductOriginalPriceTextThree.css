@@ -4,5 +4,6 @@
   font-family: "Quicksand", sans-serif;
   color: #787974;
   display: block;
-  text-align: left; /* Added to align left */
+  text-align: left;
+  margin-bottom: 5px; /* Added spacing below */
 }
