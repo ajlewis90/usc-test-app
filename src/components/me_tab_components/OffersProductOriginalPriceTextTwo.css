@@ -1,0 +1,8 @@
+/* src/components/me_tab_components/OffersProductOriginalPriceTextTwo.css */
+.offers-product-original-price-text-two {
+  font-size: 14px;
+  font-family: "Quicksand", sans-serif;
+  color: #787974;
+  display: block;
+  text-align: left; /* Added to align left */
+}

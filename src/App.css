@@ -171,7 +171,7 @@
   overflow-y: auto; /* Enable scrolling for messages if they exceed height */
 }
 
-/* Styles for MeCard (added) */
+/* Styles for MeCard */
 .me-card {
   width: 100%;
   max-width: 440px;
@@ -214,6 +214,27 @@
   font-size: 16px;
   font-family: "Quicksand", sans-serif;
   color: #666;
+}
+
+.me-tab-content .product-group {
+  cursor: default; /* No click handler needed for Offers for me */
+}
+
+.me-tab-content .product-group:hover {
+  background-color: transparent; /* Disable hover effect */
+}
+
+.me-tab-content .product-details-row,
+.me-tab-content .product-details-row-two,
+.me-tab-content .product-details-row-three {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 5px;
+}
+
+.me-tab-content .spacer {
+  flex-grow: 1;
 }
 
 /* Reset body margin */

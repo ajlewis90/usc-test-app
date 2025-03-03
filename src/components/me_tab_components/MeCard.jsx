@@ -8,7 +8,24 @@ import OffersForMeText from './OffersForMeText';
 import MyReviewsText from './MyReviewsText';
 import GetRewardsText from './GetRewardsText';
 import GiftsSurprisesText from './GiftsSurprisesText';
-import './MeCard.css';
+import OffersProductImageOne from './OffersProductImageOne';
+import OffersProductTextOne from './OffersProductTextOne';
+import OffersProductOriginalPriceTextOne from './OffersProductOriginalPriceTextOne';
+import OffersProductDiscountedPriceTextOne from './OffersProductDiscountedPriceTextOne';
+import OffersProductDiscountLabelOne from './OffersProductDiscountLabelOne';
+import AddToCartButtonOne from './AddToCartButtonOne';
+import OffersProductImageTwo from './OffersProductImageTwo';
+import OffersProductTextTwo from './OffersProductTextTwo';
+import OffersProductOriginalPriceTextTwo from './OffersProductOriginalPriceTextTwo';
+import OffersProductDiscountedPriceTextTwo from './OffersProductDiscountedPriceTextTwo';
+import OffersProductDiscountLabelTwo from './OffersProductDiscountLabelTwo';
+import AddToCartButtonTwo from './AddToCartButtonTwo';
+import OffersProductImageThree from './OffersProductImageThree';
+import OffersProductTextThree from './OffersProductTextThree';
+import OffersProductOriginalPriceTextThree from './OffersProductOriginalPriceTextThree';
+import OffersProductDiscountedPriceTextThree from './OffersProductDiscountedPriceTextThree';
+import OffersProductDiscountLabelThree from './OffersProductDiscountLabelThree';
+import AddToCartButtonThree from './AddToCartButtonThree';
 
 const MeCard = ({ onMeTabChange }) => {
   const [activeMeTab, setActiveMeTab] = React.useState('Offers for me');
@@ -20,6 +37,11 @@ const MeCard = ({ onMeTabChange }) => {
 
   const handleMeTabClick = (tab) => {
     setActiveMeTab(tab);
+  };
+
+  const handleAddToCartClick = (productName) => (e) => {
+    e.stopPropagation();
+    console.log(`Added ${productName} to cart`);
   };
 
   return (
@@ -57,7 +79,45 @@ const MeCard = ({ onMeTabChange }) => {
         </div>
         {activeMeTab === 'Offers for me' && (
           <div className="me-tab-content">
-            <p>Offers for me content goes here.</p>
+            <div className="product-group">
+              <OffersProductImageOne />
+              <OffersProductTextOne />
+              <OffersProductOriginalPriceTextOne />
+              <OffersProductDiscountedPriceTextOne />
+              <div className="product-details-row">
+                <OffersProductDiscountLabelOne />
+                <div className="spacer" />
+                <div onClick={handleAddToCartClick('Retro Sneakers')}>
+                  <AddToCartButtonOne />
+                </div>
+              </div>
+            </div>
+            <div className="product-group">
+              <OffersProductImageTwo />
+              <OffersProductTextTwo />
+              <OffersProductOriginalPriceTextTwo />
+              <OffersProductDiscountedPriceTextTwo />
+              <div className="product-details-row-two">
+                <OffersProductDiscountLabelTwo />
+                <div className="spacer" />
+                <div onClick={handleAddToCartClick('Cute Stuffed Bear')}>
+                  <AddToCartButtonTwo />
+                </div>
+              </div>
+            </div>
+            <div className="product-group">
+              <OffersProductImageThree />
+              <OffersProductTextThree />
+              <OffersProductOriginalPriceTextThree />
+              <OffersProductDiscountedPriceTextThree />
+              <div className="product-details-row-three">
+                <OffersProductDiscountLabelThree />
+                <div className="spacer" />
+                <div onClick={handleAddToCartClick('Coffee Machine')}>
+                  <AddToCartButtonThree />
+                </div>
+              </div>
+            </div>
           </div>
         )}
         {activeMeTab === 'My Reviews' && (
