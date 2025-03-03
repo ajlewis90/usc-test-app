@@ -12,19 +12,16 @@ import OffersProductImageOne from './OffersProductImageOne';
 import OffersProductTextOne from './OffersProductTextOne';
 import OffersProductOriginalPriceTextOne from './OffersProductOriginalPriceTextOne';
 import OffersProductDiscountedPriceTextOne from './OffersProductDiscountedPriceTextOne';
-import OffersProductDiscountLabelOne from './OffersProductDiscountLabelOne';
 import AddToCartButtonOne from './AddToCartButtonOne';
 import OffersProductImageTwo from './OffersProductImageTwo';
 import OffersProductTextTwo from './OffersProductTextTwo';
 import OffersProductOriginalPriceTextTwo from './OffersProductOriginalPriceTextTwo';
 import OffersProductDiscountedPriceTextTwo from './OffersProductDiscountedPriceTextTwo';
-import OffersProductDiscountLabelTwo from './OffersProductDiscountLabelTwo';
 import AddToCartButtonTwo from './AddToCartButtonTwo';
 import OffersProductImageThree from './OffersProductImageThree';
 import OffersProductTextThree from './OffersProductTextThree';
 import OffersProductOriginalPriceTextThree from './OffersProductOriginalPriceTextThree';
 import OffersProductDiscountedPriceTextThree from './OffersProductDiscountedPriceTextThree';
-import OffersProductDiscountLabelThree from './OffersProductDiscountLabelThree';
 import AddToCartButtonThree from './AddToCartButtonThree';
 
 const MeCard = ({ onMeTabChange }) => {
@@ -83,9 +80,8 @@ const MeCard = ({ onMeTabChange }) => {
               <OffersProductImageOne />
               <OffersProductTextOne />
               <OffersProductOriginalPriceTextOne />
-              <OffersProductDiscountedPriceTextOne />
-              <div className="product-details-row">
-                <OffersProductDiscountLabelOne />
+              <div className="price-and-button-row">
+                <OffersProductDiscountedPriceTextOne />
                 <div className="spacer" />
                 <div onClick={handleAddToCartClick('Retro Sneakers')}>
                   <AddToCartButtonOne />
@@ -96,9 +92,8 @@ const MeCard = ({ onMeTabChange }) => {
               <OffersProductImageTwo />
               <OffersProductTextTwo />
               <OffersProductOriginalPriceTextTwo />
-              <OffersProductDiscountedPriceTextTwo />
-              <div className="product-details-row-two">
-                <OffersProductDiscountLabelTwo />
+              <div className="price-and-button-row">
+                <OffersProductDiscountedPriceTextTwo />
                 <div className="spacer" />
                 <div onClick={handleAddToCartClick('Cute Stuffed Bear')}>
                   <AddToCartButtonTwo />
@@ -109,9 +104,8 @@ const MeCard = ({ onMeTabChange }) => {
               <OffersProductImageThree />
               <OffersProductTextThree />
               <OffersProductOriginalPriceTextThree />
-              <OffersProductDiscountedPriceTextThree />
-              <div className="product-details-row-three">
-                <OffersProductDiscountLabelThree />
+              <div className="price-and-button-row">
+                <OffersProductDiscountedPriceTextThree />
                 <div className="spacer" />
                 <div onClick={handleAddToCartClick('Coffee Machine')}>
                   <AddToCartButtonThree />

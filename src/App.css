@@ -221,19 +221,20 @@
   display: flex; /* Added to control child alignment */
   flex-direction: column;
   align-items: flex-start; /* Left-align children */
+  text-align: left; /* Override parent text-align: center */
 }
 
 .me-tab-content .product-group:hover {
   background-color: transparent; /* Disable hover effect */
 }
 
-.me-tab-content .product-details-row,
-.me-tab-content .product-details-row-two,
-.me-tab-content .product-details-row-three {
+.me-tab-content .price-and-button-row {
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: space-between; /* Explicitly ensure left and right alignment */
+  gap: 5px;
   margin-bottom: 5px;
+  width: 100%; /* Ensure the row takes the full width of product-group */
 }
 
 .me-tab-content .spacer {
