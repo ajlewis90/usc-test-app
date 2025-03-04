@@ -228,11 +228,6 @@
   background-color: transparent; /* Disable hover effect */
 }
 
-.me-tab-content .for-me-title-wrapper {
-  text-align: center; /* Center the ForMeTextTitle component */
-  margin-bottom: 10px; /* Add some spacing below the title */
-}
-
 .me-tab-content .price-and-button-row {
   display: flex;
   align-items: center;
@@ -244,6 +239,21 @@
 
 .me-tab-content .spacer {
   flex-grow: 1;
+}
+
+/* New styles for My Reviews tab */
+.me-tab-content .reviewer-date-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 5px;
+  flex-wrap: nowrap; /* Prevent wrapping to ensure inline alignment */
+}
+
+.me-tab-content .likes-dislikes-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
 }
 
 /* Reset body margin */

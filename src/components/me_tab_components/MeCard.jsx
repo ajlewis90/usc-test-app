@@ -24,6 +24,46 @@ import OffersProductTextThree from './OffersProductTextThree';
 import OffersProductOriginalPriceTextThree from './OffersProductOriginalPriceTextThree';
 import OffersProductDiscountedPriceTextThree from './OffersProductDiscountedPriceTextThree';
 import AddToCartButtonThree from './AddToCartButtonThree';
+import ReviewImageOne from './ReviewImageOne';
+import ReviewProductTextOne from './ReviewProductTextOne';
+import ReviewTagTextOne from './ReviewTagTextOne';
+import ReviewPriceTextOne from './ReviewPriceTextOne';
+import ReviewerTextOne from './ReviewerTextOne';
+import ReviewDateTextOne from './ReviewDateTextOne';
+import ReviewRatingOne from './ReviewRatingOne';
+import ReviewTextOne from './ReviewTextOne';
+import ReviewLikesOne from './ReviewLikesOne';
+import ReviewDislikesOne from './ReviewDislikesOne';
+import ReviewImageTwo from './ReviewImageTwo';
+import ReviewProductTextTwo from './ReviewProductTextTwo';
+import ReviewTagTextTwo from './ReviewTagTextTwo';
+import ReviewPriceTextTwo from './ReviewPriceTextTwo';
+import ReviewerTextTwo from './ReviewerTextTwo';
+import ReviewDateTextTwo from './ReviewDateTextTwo';
+import ReviewRatingTwo from './ReviewRatingTwo';
+import ReviewTextTwo from './ReviewTextTwo';
+import ReviewLikesTwo from './ReviewLikesTwo';
+import ReviewDislikesTwo from './ReviewDislikesTwo';
+import ReviewImageThree from './ReviewImageThree';
+import ReviewProductTextThree from './ReviewProductTextThree';
+import ReviewTagTextThree from './ReviewTagTextThree';
+import ReviewPriceTextThree from './ReviewPriceTextThree';
+import ReviewerTextThree from './ReviewerTextThree';
+import ReviewDateTextThree from './ReviewDateTextThree';
+import ReviewRatingThree from './ReviewRatingThree';
+import ReviewTextThree from './ReviewTextThree';
+import ReviewLikesThree from './ReviewLikesThree';
+import ReviewDislikesThree from './ReviewDislikesThree';
+import ReviewImageFour from './ReviewImageFour';
+import ReviewProductTextFour from './ReviewProductTextFour';
+import ReviewTagTextFour from './ReviewTagTextFour';
+import ReviewPriceTextFour from './ReviewPriceTextFour';
+import ReviewerTextFour from './ReviewerTextFour';
+import ReviewDateTextFour from './ReviewDateTextFour';
+import ReviewRatingFour from './ReviewRatingFour';
+import ReviewTextFour from './ReviewTextFour';
+import ReviewLikesFour from './ReviewLikesFour';
+import ReviewDislikesFour from './ReviewDislikesFour';
 
 const MeCard = ({ onMeTabChange }) => {
   const [activeMeTab, setActiveMeTab] = React.useState('Offers for me');
@@ -45,9 +85,7 @@ const MeCard = ({ onMeTabChange }) => {
   return (
     <div className="me-card">
       <div className="me-card-content">
-        <div className="for-me-title-wrapper"> {/* Added wrapper for centering */}
-          <ForMeTextTitle />
-        </div>
+        <ForMeTextTitle />
         <div className="me-card-icons">
           <div
             className={`icon-text-pair ${activeMeTab === 'Offers for me' ? 'active' : ''}`}
@@ -120,7 +158,70 @@ const MeCard = ({ onMeTabChange }) => {
         )}
         {activeMeTab === 'My Reviews' && (
           <div className="me-tab-content">
-            <p>My Reviews content goes here.</p>
+            <div className="product-group">
+              <ReviewImageOne />
+              <ReviewProductTextOne />
+              <ReviewTagTextOne />
+              <ReviewPriceTextOne />
+              <div className="reviewer-date-row">
+                <ReviewerTextOne />
+                <ReviewDateTextOne />
+              </div>
+              <ReviewRatingOne />
+              <ReviewTextOne />
+              <div className="likes-dislikes-row">
+                <ReviewLikesOne />
+                <ReviewDislikesOne />
+              </div>
+            </div>
+            <div className="product-group">
+              <ReviewImageTwo />
+              <ReviewProductTextTwo />
+              <ReviewTagTextTwo />
+              <ReviewPriceTextTwo />
+              <div className="reviewer-date-row">
+                <ReviewerTextTwo />
+                <ReviewDateTextTwo />
+              </div>
+              <ReviewRatingTwo />
+              <ReviewTextTwo />
+              <div className="likes-dislikes-row">
+                <ReviewLikesTwo />
+                <ReviewDislikesTwo />
+              </div>
+            </div>
+            <div className="product-group">
+              <ReviewImageThree />
+              <ReviewProductTextThree />
+              <ReviewTagTextThree />
+              <ReviewPriceTextThree />
+              <div className="reviewer-date-row">
+                <ReviewerTextThree />
+                <ReviewDateTextThree />
+              </div>
+              <ReviewRatingThree />
+              <ReviewTextThree />
+              <div className="likes-dislikes-row">
+                <ReviewLikesThree />
+                <ReviewDislikesThree />
+              </div>
+            </div>
+            <div className="product-group">
+              <ReviewImageFour />
+              <ReviewProductTextFour />
+              <ReviewTagTextFour />
+              <ReviewPriceTextFour />
+              <div className="reviewer-date-row">
+                <ReviewerTextFour />
+                <ReviewDateTextFour />
+              </div>
+              <ReviewRatingFour />
+              <ReviewTextFour />
+              <div className="likes-dislikes-row">
+                <ReviewLikesFour />
+                <ReviewDislikesFour />
+              </div>
+            </div>
           </div>
         )}
         {activeMeTab === 'Get Rewards' && (
