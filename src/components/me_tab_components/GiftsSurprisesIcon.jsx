@@ -2,10 +2,16 @@
 import React from 'react';
 import './GiftsSurprisesIcon.css';
 
-const GiftsSurprisesIcon = () => (
-  <svg className="gifts-surprises-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92c-.72.73-1.17 1.83-1.17 2.83h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/>
-  </svg>
-);
+const defaultProps = {
+  image: 'https://assets.api.uizard.io/api/cdn/stream/6657d57e-934d-4905-8186-1fede09eac5f.png',
+};
+
+const GiftsSurprisesIcon = (props) => {
+  return (
+    <div className="gifts-surprises-icon" style={{
+      backgroundImage: `url(${props.image ?? defaultProps.image})`,
+    }} />
+  );
+};
 
 export default GiftsSurprisesIcon;

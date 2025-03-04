@@ -2,8 +2,16 @@
 import React from 'react';
 import './OffersForMeText.css';
 
-const OffersForMeText = () => (
-  <span className="offers-for-me-text">Offers for me</span>
-);
+const defaultProps = {
+  text: 'Offers for me',
+};
+
+const OffersForMeText = (props) => {
+  return (
+    <div className="offers-for-me-text">
+      {props.text ?? defaultProps.text}
+    </div>
+  );
+};
 
 export default OffersForMeText;

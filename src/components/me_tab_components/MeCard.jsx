@@ -1,5 +1,6 @@
 // src/components/me_tab_components/MeCard.jsx
 import React, { useEffect } from 'react';
+import ForMeTextTitle from './ForMeTextTitle';
 import OffersForMeIcon from './OffersForMeIcon';
 import MyReviewsIcon from './MyReviewsIcon';
 import GetRewardsIcon from './GetRewardsIcon';
@@ -44,6 +45,9 @@ const MeCard = ({ onMeTabChange }) => {
   return (
     <div className="me-card">
       <div className="me-card-content">
+        <div className="for-me-title-wrapper"> {/* Added wrapper for centering */}
+          <ForMeTextTitle />
+        </div>
         <div className="me-card-icons">
           <div
             className={`icon-text-pair ${activeMeTab === 'Offers for me' ? 'active' : ''}`}

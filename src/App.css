@@ -228,6 +228,11 @@
   background-color: transparent; /* Disable hover effect */
 }
 
+.me-tab-content .for-me-title-wrapper {
+  text-align: center; /* Center the ForMeTextTitle component */
+  margin-bottom: 10px; /* Add some spacing below the title */
+}
+
 .me-tab-content .price-and-button-row {
   display: flex;
   align-items: center;
