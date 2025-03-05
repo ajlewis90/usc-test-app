@@ -21,6 +21,7 @@ import PersonalCareText from './components/home_tab_components/PersonalCareText'
 import Card from './components/home_tab_components/Card';
 import ApparelCard from './components/home_tab_components/ApparelCard';
 import ToysCard from './components/home_tab_components/ToysCard';
+import ShoesCard from './components/home_tab_components/ShoesCard'; // Added import
 import CartsText from './components/home_tab_components/CartsText';
 import CartOneImage from './components/home_tab_components/CartOneImage';
 import CartOneBusinessName from './components/home_tab_components/CartOneBusinessName';
@@ -40,14 +41,14 @@ import ChatInput from './components/companion_tab_components/ChatInput';
 import ProductDetailOne from './components/home_tab_components/ProductDetailOne';
 import ProductDetailTwo from './components/home_tab_components/ProductDetailTwo';
 import MeCard from './components/me_tab_components/MeCard';
-import HomeIcon from './components/HomeIcon'; // Added import
-import CompanionIcon from './components/CompanionIcon'; // Added import
-import MeIcon from './components/MeIcon'; // Added import
-import CartsIcon from './components/CartsIcon'; // Added import
-import HomeTabText from './components/HomeTabText'; // Added import
-import CompanionTabText from './components/CompanionTabText'; // Added import
-import MeTabText from './components/MeTabText'; // Added import
-import CartsTabText from './components/CartsTabText'; // Added import
+import HomeIcon from './components/HomeIcon';
+import CompanionIcon from './components/CompanionIcon';
+import MeIcon from './components/MeIcon';
+import CartsIcon from './components/CartsIcon';
+import HomeTabText from './components/HomeTabText';
+import CompanionTabText from './components/CompanionTabText';
+import MeTabText from './components/MeTabText';
+import CartsTabText from './components/CartsTabText';
 import './App.css';
 
 function App() {
@@ -112,7 +113,7 @@ function App() {
 
   const handleCategoryClick = (category) => {
     setActiveCategory(category);
-    if (category === 'Beauty' || category === 'Apparel' || category === 'Toys') {
+    if (category === 'Beauty' || category === 'Apparel' || category === 'Toys' || category === 'Shoes') {
       setActiveFilter('All');
     }
     setActiveTab('Home');
@@ -191,6 +192,12 @@ function App() {
             )}
             {activeCategory === 'Toys' && (
               <ToysCard
+                activeFilter={activeFilter}
+                onFilterClick={handleFilterClick}
+              />
+            )}
+            {activeCategory === 'Shoes' && (
+              <ShoesCard
                 activeFilter={activeFilter}
                 onFilterClick={handleFilterClick}
               />
