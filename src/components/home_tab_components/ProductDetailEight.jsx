@@ -13,7 +13,7 @@ const ProductDetailEight = ({ onClose }) => {
         </div>
         <div className="product-detail-content">
           <img
-            src="https://assets.api.uizard.io/api/cdn/stream/510cfb6b-37eb-4d34-b364-a3f46741363e.png"
+            src="https://assets.api.uizard.io/api/cdn/stream/027eb941-5abd-4ad4-8438-8237473aaa99.png"
             alt="Adidas Ultraboost Running Shoe"
             className="product-image"
           />

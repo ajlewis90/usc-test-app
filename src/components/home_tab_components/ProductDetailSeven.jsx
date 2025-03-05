@@ -13,7 +13,7 @@ const ProductDetailSeven = ({ onClose }) => {
         </div>
         <div className="product-detail-content">
           <img
-            src="https://assets.api.uizard.io/api/cdn/stream/8e6e5b3b-5f9b-4e5d-9b7e-7b3e9d4f5c6d.png"
+            src="https://assets.api.uizard.io/api/cdn/stream/0fd8e547-6f14-4dfc-8c01-42f39be7636c.png"
             alt="Nike Air Force 1 '07 Sneaker"
             className="product-image"
           />
