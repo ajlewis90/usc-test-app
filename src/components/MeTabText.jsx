@@ -5,7 +5,7 @@ import './MeTabText.css';
 const MeTabText = () => {
   return (
     <span className="me-tab-text tab-label">
-      Me
+      For Me
     </span>
   );
 };

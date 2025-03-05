@@ -3,7 +3,7 @@ import React from 'react';
 import './CompanionIcon.css';
 
 const defaultProps = {
-  image: 'https://assets.api.uizard.io/api/cdn/stream/1e9333c3-79ba-407c-a99c-d5f96afba562.png',
+  image: 'https://assets.api.uizard.io/api/cdn/stream/31477269-1636-4a09-b214-8a5a5e291fe1.png'
 };
 
 const CompanionIcon = (props) => {
