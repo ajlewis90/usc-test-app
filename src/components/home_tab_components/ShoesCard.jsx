@@ -22,9 +22,35 @@ import ShoesProductTwoColorsText from './ShoesProductTwoColorsText';
 import JoinGroupButtonEight from './JoinGroupButtonEight';
 import GroupBuyIconEight from './GroupBuyIconEight';
 import ShoesProductTwoGroupCondition from './ShoesProductTwoGroupCondition';
+import ProductDetailSeven from './ProductDetailSeven';
+import ProductDetailEight from './ProductDetailEight';
 import './ShoesCard.css';
 
-const ShoesCard = ({ activeFilter, onFilterClick, onProductOneClick, onProductTwoClick }) => {
+const ShoesCard = ({ activeFilter, onFilterClick }) => {
+  const [showProductDetailSeven, setShowProductDetailSeven] = React.useState(false);
+  const [showProductDetailEight, setShowProductDetailEight] = React.useState(false);
+
+  const handleProductSevenClick = () => {
+    setShowProductDetailSeven(true);
+  };
+
+  const handleProductEightClick = () => {
+    setShowProductDetailEight(true);
+  };
+
+  const handleCloseProductDetailSeven = () => {
+    setShowProductDetailSeven(false);
+  };
+
+  const handleCloseProductDetailEight = () => {
+    setShowProductDetailEight(false);
+  };
+
+  const handleJoinGroupClick = (e) => {
+    e.stopPropagation();
+    console.log('Join Group clicked');
+  };
+
   return (
     <div className="shoes-card">
       <div className="shoes-card-content">
@@ -60,28 +86,32 @@ const ShoesCard = ({ activeFilter, onFilterClick, onProductOneClick, onProductTw
         </div>
         {activeFilter === 'All' && (
           <>
-            <div className="product-group" onClick={onProductOneClick}>
+            <div className="product-group" onClick={handleProductSevenClick}>
               <ShoesProductImageOne />
               <ShoesProductTextOne />
               <ShoesProductOneIndividualPriceText />
               <div className="product-details-row">
                 <ShoesProductOneSizesText />
                 <div className="spacer" />
-                <JoinGroupButtonSeven />
+                <div onClick={handleJoinGroupClick}>
+                  <JoinGroupButtonSeven />
+                </div>
               </div>
               <div className="group-buy-row">
                 <GroupBuyIconSeven />
                 <ShoesProductOneGroupCondition />
               </div>
             </div>
-            <div className="product-group" onClick={onProductTwoClick}>
+            <div className="product-group" onClick={handleProductEightClick}>
               <ShoesProductImageTwo />
               <ShoesProductTextTwo />
               <ShoesProductTwoIndividualPriceText />
               <div className="product-details-row-two">
                 <ShoesProductTwoColorsText />
                 <div className="spacer" />
-                <JoinGroupButtonEight />
+                <div onClick={handleJoinGroupClick}>
+                  <JoinGroupButtonEight />
+                </div>
               </div>
               <div className="group-buy-row-two">
                 <GroupBuyIconEight />
@@ -91,6 +121,8 @@ const ShoesCard = ({ activeFilter, onFilterClick, onProductOneClick, onProductTw
           </>
         )}
       </div>
+      {showProductDetailSeven && <ProductDetailSeven onClose={handleCloseProductDetailSeven} />}
+      {showProductDetailEight && <ProductDetailEight onClose={handleCloseProductDetailEight} />}
     </div>
   );
 };
