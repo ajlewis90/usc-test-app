@@ -103,9 +103,9 @@ function App() {
   const categoryTabs = [
     { name: 'Beauty', Icon: BeautyTabIcon, Text: BeautyCategoryText },
     { name: 'Apparel', Icon: ApparelIcon, Text: ApparelText },
-    { name: 'Furniture', Icon: FurnitureIcon, Text: FurnitureText },
     { name: 'Shoes', Icon: ShoesIcon, Text: ShoesText },
     { name: 'Toys', Icon: ToysIcon, Text: ToysText },
+    { name: 'Furniture', Icon: FurnitureIcon, Text: FurnitureText },
     { name: 'Glasses', Icon: GlassesIcon, Text: GlassesText },
     { name: 'House Cleaning', Icon: HouseCleaningIcon, Text: HouseCleaningText },
     { name: 'Personal Care', Icon: PersonalCareIcon, Text: PersonalCareText },
