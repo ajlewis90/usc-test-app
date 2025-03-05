@@ -2,14 +2,11 @@
 import React from 'react';
 import './ViewBusinessTwoCartButton.css';
 
-const defaultProps = {
-  label: 'View Cart', // You can change this default label if needed for CartTwo
-};
 
-const ViewBusinessTwoCartButton = ({ label = defaultProps.label }) => {
+const ViewBusinessTwoCartButton = ({ onClick }) => {
   return (
-    <button className="view-business-two-cart-button">
-      {label}
+    <button className="view-business-two-cart-button" onClick={onClick}>
+      View Cart
     </button>
   );
 };

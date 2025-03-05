@@ -21,7 +21,7 @@ import PersonalCareText from './components/home_tab_components/PersonalCareText'
 import Card from './components/home_tab_components/Card';
 import ApparelCard from './components/home_tab_components/ApparelCard';
 import ToysCard from './components/home_tab_components/ToysCard';
-import ShoesCard from './components/home_tab_components/ShoesCard'; // Added import
+import ShoesCard from './components/home_tab_components/ShoesCard';
 import CartsText from './components/home_tab_components/CartsText';
 import CartOneImage from './components/home_tab_components/CartOneImage';
 import CartOneBusinessName from './components/home_tab_components/CartOneBusinessName';
@@ -35,6 +35,7 @@ import CartThreeImage from './components/home_tab_components/CartThreeImage';
 import CartThreeBusinessName from './components/home_tab_components/CartThreeBusinessName';
 import CartThreeBusinessPrice from './components/home_tab_components/CartThreeBusinessPrice';
 import ViewBusinessThreeCartButton from './components/home_tab_components/ViewBusinessThreeCartButton';
+import CartDetails from './components/home_tab_components/CartDetails'; // Import the new component
 import CompanionChatHeader from './components/companion_tab_components/CompanionChatHeader';
 import ChatMessage from './components/companion_tab_components/ChatMessage';
 import ChatInput from './components/companion_tab_components/ChatInput';
@@ -60,12 +61,64 @@ function App() {
   ]);
   const [showProductDetailOne, setShowProductDetailOne] = useState(false);
   const [showProductDetailTwo, setShowProductDetailTwo] = useState(false);
+  const [showCartDetails, setShowCartDetails] = useState(false);
+  const [selectedCartItems, setSelectedCartItems] = useState([]);
   const [meTabTrigger, setMeTabTrigger] = useState(0);
+
+  // Simulated cart data for each business
+  const cartOneItems = [
+    {
+      name: 'Pi Pizza Oven',
+      price: '$469.99',
+      quantity: 1,
+      total: '$469.99',
+      image: 'https://assets.api.uizard.io/api/cdn/stream/2024848d-d2e0-40f6-b809-fd21dd629edc.png',
+    },
+    {
+      name: 'Solo Stove Grill Ultimate Bundle',
+      price: '$549.99',
+      quantity: 1,
+      total: '$549.99',
+      image: 'https://assets.api.uizard.io/api/cdn/stream/2024848d-d2e0-40f6-b809-fd21dd629edc.png',
+    },
+    {
+      name: 'Starters (4 pack)',
+      price: '$0.00',
+      quantity: 1,
+      total: '$0.00',
+      image: 'https://assets.api.uizard.io/api/cdn/stream/2024848d-d2e0-40f6-b809-fd21dd629edc.png',
+    },
+    {
+      name: 'Charcoal Grill Pack',
+      price: '$0.00',
+      quantity: 1,
+      total: '$0.00',
+      image: 'https://assets.api.uizard.io/api/cdn/stream/2024848d-d2e0-40f6-b809-fd21dd629edc.png',
+    },
+  ];
+
+  const cartTwoItems = [
+    {
+      name: 'Item from Business 2',
+      price: '$29.99',
+      quantity: 2,
+      total: '$59.98',
+      image: 'https://assets.api.uizard.io/api/cdn/stream/2024848d-d2e0-40f6-b809-fd21dd629edc.png',
+    },
+  ];
+
+  const cartThreeItems = [
+    {
+      name: 'Item from Business 3',
+      price: '$49.99',
+      quantity: 1,
+      total: '$49.99',
+      image: 'https://assets.api.uizard.io/api/cdn/stream/2024848d-d2e0-40f6-b809-fd21dd629edc.png',
+    },
+  ];
 
   const handleSendMessage = (newMessage) => {
     setMessages((prev) => [...prev, { isBot: false, text: newMessage, avatar: null }]);
-
-    // Simulate Daxedax's response with product recommendations if the message is a prompt or dress-related
     if (suggestionOptions.some(option => newMessage.includes(option)) || newMessage.toLowerCase().includes('dress')) {
       setTimeout(() => {
         const products = [
@@ -155,6 +208,17 @@ function App() {
     setActiveFilter('All');
   };
 
+  const handleViewCart = (cartItems) => {
+    setSelectedCartItems(cartItems);
+    setShowCartDetails(true);
+  };
+
+  const handleCloseCartDetails = () => {
+    setShowCartDetails(false);
+    setSelectedCartItems([]);
+    setActiveTab('Carts');
+  };
+
   return (
     <div className="mobile-container">
       {activeTab === 'Home' && (
@@ -231,7 +295,7 @@ function App() {
                 <CartOneBusinessName />
                 <CartOneBusinessPrice />
               </div>
-              <ViewBusinessOneCartButton />
+              <ViewBusinessOneCartButton onClick={() => handleViewCart(cartOneItems)} />
             </div>
             <div className="cart-row-two">
               <CartTwoImage />
@@ -239,7 +303,7 @@ function App() {
                 <CartTwoBusinessName />
                 <CartTwoBusinessPrice />
               </div>
-              <ViewBusinessTwoCartButton />
+              <ViewBusinessTwoCartButton onClick={() => handleViewCart(cartTwoItems)} />
             </div>
             <div className="cart-row-three">
               <CartThreeImage />
@@ -247,7 +311,7 @@ function App() {
                 <CartThreeBusinessName />
                 <CartThreeBusinessPrice />
               </div>
-              <ViewBusinessThreeCartButton />
+              <ViewBusinessThreeCartButton onClick={() => handleViewCart(cartThreeItems)} />
             </div>
           </div>
         </>
@@ -269,6 +333,9 @@ function App() {
       )}
       {showProductDetailTwo && (
         <ProductDetailTwo onClose={handleCloseProductDetailTwo} />
+      )}
+      {showCartDetails && (
+        <CartDetails cartItems={selectedCartItems} onClose={handleCloseCartDetails} />
       )}
     </div>
   );
