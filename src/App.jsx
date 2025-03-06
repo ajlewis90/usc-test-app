@@ -68,51 +68,44 @@ function App() {
   // Simulated cart data for each business
   const cartOneItems = [
     {
-      name: 'Pi Pizza Oven',
-      price: '$469.99',
-      quantity: 1,
-      total: '$469.99',
-      image: 'https://assets.api.uizard.io/api/cdn/stream/2024848d-d2e0-40f6-b809-fd21dd629edc.png',
+      name: 'Meat Pies',
+      price: '$5.00',
+      quantity: 2,
+      total: '$10.00',
+      image: 'https://assets.api.uizard.io/api/cdn/stream/1fca9e7a-75c2-41cc-a941-df5061491db8.png',
     },
     {
-      name: 'Solo Stove Grill Ultimate Bundle',
-      price: '$549.99',
+      name: 'Chocolate Cake Brownies',
+      price: '$9.99',
       quantity: 1,
-      total: '$549.99',
-      image: 'https://assets.api.uizard.io/api/cdn/stream/2024848d-d2e0-40f6-b809-fd21dd629edc.png',
+      total: '$9.99',
+      image: 'https://assets.api.uizard.io/api/cdn/stream/13da1649-0800-4d70-8dcc-a76565b70794.png',
     },
     {
-      name: 'Starters (4 pack)',
-      price: '$0.00',
-      quantity: 1,
-      total: '$0.00',
-      image: 'https://assets.api.uizard.io/api/cdn/stream/2024848d-d2e0-40f6-b809-fd21dd629edc.png',
-    },
-    {
-      name: 'Charcoal Grill Pack',
-      price: '$0.00',
-      quantity: 1,
-      total: '$0.00',
-      image: 'https://assets.api.uizard.io/api/cdn/stream/2024848d-d2e0-40f6-b809-fd21dd629edc.png',
+      name: 'Chocolate Chip Muffins',
+      price: '$3.00',
+      quantity: 5,
+      total: '$15.00',
+      image: 'https://assets.api.uizard.io/api/cdn/stream/1a879764-a5c6-42cd-a1ea-2ac49295db9b.png',
     },
   ];
 
   const cartTwoItems = [
     {
-      name: 'Item from Business 2',
+      name: 'Dr Matt Cough Syrup',
       price: '$29.99',
-      quantity: 2,
-      total: '$59.98',
-      image: 'https://assets.api.uizard.io/api/cdn/stream/2024848d-d2e0-40f6-b809-fd21dd629edc.png',
+      quantity: 1,
+      total: '$29.99',
+      image: 'https://assets.api.uizard.io/api/cdn/stream/6dcf4ab3-3a1f-4022-9d0b-fc008f0d6871.png',
     },
   ];
 
   const cartThreeItems = [
     {
       name: 'Item from Business 3',
-      price: '$49.99',
-      quantity: 1,
-      total: '$49.99',
+      price: '$5.00',
+      quantity: 10,
+      total: '$50.00',
       image: 'https://assets.api.uizard.io/api/cdn/stream/2024848d-d2e0-40f6-b809-fd21dd629edc.png',
     },
   ];

@@ -3,7 +3,7 @@ import React from 'react';
 import './CartOneBusinessPrice.css';
 
 const defaultProps = {
-  text: '$40.00',
+  text: '$34.99',
 };
 
 const CartOneBusinessPrice = ({ text = defaultProps.text }) => {

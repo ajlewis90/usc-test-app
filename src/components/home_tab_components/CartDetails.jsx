@@ -9,6 +9,7 @@ const CartDetails = ({ cartItems, onClose }) => {
         <button className="close-button" onClick={onClose}>X</button>
       </div>
       <div className="cart-details-items">
+
         {cartItems.map((item, index) => (
           <div key={index} className="cart-details-item">
             <img src={item.image} alt={item.name} className="cart-item-image" />
@@ -27,17 +28,13 @@ const CartDetails = ({ cartItems, onClose }) => {
           <span>${cartItems.reduce((sum, item) => sum + parseFloat(item.total.replace('$', '')), 0).toFixed(2)}</span>
         </div>
         <div className="summary-row">
-          <span>Sales Tax:</span>
-          <span>$102.00</span>
-        </div>
-        <div className="summary-row">
-          <span>Coupon Code:</span>
-          <button className="coupon-button">Add Coupon</button>
+          <span>Wallet Credit:</span>
+          <button className="coupon-button">$10.00 Credit applied!</button>
         </div>
         <div className="summary-row total">
           <span>Grand Total:</span>
           <span>
-            ${(cartItems.reduce((sum, item) => sum + parseFloat(item.total.replace('$', '')), 0) + 102).toFixed(2)}
+            ${(cartItems.reduce((sum, item) => sum + parseFloat(item.total.replace('$', '')), 0) - 10).toFixed(2)}
           </span>
         </div>
         <div className="shipping-info">
