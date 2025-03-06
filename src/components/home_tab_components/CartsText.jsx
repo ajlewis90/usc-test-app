@@ -3,7 +3,7 @@ import React from 'react';
 import './CartsText.css';
 
 const defaultProps = {
-  text: 'Carts',
+  text: 'Your Carts',
 };
 
 const CartsText = ({ text = defaultProps.text }) => {

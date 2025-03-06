@@ -8,6 +8,7 @@
   position: sticky;
   top: 0;
   z-index: 10;
+  line-height: 30px;
 }
 
 .companion-avatar {
@@ -18,8 +19,8 @@
 }
 
 .companion-title {
-  font-size: 18px;
-  font-family: "Quicksand", sans-serif;
+  font-size: 24px;
+  font-family: "Mulish", sans-serif;
   color: #12110a;
   flex-grow: 1;
 }
