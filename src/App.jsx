@@ -1,4 +1,3 @@
-// src/App.jsx
 import React, { useState } from 'react';
 import Text from './components/home_tab_components/Text';
 import SearchBar from './components/home_tab_components/SearchBar';
@@ -35,7 +34,7 @@ import CartThreeImage from './components/home_tab_components/CartThreeImage';
 import CartThreeBusinessName from './components/home_tab_components/CartThreeBusinessName';
 import CartThreeBusinessPrice from './components/home_tab_components/CartThreeBusinessPrice';
 import ViewBusinessThreeCartButton from './components/home_tab_components/ViewBusinessThreeCartButton';
-import CartDetails from './components/home_tab_components/CartDetails'; // Import the new component
+import CartDetails from './components/home_tab_components/CartDetails';
 import CompanionChatHeader from './components/companion_tab_components/CompanionChatHeader';
 import ChatMessage from './components/companion_tab_components/ChatMessage';
 import ChatInput from './components/companion_tab_components/ChatInput';
@@ -63,9 +62,10 @@ function App() {
   const [showProductDetailTwo, setShowProductDetailTwo] = useState(false);
   const [showCartDetails, setShowCartDetails] = useState(false);
   const [selectedCartItems, setSelectedCartItems] = useState([]);
+  const [selectedBusiness, setSelectedBusiness] = useState(''); // Track the selected business
   const [meTabTrigger, setMeTabTrigger] = useState(0);
 
-  // Simulated cart data for each business
+  // Simulated cart data for each business with business names
   const cartOneItems = [
     {
       name: 'Meat Pies',
@@ -102,13 +102,20 @@ function App() {
 
   const cartThreeItems = [
     {
-      name: 'Item from Business 3',
+      name: 'Notebooks',
       price: '$5.00',
-      quantity: 10,
-      total: '$50.00',
+      quantity: 5,
+      total: '$25.00',
       image: 'https://assets.api.uizard.io/api/cdn/stream/2024848d-d2e0-40f6-b809-fd21dd629edc.png',
     },
   ];
+
+  // Business names for each cart
+  const businessNames = {
+    cartOne: 'Baker N Cakes',
+    cartTwo: 'New Pharma', // Updated from "Dr Matt Pharmacy" to "New Pharma"
+    cartThree: 'The Warehouse', // Updated from "Stationery Hub" to "The Warehouse"
+  };
 
   const handleSendMessage = (newMessage) => {
     setMessages((prev) => [...prev, { isBot: false, text: newMessage, avatar: null }]);
@@ -201,14 +208,16 @@ function App() {
     setActiveFilter('All');
   };
 
-  const handleViewCart = (cartItems) => {
+  const handleViewCart = (cartItems, businessKey) => {
     setSelectedCartItems(cartItems);
+    setSelectedBusiness(businessNames[businessKey]); // Set the business name
     setShowCartDetails(true);
   };
 
   const handleCloseCartDetails = () => {
     setShowCartDetails(false);
     setSelectedCartItems([]);
+    setSelectedBusiness(''); // Reset the selected business
     setActiveTab('Carts');
   };
 
@@ -288,7 +297,7 @@ function App() {
                 <CartOneBusinessName />
                 <CartOneBusinessPrice />
               </div>
-              <ViewBusinessOneCartButton onClick={() => handleViewCart(cartOneItems)} />
+              <ViewBusinessOneCartButton onClick={() => handleViewCart(cartOneItems, 'cartOne')} />
             </div>
             <div className="cart-row-two">
               <CartTwoImage />
@@ -296,7 +305,7 @@ function App() {
                 <CartTwoBusinessName />
                 <CartTwoBusinessPrice />
               </div>
-              <ViewBusinessTwoCartButton onClick={() => handleViewCart(cartTwoItems)} />
+              <ViewBusinessTwoCartButton onClick={() => handleViewCart(cartTwoItems, 'cartTwo')} />
             </div>
             <div className="cart-row-three">
               <CartThreeImage />
@@ -304,7 +313,7 @@ function App() {
                 <CartThreeBusinessName />
                 <CartThreeBusinessPrice />
               </div>
-              <ViewBusinessThreeCartButton onClick={() => handleViewCart(cartThreeItems)} />
+              <ViewBusinessThreeCartButton onClick={() => handleViewCart(cartThreeItems, 'cartThree')} />
             </div>
           </div>
         </>
@@ -328,7 +337,11 @@ function App() {
         <ProductDetailTwo onClose={handleCloseProductDetailTwo} />
       )}
       {showCartDetails && (
-        <CartDetails cartItems={selectedCartItems} onClose={handleCloseCartDetails} />
+        <CartDetails
+          cartItems={selectedCartItems}
+          businessName={selectedBusiness}
+          onClose={handleCloseCartDetails}
+        />
       )}
     </div>
   );
