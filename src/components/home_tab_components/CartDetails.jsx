@@ -2,25 +2,25 @@ import React, { useState } from 'react';
 import './CartDetails.css';
 
 const CartDetails = ({ cartItems, businessName, onClose }) => {
-  // State to track if credit has been applied
+  // State to track if credit has been applied and the remaining wallet balance
   const [creditApplied, setCreditApplied] = useState({
     'Baker N Cakes': false,
     'New Pharma': false,
     'The Warehouse': false,
   });
+  const [walletBalance, setWalletBalance] = useState({
+    'Baker N Cakes': 20,
+    'New Pharma': 12,
+    'The Warehouse': 25,
+  });
 
-  // Determine the wallet balance text and credit amount based on the business
-  let walletBalanceText = '';
+  // Determine the credit amount based on the business
   let creditAmount = 0;
-
   if (businessName === 'The Warehouse') {
-    walletBalanceText = 'Wallet Balance ($25):';
     creditAmount = creditApplied[businessName] ? 25 : 0; // Apply $25 credit if button clicked
   } else if (businessName === 'New Pharma') {
-    walletBalanceText = 'Wallet Balance ($12):';
     creditAmount = creditApplied[businessName] ? 7 : 0; // Apply $7 credit if button clicked
   } else { // Default for Baker N Cakes
-    walletBalanceText = 'Wallet Balance ($20):';
     creditAmount = creditApplied[businessName] ? 10 : 0; // Apply $10 credit if button clicked
   }
 
@@ -29,11 +29,20 @@ const CartDetails = ({ cartItems, businessName, onClose }) => {
 
   // Handle Apply Credit button click
   const handleApplyCredit = () => {
-    setCreditApplied((prev) => ({
-      ...prev,
-      [businessName]: true,
-    }));
+    if (!creditApplied[businessName]) {
+      setCreditApplied((prev) => ({
+        ...prev,
+        [businessName]: true,
+      }));
+      setWalletBalance((prev) => ({
+        ...prev,
+        [businessName]: prev[businessName] - (businessName === 'The Warehouse' ? 25 : businessName === 'New Pharma' ? 7 : 10),
+      }));
+    }
   };
+
+  // Use the current wallet balance for the text
+  const walletBalanceText = `Wallet Balance ($${walletBalance[businessName]}):`;
 
   return (
     <div className="cart-details-container">
@@ -64,7 +73,7 @@ const CartDetails = ({ cartItems, businessName, onClose }) => {
           <button
             className="apply-credit-button"
             onClick={handleApplyCredit}
-            disabled={creditApplied[businessName]} // Disable button after credit is applied
+            disabled={creditApplied[businessName]}
           >
             {creditApplied[businessName] ? 'Credit Applied' : 'Apply Credit'}
           </button>

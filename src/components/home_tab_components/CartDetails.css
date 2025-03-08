@@ -103,18 +103,18 @@
 }
 
 .apply-credit-button {
-  padding: 8px 16px; /* Smaller padding than checkout-button for better fit */
-  background-color: #000; /* Matches checkout-button */
-  color: #fff; /* Matches checkout-button */
-  border: none; /* Matches checkout-button */
-  border-radius: 5px; /* Matches checkout-button */
-  font-family: "Quicksand", sans-serif; /* Matches checkout-button */
-  font-size: 16px; /* Matches checkout-button */
-  cursor: pointer; /* Matches checkout-button */
+  padding: 8px 16px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 22px; /* Updated to match View Cart button's border-radius */
+  font-family: "Quicksand", sans-serif;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 .apply-credit-button:disabled {
-  background-color: #666; /* Gray out when disabled */
+  background-color: #666;
   cursor: not-allowed;
 }
 
@@ -132,7 +132,7 @@
   background-color: #000;
   color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 22px; /* Updated to match View Cart button's border-radius */
   font-family: "Quicksand", sans-serif;
   font-size: 16px;
   cursor: pointer;
