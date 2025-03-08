@@ -1,24 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './CartDetails.css';
 
 const CartDetails = ({ cartItems, businessName, onClose }) => {
-  // Determine the credit amount and text based on the business
-  let walletCreditText = '';
+  // State to track if credit has been applied
+  const [creditApplied, setCreditApplied] = useState({
+    'Baker N Cakes': false,
+    'New Pharma': false,
+    'The Warehouse': false,
+  });
+
+  // Determine the wallet balance text and credit amount based on the business
+  let walletBalanceText = '';
   let creditAmount = 0;
 
   if (businessName === 'The Warehouse') {
-    walletCreditText = 'Please apply credit';
-    creditAmount = 0; // No credit applied
+    walletBalanceText = 'Wallet Balance ($25):';
+    creditAmount = creditApplied[businessName] ? 25 : 0; // Apply $25 credit if button clicked
   } else if (businessName === 'New Pharma') {
-    walletCreditText = '$7.00 Credit applied!';
-    creditAmount = 7; // $7.00 credit for New Pharma
+    walletBalanceText = 'Wallet Balance ($12):';
+    creditAmount = creditApplied[businessName] ? 7 : 0; // Apply $7 credit if button clicked
   } else { // Default for Baker N Cakes
-    walletCreditText = '$10.00 Credit applied!';
-    creditAmount = 10; // $10.00 credit for Baker N Cakes
+    walletBalanceText = 'Wallet Balance ($20):';
+    creditAmount = creditApplied[businessName] ? 10 : 0; // Apply $10 credit if button clicked
   }
 
   // Calculate subtotal
   const subtotal = cartItems.reduce((sum, item) => sum + parseFloat(item.total.replace('$', '')), 0).toFixed(2);
+
+  // Handle Apply Credit button click
+  const handleApplyCredit = () => {
+    setCreditApplied((prev) => ({
+      ...prev,
+      [businessName]: true,
+    }));
+  };
 
   return (
     <div className="cart-details-container">
@@ -44,14 +59,19 @@ const CartDetails = ({ cartItems, businessName, onClose }) => {
           <span>Subtotal:</span>
           <span>${subtotal}</span>
         </div>
-        <div className="summary-row">
-          <span>Wallet Credit:</span>
-          <button className="coupon-button">{walletCreditText}</button>
+        <div className="summary-row total">
+          <span>{walletBalanceText}</span>
+          <button
+            className="apply-credit-button"
+            onClick={handleApplyCredit}
+            disabled={creditApplied[businessName]} // Disable button after credit is applied
+          >
+            {creditApplied[businessName] ? 'Credit Applied' : 'Apply Credit'}
+          </button>
         </div>
         <div className="summary-row total">
           <span>Grand Total:</span>
           <span>${(parseFloat(subtotal) - creditAmount).toFixed(2)}</span>
-          {/* Grand Total = Subtotal - creditAmount */}
         </div>
         <div className="shipping-info">
           <span>Congrats, you're eligible for Free Shipping</span>

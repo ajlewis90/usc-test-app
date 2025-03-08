@@ -104,8 +104,8 @@ function App() {
     {
       name: 'Notebooks',
       price: '$5.00',
-      quantity: 5,
-      total: '$25.00',
+      quantity: 8, // Updated from 5 to 8
+      total: '$40.00', // Updated from $25.00 to $40.00 (5.00 * 8)
       image: 'https://assets.api.uizard.io/api/cdn/stream/2024848d-d2e0-40f6-b809-fd21dd629edc.png',
     },
   ];
@@ -113,8 +113,8 @@ function App() {
   // Business names for each cart
   const businessNames = {
     cartOne: 'Baker N Cakes',
-    cartTwo: 'New Pharma', // Updated from "Dr Matt Pharmacy" to "New Pharma"
-    cartThree: 'The Warehouse', // Updated from "Stationery Hub" to "The Warehouse"
+    cartTwo: 'New Pharma',
+    cartThree: 'The Warehouse',
   };
 
   const handleSendMessage = (newMessage) => {
