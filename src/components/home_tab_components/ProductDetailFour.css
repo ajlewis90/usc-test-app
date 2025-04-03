@@ -115,7 +115,7 @@
 
 .buy-individual,
 .join-group {
-  background-color: #4caf50;
+  background-color: #4B0082;
   color: white;
   border: none;
   border-radius: 8px;
@@ -129,7 +129,7 @@
 
 .buy-individual:hover,
 .join-group:hover {
-  background-color: #45a049;
+  background-color: #4B0010;
 }
 
 .group-info {

@@ -2,7 +2,7 @@
 .chat-input-container {
   padding: 20px;
   background-color: #fff;
-  border-top: 1px solid #e0e0e0;
+  border-top: 1px solid #4B0082;
   position: relative;
 }
 
@@ -32,7 +32,7 @@
 }
 
 .chat-input:focus {
-  border-color: #4caf50;
+  border-color: #4B0082;
 }
 
 .voice-input-button {
@@ -57,7 +57,7 @@
 .send-button {
   margin-left: 10px;
   padding: 10px 20px;
-  background-color: #4caf50;
+  background-color: #4B0082;
   color: white;
   border: none;
   border-radius: 20px;
@@ -69,7 +69,7 @@
 }
 
 .send-button:hover {
-  background-color: #45a049;
+  background-color: #4B0010;
 }
 
 .suggestions {

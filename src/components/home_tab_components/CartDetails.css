@@ -104,7 +104,7 @@
 
 .apply-credit-button {
   padding: 8px 16px;
-  background-color: #63a353;
+  background-color: #4B0082;
   color: #fff;
   border: none;
   border-radius: 22px; /* Updated to match View Cart button's border-radius */
@@ -129,7 +129,7 @@
 .checkout-button {
   width: 100%;
   padding: 15px;
-  background-color: #63a353;
+  background-color: #4B0082;
   color: #fff;
   border: none;
   border-radius: 22px; /* Updated to match View Cart button's border-radius */
