@@ -1,10 +1,11 @@
+// src/components/companion_tab_components/ChatMessage.jsx (Daxedax version)
 import React from 'react';
 import './ChatMessage.css';
 
 const ChatMessage = ({ isBot, text, avatar, products }) => {
   const handleViewItem = (productId) => {
     console.log(`Viewing item with ID: ${productId}`);
-    // Replace with navigation or modal logic if needed
+    // You can replace this with actual navigation or modal logic later, e.g., opening a product details page
   };
 
   return (
@@ -19,10 +20,10 @@ const ChatMessage = ({ isBot, text, avatar, products }) => {
             {products.map((product, index) => (
               <div 
                 key={product.id} 
-                className={`product-row ${index === 0 ? 'product-row-one' : index === 1 ? 'product-row-two' : 'product-row-three'}`}
+                className={`product-row ${index === 0 ? 'product-row-one' : index === 1 ? 'product-row-two' : index === 2 ? 'product-row-three' : 'product-row-four'}`}
               >
                 <img src={product.image} alt={product.name} className="product-image" />
-                <div className={`product-column ${index === 0 ? 'product-column-one' : index === 1 ? 'product-column-two' : 'product-column-three'}`}>
+                <div className={`product-column ${index === 0 ? 'product-column-one' : index === 1 ? 'product-column-two' : index === 2 ? 'product-column-three' : 'product-column-four'}`}>
                   <div className="product-name">{product.name}</div>
                   <div className="product-price">{product.price}</div>
                 </div>

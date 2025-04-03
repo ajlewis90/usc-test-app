@@ -1,3 +1,4 @@
+// src/components/companion_tab_components/ChatInput.jsx (Daxedax version)
 import React, { useState } from 'react';
 import './ChatInput.css';
 
@@ -6,6 +7,7 @@ const ChatInput = ({ onSend }) => {
   const [suggestions, setSuggestions] = useState([]);
   const [isFocused, setIsFocused] = useState(false);
 
+  // Dress-related suggestions (unchanged from original Daxedax content)
   const suggestionOptions = [
     'for casual wear...',
     'for a specific occasion...',
@@ -13,9 +15,9 @@ const ChatInput = ({ onSend }) => {
     'which is stylish and affordable...',
   ];
 
+  // Filter suggestions based on user input (matching non-Daxedax logic)
   const handleInputChange = (e) => {
     const value = e.target.value;
-    console.log('handleInputChange - New value:', value);
     setInput(value);
 
     if (value.toLowerCase().includes('dress') || value.toLowerCase().includes('beauty')) {
@@ -23,16 +25,13 @@ const ChatInput = ({ onSend }) => {
         suggestion.toLowerCase().includes(value.toLowerCase())
       );
       setSuggestions(filteredSuggestions.length > 0 ? filteredSuggestions : suggestionOptions);
-      console.log('handleInputChange - Suggestions updated:', filteredSuggestions.length > 0 ? filteredSuggestions : suggestionOptions);
     } else {
       setSuggestions([]);
-      console.log('handleInputChange - Suggestions cleared');
     }
   };
 
   const handleSend = () => {
     if (input.trim()) {
-      console.log('handleSend - Sending message:', input);
       onSend(input);
       setInput('');
       setSuggestions([]);
@@ -40,27 +39,17 @@ const ChatInput = ({ onSend }) => {
   };
 
   const handleVoiceInput = () => {
-    console.log('Voice input activated');
     // Placeholder for voice input functionality
   };
 
   const handleSuggestionClick = (suggestion) => {
-    console.log('handleSuggestionClick - Clicked suggestion:', suggestion);
-    console.log('handleSuggestionClick - Current input before update:', input);
-
-    const newInput = input ? `${input} ${suggestion}` : suggestion;
-    console.log('handleSuggestionClick - New input after append:', newInput);
-
-    setInput(newInput);
+    setInput(suggestion);
     setSuggestions([]);
-    console.log('handleSuggestionClick - Suggestions cleared');
-
-    document.querySelector('.chat-input').focus();
+    onSend(suggestion);
   };
 
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
-      console.log('handleKeyPress - Enter pressed');
       handleSend();
     }
   };
@@ -88,16 +77,8 @@ const ChatInput = ({ onSend }) => {
             value={input}
             onChange={handleInputChange}
             onKeyPress={handleKeyPress}
-            onFocus={() => {
-              console.log('Input focused');
-              setIsFocused(true);
-            }}
-            onBlur={() => {
-              setTimeout(() => {
-                console.log('Input blurred');
-                setIsFocused(false);
-              }, 200);
-            }}
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => setTimeout(() => setIsFocused(false), 200)}
             placeholder="Message companion"
             className="chat-input"
           />

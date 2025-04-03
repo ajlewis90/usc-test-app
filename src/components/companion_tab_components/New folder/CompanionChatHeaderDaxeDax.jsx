@@ -10,7 +10,7 @@ const CompanionChatHeader = () => {
         alt="Daxedax Avatar"
         className="companion-avatar"
       />
-      <h1 className="companion-title">Daxedax</h1>
+      <h1 className="companion-title">Chat with Daxedax</h1>
     </div>
   );
 };

@@ -21,7 +21,7 @@
 
 .chat-input {
   flex-grow: 1;
-  padding: 10px 40px 10px 15px;
+  padding: 10px 40px 10px 15px; /* Adjusted padding to make space for the voice button */
   border: 1px solid #ddd;
   border-radius: 20px;
   font-size: 14px;
@@ -74,7 +74,7 @@
 
 .suggestions {
   position: absolute;
-  bottom: 60px;
+  bottom: 60px; /* Position above the input */
   left: 0;
   right: 0;
   background-color: #fff;

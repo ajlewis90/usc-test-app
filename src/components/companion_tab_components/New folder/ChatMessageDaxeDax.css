@@ -1,8 +1,9 @@
+/* src/components/companion_tab_components/ChatMessage.css (Daxedax version) */
 .chat-message {
   display: flex;
   align-items: flex-start;
   margin: 10px 0;
-  max-width: 90%; /* Increased from 70% to match non-Daxedax */
+  max-width: 90%;
 }
 
 .chat-message.bot {
@@ -56,7 +57,8 @@
 .product-row,
 .product-row-one,
 .product-row-two,
-.product-row-three {
+.product-row-three,
+.product-row-four {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -71,7 +73,8 @@
 
 .product-row-one:last-child,
 .product-row-two:last-child,
-.product-row-three:last-child {
+.product-row-three:last-child,
+.product-row-four:last-child {
   margin-bottom: 0;
 }
 
@@ -86,7 +89,8 @@
 .product-column,
 .product-column-one,
 .product-column-two,
-.product-column-three {
+.product-column-three,
+.product-column-four {
   flex-grow: 1;
   display: flex;
   flex-direction: column;

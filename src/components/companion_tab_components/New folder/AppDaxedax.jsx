@@ -132,7 +132,7 @@ function App() {
             isBot: true, 
             text: "I found some options for you. You can tap the link to see more details.", 
             avatar: 'https://assets.api.uizard.io/api/cdn/stream/57326620-2a53-4912-9b70-e6a4f364b204.png', 
-            products
+            products 
           },
         ]);
       }, 1000);
