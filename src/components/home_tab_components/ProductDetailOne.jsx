@@ -13,7 +13,7 @@ const ProductDetailOne = ({ onClose }) => {
         </div>
         <div className="product-detail-content">
           <img
-            src="https://assets.api.uizard.io/api/cdn/stream/fbe819f5-01ef-4c42-b37c-0ebcb7c3fda5.png" // Same image as BeautyProductImageOne
+            src="https://assets.api.uizard.io/api/cdn/stream/fbe819f5-01ef-4c42-b37c-0ebcb7c3fda5.png"
             alt="La Mer The Moisturizing Soft Cream"
             className="product-image"
           />
@@ -21,28 +21,31 @@ const ProductDetailOne = ({ onClose }) => {
           <p className="product-description">
             Luxurious, lightweight cream delivers the same radiance and renewal that made the original Crème de la Mer a legend. It infuses skin with the healing energies of Miracle Broth, the heart of La Mer’s profound powers of transformation.
           </p>
-          <div className="size-options">
-            <div className="size-option">15ml - $100</div>
-            <div className="size-option">30ml - $200</div>
-            <div className="size-option">45ml - $300</div>
-            <div className="size-option">60ml - $400</div>
-            <div className="size-option">75ml - $500</div>
+          <div className="color-options">
+            <div className="color-option">15ml - $100</div>
+            <div className="color-option">30ml - $200</div>
+            <div className="color-option">45ml - $300</div>
+            <div className="color-option">60ml - $400</div>
+            <div className="color-option">75ml - $500</div>
           </div>
-
           <div className="price-section">
-            <div className="price-label">Group price</div>
-            <div className="price-value">$80</div>
           </div>
           <div className="group-info">
+            <div className="price-section">
+              <div className="price-label">Group price:</div>
+              <div className="price-value">$80</div>
+            </div>
             <div className="group-timer">2 days left</div>
             <div className="group-condition">4 want this, 1 more person needed to complete the group</div>
             <button className="join-group">Join Group</button>
           </div>
-          <div className="price-section">
-            <div className="price-label">Individual price</div>
-            <div className="price-value">$100</div>
-            <button className="buy-individual">Buy individual</button>
-          </div>          
+          <div className="group-info">
+            <div className="price-section">
+              <div className="price-label">Individual price:</div>
+              <div className="price-value">$100</div>
+              <button className="buy-individual">Buy individual</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

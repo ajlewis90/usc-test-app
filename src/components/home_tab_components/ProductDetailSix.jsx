@@ -21,25 +21,29 @@ const ProductDetailSix = ({ onClose }) => {
           <p className="product-description">
             The Ralph Lauren Men's Polo Shirt combines classic style with modern comfort, perfect for casual and semi-formal occasions.
           </p>
-          <div className="size-options">
-            <div className="size-option">Black</div>
-            <div className="size-option">White</div>
-            <div className="size-option">Blue</div>
+          <div className="color-options">
+            <div className="color-option">Black</div>
+            <div className="color-option">White</div>
+            <div className="color-option">Blue</div>
           </div>
           <div className="price-section">
-            <div className="price-label">Group price</div>
-            <div className="price-value">$50.00</div>
           </div>
           <div className="group-info">
+            <div className="price-section">
+              <div className="price-label">Group price:</div>
+              <div className="price-value">$50.00</div>
+            </div>
             <div className="group-timer">2 days left</div>
             <div className="group-condition">5 people want this, 5 more needed to complete the group</div>
             <button className="join-group">Join Group</button>
           </div>
-          <div className="price-section">
-            <div className="price-label">Individual price</div>
-            <div className="price-value">$50.00</div>
-            <button className="buy-individual">Buy individual</button>
-          </div>          
+          <div className="group-info">
+            <div className="price-section">
+              <div className="price-label">Individual price:</div>
+              <div className="price-value">$50.00</div>
+              <button className="buy-individual">Buy individual</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -21,27 +21,31 @@ const ProductDetailThree = ({ onClose }) => {
           <p className="product-description">
             The Lego Star Wars Millennium Falcon is a must-have for any Star Wars fan. This iconic starship features stunning detail and is perfect for both play and display.
           </p>
-          <div className="size-options">
-            <div className="size-option">200 pieces - $50</div>
-            <div className="size-option">400 pieces - $100</div>
-            <div className="size-option">600 pieces - $150</div>
-            <div className="size-option">800 pieces - $200</div>
-            <div className="size-option">1000 pieces - $250</div>
+          <div className="color-options">
+            <div className="color-option">200 pieces - $50</div>
+            <div className="color-option">400 pieces - $100</div>
+            <div className="color-option">600 pieces - $150</div>
+            <div className="color-option">800 pieces - $200</div>
+            <div className="color-option">1000 pieces - $250</div>
           </div>
           <div className="price-section">
-            <div className="price-label">Group price</div>
-            <div className="price-value">$40</div>
           </div>
           <div className="group-info">
+            <div className="price-section">
+              <div className="price-label">Group price:</div>
+              <div className="price-value">$40</div>
+            </div>
             <div className="group-timer">2 days left</div>
             <div className="group-condition">4 want this, 1 more person needed to complete the group</div>
             <button className="join-group">Join Group</button>
           </div>
-          <div className="price-section">
-            <div className="price-label">Individual price</div>
-            <div className="price-value">$50</div>
-            <button className="buy-individual">Buy individual</button>
-          </div>          
+          <div className="group-info">
+            <div className="price-section">
+              <div className="price-label">Individual price:</div>
+              <div className="price-value">$50</div>
+              <button className="buy-individual">Buy individual</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

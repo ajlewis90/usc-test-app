@@ -21,26 +21,30 @@ const ProductDetailSeven = ({ onClose }) => {
           <p className="product-description">
             The Nike Air Force 1 '07 Sneaker in White/White offers timeless style and comfort with its iconic design and cushioned sole, perfect for everyday wear.
           </p>
-          <div className="size-options">
-            <div className="size-option">US 6</div>
-            <div className="size-option">US 7</div>
-            <div className="size-option">US 8</div>
-            <div className="size-option">US 9</div>
-            <div className="size-option">US 10</div>
+          <div className="color-options">
+            <div className="color-option">US 6</div>
+            <div className="color-option">US 7</div>
+            <div className="color-option">US 8</div>
+            <div className="color-option">US 9</div>
+            <div className="color-option">US 10</div>
           </div>
           <div className="price-section">
-            <div className="price-label">Individual price</div>
-            <div className="price-value">$100</div>
-            <button className="buy-individual">Buy Now</button>
-          </div>
-          <div className="price-section">
-            <div className="price-label">Group price</div>
-            <div className="price-value">$80</div>
           </div>
           <div className="group-info">
+            <div className="price-section">
+              <div className="price-label">Group price:</div>
+              <div className="price-value">$80</div>
+            </div>
             <div className="group-timer">48 hours 00 minutes 00 seconds</div>
             <div className="group-condition">4 people want this, 1 more person needed</div>
             <button className="join-group">Join Group</button>
+          </div>
+          <div className="group-info">
+            <div className="price-section">
+              <div className="price-label">Individual price:</div>
+              <div className="price-value">$100</div>
+              <button className="buy-individual">Buy Now</button>
+            </div>
           </div>
         </div>
       </div>

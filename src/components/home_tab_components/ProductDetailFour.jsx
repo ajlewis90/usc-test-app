@@ -21,27 +21,31 @@ const ProductDetailFour = ({ onClose }) => {
           <p className="product-description">
             The Fisher-Price Laugh & Learn Smart Stages Chair is a fun and educational toy for toddlers, featuring interactive songs, phrases, and activities that grow with your child.
           </p>
-          <div className="size-options">
-            <div className="size-option">Yellow - $40</div>
-            <div className="size-option">Blue - $40</div>
-            <div className="size-option">Pink - $40</div>
-            <div className="size-option">Green - $40</div>
-            <div className="size-option">Red - $40</div>
+          <div className="color-options">
+            <div className="color-option">Yellow - $40</div>
+            <div className="color-option">Blue - $40</div>
+            <div className="color-option">Pink - $40</div>
+            <div className="color-option">Green - $40</div>
+            <div className="color-option">Red - $40</div>
           </div>
           <div className="price-section">
-            <div className="price-label">Group price</div>
-            <div className="price-value">$950</div>
           </div>
           <div className="group-info">
+            <div className="price-section">
+              <div className="price-label">Group price:</div>
+              <div className="price-value">$950</div>
+            </div>
             <div className="group-timer">2 days left</div>
             <div className="group-condition">5 want this, 5 more needed to complete the group</div>
             <button className="join-group">Join Group</button>
           </div>
-          <div className="price-section">
-            <div className="price-label">Individual price</div>
-            <div className="price-value">$1000</div>
-            <button className="buy-individual">Buy individual</button>
-          </div>          
+          <div className="group-info">
+            <div className="price-section">
+              <div className="price-label">Individual price:</div>
+              <div className="price-value">$1000</div>
+              <button className="buy-individual">Buy individual</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -21,25 +21,29 @@ const ProductDetailFive = ({ onClose }) => {
           <p className="product-description">
             The Levi's 501 Original Fit Jeans are a timeless classic, offering a comfortable fit and iconic style for everyday wear.
           </p>
-          <div className="size-options">
-            <div className="size-option">S</div>
-            <div className="size-option">M</div>
-            <div className="size-option">L</div>
+          <div className="color-options">
+            <div className="color-option">S</div>
+            <div className="color-option">M</div>
+            <div className="color-option">L</div>
           </div>
           <div className="price-section">
-            <div className="price-label">Group price</div>
-            <div className="price-value">$70.00</div>
           </div>
           <div className="group-info">
+            <div className="price-section">
+              <div className="price-label">Group price:</div>
+              <div className="price-value">$70.00</div>
+            </div>
             <div className="group-timer">2 days left</div>
             <div className="group-condition">2 people want this, 3 more needed to complete the group</div>
             <button className="join-group">Join Group</button>
           </div>
-          <div className="price-section">
-            <div className="price-label">Individual price</div>
-            <div className="price-value">$70.00</div>
-            <button className="buy-individual">Buy individual</button>
-          </div>          
+          <div className="group-info">
+            <div className="price-section">
+              <div className="price-label">Individual price:</div>
+              <div className="price-value">$70.00</div>
+              <button className="buy-individual">Buy individual</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
