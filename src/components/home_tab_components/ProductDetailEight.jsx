@@ -28,11 +28,6 @@ const ProductDetailEight = ({ onClose }) => {
             <div className="size-option">Red - $40</div>
           </div>
           <div className="price-section">
-            <div className="price-label">Individual price</div>
-            <div className="price-value">$1100</div>
-            <button className="buy-individual">Buy individual</button>
-          </div>
-          <div className="price-section">
             <div className="price-label">Group price</div>
             <div className="price-value">$1050</div>
           </div>
@@ -41,6 +36,11 @@ const ProductDetailEight = ({ onClose }) => {
             <div className="group-condition">4 want this, 6 more needed to complete the group</div>
             <button className="join-group">Join Group</button>
           </div>
+          <div className="price-section">
+            <div className="price-label">Individual price</div>
+            <div className="price-value">$1100</div>
+            <button className="buy-individual">Buy individual</button>
+          </div>          
         </div>
       </div>
     </div>
