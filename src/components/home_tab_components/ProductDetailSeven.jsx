@@ -28,21 +28,19 @@ const ProductDetailSeven = ({ onClose }) => {
             <div className="color-option">US 9</div>
             <div className="color-option">US 10</div>
           </div>
-          <div className="price-section">
-          </div>
           <div className="group-info">
             <div className="price-section">
               <div className="price-label">Group price:</div>
-              <div className="price-value">$80</div>
+              <div className="price-value">$300.00</div>
+              <button className="join-group">Join Group</button>
             </div>
-            <div className="group-timer">48 hours 00 minutes 00 seconds</div>
-            <div className="group-condition">4 people want this, 1 more person needed</div>
-            <button className="join-group">Join Group</button>
+            <div className="group-timer">2 days left</div>
+            <div className="group-condition">4 people want this, 1 more needed to complete the group</div>
           </div>
           <div className="group-info">
             <div className="price-section">
               <div className="price-label">Individual price:</div>
-              <div className="price-value">$100</div>
+              <div className="price-value">$335.00</div>
               <button className="buy-individual">Buy Now</button>
             </div>
           </div>

@@ -4,7 +4,7 @@ import './ShoesProductTwoIndividualPriceText.css';
 
 
 const defaultProps = {
-  text: '$1100.00',
+  text: '$150.00',
 };
 
 const ShoesProductTwoIndividualPriceText = ({ text = defaultProps.text }) => {

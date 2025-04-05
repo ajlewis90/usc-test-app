@@ -70,14 +70,14 @@
   margin-bottom: 20px;
 }
 
-.size-options {
+.color-options {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 20px;
 }
 
-.size-option {
+.color-option {
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -88,7 +88,7 @@
   cursor: pointer;
 }
 
-.size-option:hover {
+.color-option:hover {
   background-color: #f0f0f0;
 }
 
@@ -144,7 +144,7 @@
 .group-timer,
 .group-condition {
   font-size: 14px;
-  font-family: "Mulish", sans-serif;
+  font-family: "Quicksand", sans-serif;
   color: #333;
   margin-bottom: 10px;
 }

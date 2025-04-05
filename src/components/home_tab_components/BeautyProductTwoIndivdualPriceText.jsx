@@ -3,7 +3,7 @@ import React from 'react';
 import './BeautyProductTwoIndivdualPriceText.css';
 
 const defaultProps = {
-  text: '$ 1,100.00',
+  text: '$ 1100.00',
 };
 
 const BeautyProductTwoIndivdualPriceText = ({ text = defaultProps.text }) => {
