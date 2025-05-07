@@ -1,0 +1,25 @@
+/* src/components/ShareButton.css */
+.share-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 24px; /* Match the previous icon size */
+  height: 24px;
+}
+
+.share-icon {
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: grayscale(50%) brightness(0.8); /* Default grayish tone to match X's style */
+  transition: filter 0.2s ease; /* Smooth hover transition */
+}
+
+.share-button:hover .share-icon {
+  filter: grayscale(0%) brightness(1.2); /* On hover, full color with slight brightness boost */
+}

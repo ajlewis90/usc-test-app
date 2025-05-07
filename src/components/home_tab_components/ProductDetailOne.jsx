@@ -1,21 +1,11 @@
 // src/components/home_tab_components/ProductDetailOne.jsx
 import React from 'react';
+import ShareButton from '../ShareButton'; // Import the new ShareButton component
 import './ProductDetailOne.css';
 
 const ProductDetailOne = ({ onClose }) => {
-  const handleShare = () => {
-    const shareText = "Check out La Mer The Moisturizing Soft Cream! Luxurious, lightweight cream with healing energies of Miracle Broth.";
-    const shareUrl = window.location.href;
-    if (navigator.share) {
-      navigator.share({
-        title: 'La Mer The Moisturizing Soft Cream',
-        text: shareText,
-        url: shareUrl,
-      }).catch((error) => console.log('Error sharing:', error));
-    } else {
-      alert('Share functionality is not supported on this device. You can copy the URL: ' + shareUrl);
-    }
-  };
+  const shareText = "Check out La Mer The Moisturizing Soft Cream! Luxurious, lightweight cream with healing energies of Miracle Broth.";
+  const shareTitle = "La Mer The Moisturizing Soft Cream";
 
   return (
     <div className="product-detail-overlay">
@@ -24,9 +14,7 @@ const ProductDetailOne = ({ onClose }) => {
           <button className="back-button" onClick={onClose}>
             ←
           </button>
-          <button className="share-button" onClick={handleShare}>
-            <span className="share-icon">↑</span>
-          </button>
+          <ShareButton shareText={shareText} shareTitle={shareTitle} />
         </div>
         <div className="product-detail-content">
           <img
