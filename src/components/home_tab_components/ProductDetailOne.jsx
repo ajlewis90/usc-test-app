@@ -3,12 +3,29 @@ import React from 'react';
 import './ProductDetailOne.css';
 
 const ProductDetailOne = ({ onClose }) => {
+  const handleShare = () => {
+    const shareText = "Check out La Mer The Moisturizing Soft Cream! Luxurious, lightweight cream with healing energies of Miracle Broth.";
+    const shareUrl = window.location.href;
+    if (navigator.share) {
+      navigator.share({
+        title: 'La Mer The Moisturizing Soft Cream',
+        text: shareText,
+        url: shareUrl,
+      }).catch((error) => console.log('Error sharing:', error));
+    } else {
+      alert('Share functionality is not supported on this device. You can copy the URL: ' + shareUrl);
+    }
+  };
+
   return (
     <div className="product-detail-overlay">
       <div className="product-detail-container">
         <div className="product-detail-header">
           <button className="back-button" onClick={onClose}>
             ←
+          </button>
+          <button className="share-button" onClick={handleShare}>
+            <span className="share-icon">↑</span>
           </button>
         </div>
         <div className="product-detail-content">

@@ -30,6 +30,9 @@
   background-color: #fff;
   padding: 10px 20px;
   border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .back-button {
@@ -39,6 +42,46 @@
   cursor: pointer;
   color: #000;
   outline: none;
+}
+
+.share-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-left: auto; /* Pushes the share button to the right within the header */
+  margin-right: 15%; /* Adds a small gap from the far right edge */
+}
+
+.share-icon {
+  font-size: 18px;
+  color: #000;
+  display: inline-block;
+  position: relative;
+  top: -2px;
+}
+
+.share-icon::before {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 2px;
+  background: #000;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.share-button:hover .share-icon {
+  color: #555;
+}
+
+.share-button:hover .share-icon::before {
+  background: #555;
 }
 
 .product-detail-content {
