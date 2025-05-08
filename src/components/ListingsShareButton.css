@@ -1,4 +1,4 @@
-/* src/components/ShareButton.css */
+/* src/components/ListingsShareButton.css */
 .share-button {
   background: none;
   border: none;
@@ -121,11 +121,11 @@
 }
 
 .social-button.x {
-  background-color: #000000; /* X's black color */
+  background-color: #000000;
 }
 
 .social-button.x:hover {
-  background-color: #333333; /* Darker shade for hover */
+  background-color: #333333;
 }
 
 .social-button.facebook {
@@ -153,9 +153,9 @@
 }
 
 .social-button.instagram {
-  background-color: #e1306c; /* Instagram's pink color */
+  background-color: #e1306c;
 }
 
 .social-button.instagram:hover {
-  background-color: #b22d5e; /* Darker shade for hover */
+  background-color: #b22d5e;
 }
