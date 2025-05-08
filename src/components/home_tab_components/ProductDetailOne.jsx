@@ -1,11 +1,12 @@
 // src/components/home_tab_components/ProductDetailOne.jsx
 import React from 'react';
-import ShareButton from '../ShareButton'; // Import the new ShareButton component
+import ShareButton from '../ShareButton';
 import './ProductDetailOne.css';
 
 const ProductDetailOne = ({ onClose }) => {
   const shareText = "Check out La Mer The Moisturizing Soft Cream! Luxurious, lightweight cream with healing energies of Miracle Broth.";
   const shareTitle = "La Mer The Moisturizing Soft Cream";
+  const productImage = "https://assets.api.uizard.io/api/cdn/stream/fbe819f5-01ef-4c42-b37c-0ebcb7c3fda5.png";
 
   return (
     <div className="product-detail-overlay">
@@ -14,11 +15,15 @@ const ProductDetailOne = ({ onClose }) => {
           <button className="back-button" onClick={onClose}>
             ←
           </button>
-          <ShareButton shareText={shareText} shareTitle={shareTitle} />
+          <ShareButton
+            shareText={shareText}
+            shareTitle={shareTitle}
+            productImage={productImage}
+          />
         </div>
         <div className="product-detail-content">
           <img
-            src="https://assets.api.uizard.io/api/cdn/stream/fbe819f5-01ef-4c42-b37c-0ebcb7c3fda5.png"
+            src={productImage}
             alt="La Mer The Moisturizing Soft Cream"
             className="product-image"
           />

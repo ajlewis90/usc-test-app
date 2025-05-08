@@ -1,7 +1,13 @@
+// src/components/home_tab_components/ProductDetailFour.jsx
 import React from 'react';
+import ShareButton from '../ShareButton';
 import './ProductDetailFour.css';
 
 const ProductDetailFour = ({ onClose }) => {
+  const shareText = "Check out the Fisher-Price Laugh & Learn Smart Stages Chair! A fun and educational toy for toddlers.";
+  const shareTitle = "Fisher-Price Laugh & Learn Smart Stages Chair";
+  const productImage = "https://assets.api.uizard.io/api/cdn/stream/510cfb6b-37eb-4d34-b364-a3f46741363e.png";
+
   return (
     <div className="product-detail-overlay">
       <div className="product-detail-container">
@@ -9,10 +15,15 @@ const ProductDetailFour = ({ onClose }) => {
           <button className="back-button" onClick={onClose}>
             ←
           </button>
+          <ShareButton
+            shareText={shareText}
+            shareTitle={shareTitle}
+            productImage={productImage}
+          />
         </div>
         <div className="product-detail-content">
           <img
-            src="https://assets.api.uizard.io/api/cdn/stream/510cfb6b-37eb-4d34-b364-a3f46741363e.png"
+            src={productImage}
             alt="Fisher-Price Laugh & Learn Smart Stages Chair"
             className="product-image"
           />

@@ -1,7 +1,13 @@
+// src/components/home_tab_components/ProductDetailFive.jsx
 import React from 'react';
+import ShareButton from '../ShareButton';
 import './ProductDetailFive.css';
 
 const ProductDetailFive = ({ onClose }) => {
+  const shareText = "Check out Levi's 501 Original Fit Jeans! A timeless classic with a comfortable fit and iconic style.";
+  const shareTitle = "Levi's 501 Original Fit Jeans";
+  const productImage = "https://assets.api.uizard.io/api/cdn/stream/d59d7261-5ecd-4484-9551-44dc1d93fe45.png";
+
   return (
     <div className="product-detail-overlay">
       <div className="product-detail-container">
@@ -9,10 +15,15 @@ const ProductDetailFive = ({ onClose }) => {
           <button className="back-button" onClick={onClose}>
             ←
           </button>
+          <ShareButton
+            shareText={shareText}
+            shareTitle={shareTitle}
+            productImage={productImage}
+          />
         </div>
         <div className="product-detail-content">
           <img
-            src="https://assets.api.uizard.io/api/cdn/stream/d59d7261-5ecd-4484-9551-44dc1d93fe45.png"
+            src={productImage}
             alt="Levi's 501 Original Fit Jeans"
             className="product-image"
           />

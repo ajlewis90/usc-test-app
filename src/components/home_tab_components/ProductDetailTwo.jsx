@@ -1,8 +1,13 @@
 // src/components/home_tab_components/ProductDetailTwo.jsx
 import React from 'react';
+import ShareButton from '../ShareButton';
 import './ProductDetailTwo.css';
 
 const ProductDetailTwo = ({ onClose }) => {
+  const shareText = "Check out Dior Dway Slide Sandal in Embroidered Cotton! Elegant slide sandal featuring embroidered cotton.";
+  const shareTitle = "Dior Dway Slide Sandal in Embroidered Cotton";
+  const productImage = "https://assets.api.uizard.io/api/cdn/stream/6e6aee90-d251-49d2-b465-498a99659f3a.png";
+
   return (
     <div className="product-detail-overlay">
       <div className="product-detail-container">
@@ -10,10 +15,15 @@ const ProductDetailTwo = ({ onClose }) => {
           <button className="back-button" onClick={onClose}>
             ←
           </button>
+          <ShareButton
+            shareText={shareText}
+            shareTitle={shareTitle}
+            productImage={productImage}
+          />
         </div>
         <div className="product-detail-content">
           <img
-            src="https://assets.api.uizard.io/api/cdn/stream/6e6aee90-d251-49d2-b465-498a99659f3a.png"
+            src={productImage}
             alt="Dior Dway Slide Sandal in Embroidered Cotton"
             className="product-image"
           />

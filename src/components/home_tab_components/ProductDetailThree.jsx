@@ -1,8 +1,13 @@
 // src/components/home_tab_components/ProductDetailThree.jsx
 import React from 'react';
+import ShareButton from '../ShareButton';
 import './ProductDetailThree.css';
 
 const ProductDetailThree = ({ onClose }) => {
+  const shareText = "Check out the Lego Star Wars Millennium Falcon! Iconic starship with stunning detail for play and display.";
+  const shareTitle = "Lego Star Wars Millennium Falcon";
+  const productImage = "https://assets.api.uizard.io/api/cdn/stream/545b2668-558f-420c-9fc6-c2b4ccdf0ed2.png";
+
   return (
     <div className="product-detail-overlay">
       <div className="product-detail-container">
@@ -10,10 +15,15 @@ const ProductDetailThree = ({ onClose }) => {
           <button className="back-button" onClick={onClose}>
             ←
           </button>
+          <ShareButton
+            shareText={shareText}
+            shareTitle={shareTitle}
+            productImage={productImage}
+          />
         </div>
         <div className="product-detail-content">
           <img
-            src="https://assets.api.uizard.io/api/cdn/stream/545b2668-558f-420c-9fc6-c2b4ccdf0ed2.png"
+            src={productImage}
             alt="Lego Star Wars Millennium Falcon"
             className="product-image"
           />

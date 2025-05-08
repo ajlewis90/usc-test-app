@@ -1,8 +1,13 @@
-// src/components/home_tab_components/ProductDetailSeven.jsx
+// src/components/home_tab_components/ProductDetailEight.jsx
 import React from 'react';
+import ShareButton from '../ShareButton';
 import './ProductDetailEight.css';
 
 const ProductDetailEight = ({ onClose }) => {
+  const shareText = "Check out the Adidas Ultraboost 5.0 Sneaker! Unparalleled comfort and performance with a responsive Boost midsole.";
+  const shareTitle = "Adidas Ultraboost 5.0 Sneaker";
+  const productImage = "https://assets.api.uizard.io/api/cdn/stream/027eb941-5abd-4ad4-8438-8237473aaa99.png";
+
   return (
     <div className="product-detail-overlay">
       <div className="product-detail-container">
@@ -10,10 +15,15 @@ const ProductDetailEight = ({ onClose }) => {
           <button className="back-button" onClick={onClose}>
             ←
           </button>
+          <ShareButton
+            shareText={shareText}
+            shareTitle={shareTitle}
+            productImage={productImage}
+          />
         </div>
         <div className="product-detail-content">
           <img
-            src="https://assets.api.uizard.io/api/cdn/stream/027eb941-5abd-4ad4-8438-8237473aaa99.png"
+            src={productImage}
             alt="Adidas Ultraboost 5.0 Sneaker"
             className="product-image"
           />

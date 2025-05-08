@@ -1,7 +1,13 @@
+// src/components/home_tab_components/ProductDetailSix.jsx
 import React from 'react';
+import ShareButton from '../ShareButton';
 import './ProductDetailSix.css';
 
 const ProductDetailSix = ({ onClose }) => {
+  const shareText = "Check out the Ralph Lauren Men's Polo Shirt! Classic style with modern comfort for any occasion.";
+  const shareTitle = "Ralph Lauren Men's Polo Shirt";
+  const productImage = "https://assets.api.uizard.io/api/cdn/stream/2f3b0fff-5715-4d07-8c8a-a6ad268192a1.png";
+
   return (
     <div className="product-detail-overlay">
       <div className="product-detail-container">
@@ -9,10 +15,15 @@ const ProductDetailSix = ({ onClose }) => {
           <button className="back-button" onClick={onClose}>
             ←
           </button>
+          <ShareButton
+            shareText={shareText}
+            shareTitle={shareTitle}
+            productImage={productImage}
+          />
         </div>
         <div className="product-detail-content">
           <img
-            src="https://assets.api.uizard.io/api/cdn/stream/2f3b0fff-5715-4d07-8c8a-a6ad268192a1.png"
+            src={productImage}
             alt="Ralph Lauren Men's Polo Shirt"
             className="product-image"
           />
