@@ -52,7 +52,8 @@ import CartsTabText from './components/CartsTabText';
 import './App.css';
 
 function App() {
-  const [activeTab, setActiveTab] = useState('Home');
+  const [activeTab, setActiveTab] = useState('Companion');
+  //const [activeTab, setActiveTab] = useState('Home');
   const [activeCategory, setActiveCategory] = useState('Beauty');
   const [activeFilter, setActiveFilter] = useState('All');
   const [messages, setMessages] = useState([
@@ -147,8 +148,8 @@ function App() {
   ];
 
   const mainTabs = [
-    { name: 'Home', icon: <HomeIcon />, text: <HomeTabText /> },
     { name: 'Companion', icon: <CompanionIcon />, text: <CompanionTabText /> },
+    { name: 'Home', icon: <HomeIcon />, text: <HomeTabText /> },
     { name: 'Me', icon: <MeIcon />, text: <MeTabText /> },
     { name: 'Carts', icon: <CartsIcon />, text: <CartsTabText /> },
   ];
