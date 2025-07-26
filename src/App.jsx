@@ -102,13 +102,13 @@ const productsByCategory = {
     { name: 'Silk Camisole Tank', price: '$39.99', image: 'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300', id: 29 },
   ],
   'suit-men': [
-    { name: 'Executive Navy Suit', price: '$399.99', image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600', id: 30 },
-    { name: 'Classic Black Suit', price: '$449.99', image: 'https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600', id: 31 },
-    { name: 'Charcoal Business Suit', price: '$379.99', image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600', id: 32 },
+    { name: 'Executive Navy Suit', price: '$399.99', image: '/src/assets/business-suits/man-suit-1.png', id: 30 },
+    { name: 'Classic Black Suit', price: '$449.99', image: '/src/assets/business-suits/man-suit-2.png', id: 31 },
+    { name: 'Charcoal Business Suit', price: '$379.99', image: '/src/assets/business-suits/man-suit-3.png', id: 32 },
   ],
   'suit-women': [
-    { name: 'Professional Blazer Set', price: '$299.99', image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600', id: 33 },
-    { name: 'Executive Pantsuit', price: '$349.99', image: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600', id: 34 },
+    { name: 'Professional Blazer Set', price: '$299.99', image: '/src/assets/business-suits/woman-suit-1.png', id: 33 },
+    { name: 'Executive Pantsuit', price: '$349.99', image: '/src/assets/business-suits/woman-suit-2.png', id: 34 },
   ],
 };
 
@@ -166,6 +166,35 @@ function App() {
   // Virtual try-on state
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [showTryOnModal, setShowTryOnModal] = useState(false);
+
+  // Cart state
+  const [cartItems, setCartItems] = useState([]);
+
+  // Enhanced chat response for follow-up questions
+  const handleFollowUpResponse = (message) => {
+    const lowerMessage = message.toLowerCase();
+    
+    if (lowerMessage.includes('more business suit') || lowerMessage.includes('more suit')) {
+      return "I'd be happy to show you more business suits! Would you like to see men's or women's business suits this time?";
+    }
+    if (lowerMessage.includes('shirt') || lowerMessage.includes('blouse')) {
+      return "Great choice! Let me show you some stylish shirts and blouses.";
+    }
+    if (lowerMessage.includes('jean') || lowerMessage.includes('trouser') || lowerMessage.includes('pants')) {
+      return "Perfect! Here are some great jeans and trousers for you.";
+    }
+    if (lowerMessage.includes('coat') || lowerMessage.includes('jacket')) {
+      return "Excellent! I'll show you some beautiful coats and jackets.";
+    }
+    if (lowerMessage.includes('dress')) {
+      return "Wonderful! Here are some stunning dresses for you.";
+    }
+    if (lowerMessage.includes('done') || lowerMessage.includes('nothing') || lowerMessage.includes('no thanks')) {
+      return "Perfect! Your items are safely in your cart. You can view your cart anytime by tapping the 'Carts' tab below. Thank you for shopping with Daxedax!";
+    }
+    
+    return "I can help you find anything you're looking for! Try asking for dresses, shirts, jeans, coats, or business suits. What interests you?";
+  };
 
   // Simulated cart data for each business with business names
   const cartOneItems = [
@@ -255,16 +284,32 @@ function App() {
         ]);
       }, 1000);
     } else {
-      // Generic bot response for non-clothing queries
+      // Check if this is a follow-up response to cart addition
+      const followUpResponse = handleFollowUpResponse(newMessage);
+      const followUpCategory = detectClothingCategory(followUpResponse);
+      
       setTimeout(() => {
-        setMessages((prev) => [
-          ...prev,
-          {
-            isBot: true,
-            text: "I can help you find clothing items like dresses, shirts, jeans, or coats. What are you looking for?",
-            avatar: 'https://assets.api.uizard.io/api/cdn/stream/57326620-2a53-4912-9b70-e6a4f364b204.png',
-          },
-        ]);
+        if (followUpCategory) {
+          const products = productsByCategory[followUpCategory] || [];
+          setMessages((prev) => [
+            ...prev,
+            {
+              isBot: true,
+              text: followUpResponse,
+              avatar: 'https://assets.api.uizard.io/api/cdn/stream/57326620-2a53-4912-9b70-e6a4f364b204.png',
+              products
+            },
+          ]);
+        } else {
+          setMessages((prev) => [
+            ...prev,
+            {
+              isBot: true,
+              text: followUpResponse,
+              avatar: 'https://assets.api.uizard.io/api/cdn/stream/57326620-2a53-4912-9b70-e6a4f364b204.png',
+            },
+          ]);
+        }
       }, 1000);
     }
   };
@@ -281,8 +326,45 @@ function App() {
 
   const handleAddToCart = (product) => {
     console.log('Added to cart:', product);
+    
+    // Add item to cart
+    const cartItem = {
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      image: product.image,
+      quantity: 1,
+      addedAt: new Date().toISOString()
+    };
+    
+    setCartItems(prevCart => {
+      const existingItem = prevCart.find(item => item.id === product.id);
+      if (existingItem) {
+        // Update quantity if item already exists
+        return prevCart.map(item =>
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
+      } else {
+        // Add new item to cart
+        return [...prevCart, cartItem];
+      }
+    });
+    
     setShowTryOnModal(false);
-    // Add cart functionality here
+    
+    // Add success message and follow-up prompt
+    setTimeout(() => {
+      setMessages((prev) => [
+        ...prev,
+        {
+          isBot: true,
+          text: `Great choice! I've added the ${product.name} to your cart. 🛒\n\nWould you like to see more items? I can help you find:\n• More business suits\n• Shirts and blouses\n• Jeans and trousers\n• Coats and jackets\n• Or anything else you're looking for!\n\nWhat would you like to explore next?`,
+          avatar: 'https://assets.api.uizard.io/api/cdn/stream/57326620-2a53-4912-9b70-e6a4f364b204.png'
+        }
+      ]);
+    }, 500);
   };
 
   const suggestionOptions = [
