@@ -102,9 +102,9 @@ const productsByCategory = {
     { name: 'Silk Camisole Tank', price: '$39.99', image: 'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300', id: 29 },
   ],
   'suit-men': [
-    { name: 'Executive Navy Suit', price: '$399.99', image: '/src/assets/business-suits/man-suit-1.png', id: 30 },
+    { name: 'Business Jacket', price: '$399.99', image: '/src/assets/business-suits/man-suit-1.png', id: 30 },
     { name: 'Classic Black Suit', price: '$449.99', image: '/src/assets/business-suits/man-suit-2.png', id: 31 },
-    { name: 'Charcoal Business Suit', price: '$379.99', image: '/src/assets/business-suits/man-suit-3.png', id: 32 },
+    { name: 'Charcoal Business Suit', price: '$579.99', image: '/src/assets/business-suits/man-suit-3.png', id: 32 },
   ],
   'suit-women': [
     { name: 'Professional Blazer Set', price: '$299.99', image: '/src/assets/business-suits/woman-suit-1.png', id: 33 },

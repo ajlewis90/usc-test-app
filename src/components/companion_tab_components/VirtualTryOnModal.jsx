@@ -73,14 +73,16 @@ const VirtualTryOnModal = ({ product, onClose, onAddToCart }) => {
           
           const isMensSuit = productName.includes('men') || productName.includes('man') || 
                             productName.includes('male') || productName.includes('gentleman') ||
+                            productName.includes('business') ||
                             (productName.includes('navy') || productName.includes('black') || productName.includes('charcoal')) && !isWomensSuit;
           
           if (isMensSuit) {
             // Men's suits - show first 3 images
             return [
-              '/src/assets/business-suits/man in business suit.png',
-              '/src/assets/business-suits/man in business suit 2.png',
-              '/src/assets/business-suits/smart asian man.png'
+              '/src/assets/business-suits/men-try-out/men-suit-1/man-in-grey-suit-straight.png',
+              '/src/assets/business-suits/men-try-out/men-suit-1/man-in-grey-suit-back.png',
+              '/src/assets/business-suits/men-try-out/men-suit-1/man-in-grey-suit-side-front-look.png',
+              '/src/assets/business-suits/men-try-out/men-suit-1/man-in-grey-suit-sideways.png'
             ];
           } else {
             // Women's suits - show last 2 images
