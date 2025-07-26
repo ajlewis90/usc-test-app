@@ -102,13 +102,13 @@ const productsByCategory = {
     { name: 'Silk Camisole Tank', price: '$39.99', image: 'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300', id: 29 },
   ],
   'suit-men': [
-    { name: 'Executive Navy Suit', price: '$399.99', image: '/business-suits/man-suit-1.png', id: 30 },
-    { name: 'Classic Black Suit', price: '$449.99', image: '/business-suits/man-suit-2.png', id: 31 },
-    { name: 'Charcoal Business Suit', price: '$379.99', image: '/business-suits/man-suit-3.png', id: 32 },
+    { name: 'Executive Navy Suit', price: '$399.99', image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600', id: 30 },
+    { name: 'Classic Black Suit', price: '$449.99', image: 'https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600', id: 31 },
+    { name: 'Charcoal Business Suit', price: '$379.99', image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600', id: 32 },
   ],
   'suit-women': [
-    { name: 'Professional Blazer Set', price: '$299.99', image: '/business-suits/woman-suit-1.png', id: 33 },
-    { name: 'Executive Pantsuit', price: '$349.99', image: '/business-suits/woman-suit-2.png', id: 34 },
+    { name: 'Professional Blazer Set', price: '$299.99', image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600', id: 33 },
+    { name: 'Executive Pantsuit', price: '$349.99', image: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600', id: 34 },
   ],
 };
 
@@ -118,17 +118,21 @@ const detectClothingCategory = (message) => {
   
   // Business suit detection with gender specification
   if (lowerMessage.includes('suit') || lowerMessage.includes('business attire')) {
-    // Check for male/men indicators
-    if (lowerMessage.includes('men') || lowerMessage.includes('male') || lowerMessage.includes('man') || 
-        lowerMessage.includes('gentleman') || lowerMessage.includes('for him')) {
-      return 'suit-men';
-    }
-    // Check for female/women indicators  
+    // FIXED: Check for female/women indicators FIRST (more specific patterns)
     if (lowerMessage.includes('women') || lowerMessage.includes('female') || lowerMessage.includes('woman') || 
-        lowerMessage.includes('lady') || lowerMessage.includes('ladies') || lowerMessage.includes('for her')) {
+        lowerMessage.includes('lady') || lowerMessage.includes('ladies') || lowerMessage.includes('for her') ||
+        lowerMessage.includes('womens')) {
+      console.log('Women suit detected');
       return 'suit-women';
     }
+    // Check for male/men indicators SECOND
+    if (lowerMessage.includes('men') || lowerMessage.includes('male') || lowerMessage.includes('man') || 
+        lowerMessage.includes('gentleman') || lowerMessage.includes('for him') || lowerMessage.includes('mens')) {
+      console.log('Men suit detected');
+      return 'suit-men';
+    }
     // Default to men's suits if no gender specified
+    console.log('No gender specified, defaulting to men');
     return 'suit-men';
   }
   
