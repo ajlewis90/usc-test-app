@@ -1,10 +1,21 @@
 import React from 'react';
 import './ChatMessage.css';
 
-const ChatMessage = ({ isBot, text, avatar, products }) => {
-  const handleViewItem = (productId) => {
-    console.log(`Viewing item with ID: ${productId}`);
-    // Replace with navigation or modal logic if needed
+const ChatMessage = ({ isBot, text, avatar, products, onProductClick, onTryOnClick }) => {
+  const handleViewItem = (product) => {
+    if (onProductClick) {
+      onProductClick(product);
+    } else {
+      console.log(`Viewing item:`, product);
+    }
+  };
+
+  const handleTryOn = (product) => {
+    if (onTryOnClick) {
+      onTryOnClick(product);
+    } else {
+      console.log(`Try on:`, product);
+    }
   };
 
   return (
@@ -16,21 +27,40 @@ const ChatMessage = ({ isBot, text, avatar, products }) => {
         </div>
         {isBot && products && products.length > 0 && (
           <div className="product-recommendations">
-            {products.map((product, index) => (
-              <div 
-                key={product.id} 
-                className={`product-row ${index === 0 ? 'product-row-one' : index === 1 ? 'product-row-two' : 'product-row-three'}`}
-              >
-                <img src={product.image} alt={product.name} className="product-image" />
-                <div className={`product-column ${index === 0 ? 'product-column-one' : index === 1 ? 'product-column-two' : 'product-column-three'}`}>
-                  <div className="product-name">{product.name}</div>
-                  <div className="product-price">{product.price}</div>
+            <div className="product-carousel">
+              {products.map((product, index) => (
+                <div key={product.id || index} className="product-card">
+                  <div className="product-image-container">
+                    <img 
+                      src={product.image || product.imageUrl} 
+                      alt={product.name} 
+                      className="product-image"
+                      onError={(e) => {
+                        console.log('Image failed to load:', product.image);
+                        e.target.style.border = '2px solid red';
+                      }}
+                      onLoad={() => {
+                        console.log('Image loaded successfully:', product.image);
+                      }}
+                    />
+                    <button 
+                      className="try-on-button"
+                      onClick={() => handleTryOn(product)}
+                      title="Try On Virtually"
+                    >
+                      📷
+                    </button>
+                  </div>
+                  <div className="product-info">
+                    <div className="product-name">{product.name}</div>
+                    <div className="product-price">{product.price}</div>
+                  </div>
+                  <button className="view-item-button" onClick={() => handleViewItem(product)}>
+                    View item
+                  </button>
                 </div>
-                <button className="view-item-button" onClick={() => handleViewItem(product.id)}>
-                  View item
-                </button>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         )}
       </div>

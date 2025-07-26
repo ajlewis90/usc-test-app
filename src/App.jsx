@@ -38,6 +38,7 @@ import CartDetails from './components/home_tab_components/CartDetails';
 import CompanionChatHeader from './components/companion_tab_components/CompanionChatHeader';
 import ChatMessage from './components/companion_tab_components/ChatMessage';
 import ChatInput from './components/companion_tab_components/ChatInput';
+import VirtualTryOnModal from './components/companion_tab_components/VirtualTryOnModal';
 import ProductDetailOne from './components/home_tab_components/ProductDetailOne';
 import ProductDetailTwo from './components/home_tab_components/ProductDetailTwo';
 import MeCard from './components/me_tab_components/MeCard';
@@ -51,9 +52,101 @@ import MeTabText from './components/MeTabText';
 import CartsTabText from './components/CartsTabText';
 import './App.css';
 
+// Dynamic product data organized by categories
+const productsByCategory = {
+  dress: [
+    { name: 'Floral Summer Dress', price: '$89.99', image: 'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300', id: 1 },
+    { name: 'Elegant Evening Dress', price: '$159.00', image: 'https://images.unsplash.com/photo-1566479179817-c4c0dedd4cec?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300', id: 2 },
+    { name: 'Casual Midi Dress', price: '$69.99', image: 'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300', id: 3 },
+  ],
+  shirt: [
+    { name: 'Classic White Shirt', price: '$49.99', image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300', id: 4 },
+    { name: 'Denim Button-Up', price: '$59.00', image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300', id: 5 },
+    { name: 'Silk Blouse', price: '$79.99', image: 'https://images.unsplash.com/photo-1564557287817-3785e38ec1f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300', id: 6 },
+  ],
+  trousers: [
+    { name: 'High-Waist Skinny Jeans', price: '$89.99', image: 'https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300', id: 7 },
+    { name: 'Relaxed Fit Jeans', price: '$75.00', image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300', id: 8 },
+    { name: 'Distressed Boyfriend Jeans', price: '$95.99', image: 'https://images.unsplash.com/photo-1551513342-5b0f8cbdcf40?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300', id: 9 },
+    { name: 'Wide Leg Trousers', price: '$119.99', image: 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300', id: 13 },
+  ],
+  jacket: [
+    { name: 'Mango Textured Jacket', price: '$129.99', image: 'https://assets.api.uizard.io/api/cdn/stream/1bd902b0-209c-4d5f-8e63-99d55c9016ba.png', id: 10 },
+    { name: 'Zara Double breasted Coat', price: '$199.00', image: 'https://assets.api.uizard.io/api/cdn/stream/fecff665-0ba6-4922-888b-84d485e1e917.png', id: 11 },
+    { name: 'H&M Wool-blend Coat', price: '$99.99', image: 'https://assets.api.uizard.io/api/cdn/stream/d20da14a-9c71-4b23-9104-66542fb7ab2b.png', id: 12 },
+    { name: 'Leather Bomber Jacket', price: '$249.99', image: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300', id: 14 },
+  ],
+  underwear: [
+    { name: 'Cotton Brief Set', price: '$24.99', image: 'https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300', id: 15 },
+    { name: 'Bamboo Boxer Briefs', price: '$32.99', image: 'https://images.unsplash.com/photo-1506629905723-21f05ff4649e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300', id: 16 },
+    { name: 'Seamless Hipster Pack', price: '$19.99', image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300', id: 17 },
+  ],
+  lingerie: [
+    { name: 'Lace Bralette Set', price: '$49.99', image: 'https://images.unsplash.com/photo-1571513722275-4b41940f54b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300', id: 18 },
+    { name: 'Silk Camisole', price: '$79.99', image: 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300', id: 19 },
+    { name: 'Satin Slip Dress', price: '$89.99', image: 'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300', id: 20 },
+  ],
+  shorts: [
+    { name: 'Denim High-Waist Shorts', price: '$39.99', image: 'https://images.unsplash.com/photo-1591195853828-11db59a44f6b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300', id: 21 },
+    { name: 'Athletic Running Shorts', price: '$29.99', image: 'https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300', id: 22 },
+    { name: 'Linen Summer Shorts', price: '$45.99', image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300', id: 23 },
+  ],
+  hoodie: [
+    { name: 'Oversized Cotton Hoodie', price: '$59.99', image: 'https://images.unsplash.com/photo-1556821840-3a9c6dcdb815?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300', id: 24 },
+    { name: 'Zip-Up Fleece Hoodie', price: '$69.99', image: 'https://images.unsplash.com/photo-1571945153237-4929e783af4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300', id: 25 },
+    { name: 'Vintage Pullover Hoodie', price: '$54.99', image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300', id: 26 },
+  ],
+  tank: [
+    { name: 'Ribbed Tank Top', price: '$19.99', image: 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300', id: 27 },
+    { name: 'Athletic Performance Tank', price: '$24.99', image: 'https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300', id: 28 },
+    { name: 'Silk Camisole Tank', price: '$39.99', image: 'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300', id: 29 },
+  ],
+  'suit-men': [
+    { name: 'Executive Navy Suit', price: '$399.99', image: '/business-suits/man-suit-1.png', id: 30 },
+    { name: 'Classic Black Suit', price: '$449.99', image: '/business-suits/man-suit-2.png', id: 31 },
+    { name: 'Charcoal Business Suit', price: '$379.99', image: '/business-suits/man-suit-3.png', id: 32 },
+  ],
+  'suit-women': [
+    { name: 'Professional Blazer Set', price: '$299.99', image: '/business-suits/woman-suit-1.png', id: 33 },
+    { name: 'Executive Pantsuit', price: '$349.99', image: '/business-suits/woman-suit-2.png', id: 34 },
+  ],
+};
+
+// Function to detect clothing category from user message with gender detection for suits
+const detectClothingCategory = (message) => {
+  const lowerMessage = message.toLowerCase();
+  
+  // Business suit detection with gender specification
+  if (lowerMessage.includes('suit') || lowerMessage.includes('business attire')) {
+    // Check for male/men indicators
+    if (lowerMessage.includes('men') || lowerMessage.includes('male') || lowerMessage.includes('man') || 
+        lowerMessage.includes('gentleman') || lowerMessage.includes('for him')) {
+      return 'suit-men';
+    }
+    // Check for female/women indicators  
+    if (lowerMessage.includes('women') || lowerMessage.includes('female') || lowerMessage.includes('woman') || 
+        lowerMessage.includes('lady') || lowerMessage.includes('ladies') || lowerMessage.includes('for her')) {
+      return 'suit-women';
+    }
+    // Default to men's suits if no gender specified
+    return 'suit-men';
+  }
+  
+  if (lowerMessage.includes('dress')) return 'dress';
+  if (lowerMessage.includes('shirt') || lowerMessage.includes('blouse')) return 'shirt';
+  if (lowerMessage.includes('jeans') || lowerMessage.includes('pants') || lowerMessage.includes('trousers')) return 'trousers';
+  if (lowerMessage.includes('coat') || lowerMessage.includes('jacket') || lowerMessage.includes('blazer') || lowerMessage.includes('outerwear')) return 'jacket';
+  if (lowerMessage.includes('underwear') || lowerMessage.includes('undergarment')) return 'underwear';
+  if (lowerMessage.includes('lingerie') || lowerMessage.includes('intimate')) return 'lingerie';
+  if (lowerMessage.includes('shorts')) return 'shorts';
+  if (lowerMessage.includes('hoodie') || lowerMessage.includes('sweatshirt')) return 'hoodie';
+  if (lowerMessage.includes('tank') || lowerMessage.includes('tank-top') || lowerMessage.includes('sleeveless')) return 'tank';
+  
+  return null;
+};
+
 function App() {
   const [activeTab, setActiveTab] = useState('Companion');
-  //const [activeTab, setActiveTab] = useState('Home');
   const [activeCategory, setActiveCategory] = useState('Beauty');
   const [activeFilter, setActiveFilter] = useState('All');
   const [messages, setMessages] = useState([
@@ -63,8 +156,12 @@ function App() {
   const [showProductDetailTwo, setShowProductDetailTwo] = useState(false);
   const [showCartDetails, setShowCartDetails] = useState(false);
   const [selectedCartItems, setSelectedCartItems] = useState([]);
-  const [selectedBusiness, setSelectedBusiness] = useState(''); // Track the selected business
+  const [selectedBusiness, setSelectedBusiness] = useState('');
   const [meTabTrigger, setMeTabTrigger] = useState(0);
+  
+  // Virtual try-on state
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [showTryOnModal, setShowTryOnModal] = useState(false);
 
   // Simulated cart data for each business with business names
   const cartOneItems = [
@@ -105,8 +202,8 @@ function App() {
     {
       name: 'Notebooks',
       price: '$5.00',
-      quantity: 8, // Updated from 5 to 8
-      total: '$40.00', // Updated from $25.00 to $40.00 (5.00 * 8)
+      quantity: 8,
+      total: '$40.00',
       image: 'https://assets.api.uizard.io/api/cdn/stream/2024848d-d2e0-40f6-b809-fd21dd629edc.png',
     },
   ];
@@ -120,24 +217,68 @@ function App() {
 
   const handleSendMessage = (newMessage) => {
     setMessages((prev) => [...prev, { isBot: false, text: newMessage, avatar: null }]);
-    if (suggestionOptions.some(option => newMessage.includes(option)) || newMessage.toLowerCase().includes('dress')) {
+    
+    // Check if message contains clothing category
+    const category = detectClothingCategory(newMessage);
+    
+    if (category) {
+      const products = productsByCategory[category] || [];
+      const categoryDisplayNames = {
+        dress: 'dresses',
+        shirt: 'shirts', 
+        trousers: 'trousers',
+        jacket: 'jackets',
+        underwear: 'underwear',
+        lingerie: 'lingerie',
+        shorts: 'shorts',
+        hoodie: 'hoodies',
+        tank: 'tank tops',
+        'suit-men': "men's business suits",
+        'suit-women': "women's business suits"
+      };
+      
+      const displayName = categoryDisplayNames[category] || `${category}s`;
+      
       setTimeout(() => {
-        const products = [
-          { name: 'Mango Textured Coat', price: '$129.99', image: 'https://assets.api.uizard.io/api/cdn/stream/1bd902b0-209c-4d5f-8e63-99d55c9016ba.png', id: 1 },
-          { name: 'Zara Double breasted Coat', price: '$199.00', image: 'https://assets.api.uizard.io/api/cdn/stream/fecff665-0ba6-4922-888b-84d485e1e917.png', id: 2 },
-          { name: 'H&M Wool-blend Coat', price: '$99.99', image: 'https://assets.api.uizard.io/api/cdn/stream/d20da14a-9c71-4b23-9104-66542fb7ab2b.png', id: 3 },
-        ];
         setMessages((prev) => [
           ...prev,
-          { 
-            isBot: true, 
-            text: "I found some options for you. You can tap the link to see more details.", 
-            avatar: 'https://assets.api.uizard.io/api/cdn/stream/57326620-2a53-4912-9b70-e6a4f364b204.png', 
+          {
+            isBot: true,
+            text: `I found some ${displayName} for you! You can tap the camera icon to try them on virtually.`,
+            avatar: 'https://assets.api.uizard.io/api/cdn/stream/57326620-2a53-4912-9b70-e6a4f364b204.png',
             products
           },
         ]);
       }, 1000);
+    } else {
+      // Generic bot response for non-clothing queries
+      setTimeout(() => {
+        setMessages((prev) => [
+          ...prev,
+          {
+            isBot: true,
+            text: "I can help you find clothing items like dresses, shirts, jeans, or coats. What are you looking for?",
+            avatar: 'https://assets.api.uizard.io/api/cdn/stream/57326620-2a53-4912-9b70-e6a4f364b204.png',
+          },
+        ]);
+      }, 1000);
     }
+  };
+
+  const handleProductClick = (product) => {
+    console.log('Product clicked:', product);
+    // You can add navigation or product detail modal here
+  };
+
+  const handleTryOnClick = (product) => {
+    setSelectedProduct(product);
+    setShowTryOnModal(true);
+  };
+
+  const handleAddToCart = (product) => {
+    console.log('Added to cart:', product);
+    setShowTryOnModal(false);
+    // Add cart functionality here
   };
 
   const suggestionOptions = [
@@ -211,14 +352,14 @@ function App() {
 
   const handleViewCart = (cartItems, businessKey) => {
     setSelectedCartItems(cartItems);
-    setSelectedBusiness(businessNames[businessKey]); // Set the business name
+    setSelectedBusiness(businessNames[businessKey]);
     setShowCartDetails(true);
   };
 
   const handleCloseCartDetails = () => {
     setShowCartDetails(false);
     setSelectedCartItems([]);
-    setSelectedBusiness(''); // Reset the selected business
+    setSelectedBusiness('');
     setActiveTab('Carts');
   };
 
@@ -277,7 +418,15 @@ function App() {
           <CompanionChatHeader />
           <div className="chat-messages">
             {messages.map((message, index) => (
-              <ChatMessage key={index} isBot={message.isBot} text={message.text} avatar={message.avatar} products={message.products} />
+              <ChatMessage 
+                key={index} 
+                isBot={message.isBot} 
+                text={message.text} 
+                avatar={message.avatar} 
+                products={message.products}
+                onProductClick={handleProductClick}
+                onTryOnClick={handleTryOnClick}
+              />
             ))}
           </div>
           <ChatInput onSend={handleSendMessage} />
@@ -342,6 +491,13 @@ function App() {
           cartItems={selectedCartItems}
           businessName={selectedBusiness}
           onClose={handleCloseCartDetails}
+        />
+      )}
+      {showTryOnModal && selectedProduct && (
+        <VirtualTryOnModal
+          product={selectedProduct}
+          onClose={() => setShowTryOnModal(false)}
+          onAddToCart={handleAddToCart}
         />
       )}
     </div>
