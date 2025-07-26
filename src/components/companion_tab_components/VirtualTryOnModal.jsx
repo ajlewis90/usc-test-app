@@ -38,6 +38,7 @@ const VirtualTryOnModal = ({ product, onClose, onAddToCart }) => {
       // Generate demo try-on results based on product category
       const getDemoResults = () => {
         const productName = product.name.toLowerCase();
+        console.log(productName);
         
         if (productName.includes('dress')) {
           return [
@@ -63,10 +64,16 @@ const VirtualTryOnModal = ({ product, onClose, onAddToCart }) => {
             'https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600&q=80',
             'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600&q=80'
           ];
-        } else if (productName.includes('suit') || productName.includes('business') || productName.includes('executive')) {
-          // Detect if it's men's or women's suit based on product name
-          const isMensSuit = productName.includes('navy') || productName.includes('black') || productName.includes('charcoal') || 
-                           productName.includes('executive') && !productName.includes('blazer');
+        } else if (productName.includes('suit') || productName.includes('blazer') || productName.includes('business') || productName.includes('executive')) {
+          // Enhanced gender detection for business suits
+          const isWomensSuit = productName.includes('women') || productName.includes('woman') || 
+                              productName.includes('ladies') || productName.includes('female') ||
+                              productName.includes('professional blazer set') ||
+                              productName.includes('executive pantsuit') || productName.includes('skirt');
+          
+          const isMensSuit = productName.includes('men') || productName.includes('man') || 
+                            productName.includes('male') || productName.includes('gentleman') ||
+                            (productName.includes('navy') || productName.includes('black') || productName.includes('charcoal')) && !isWomensSuit;
           
           if (isMensSuit) {
             // Men's suits - show first 3 images
@@ -78,8 +85,10 @@ const VirtualTryOnModal = ({ product, onClose, onAddToCart }) => {
           } else {
             // Women's suits - show last 2 images
             return [
-              '/src/assets/business-suits/woman in suit.png',
-              '/src/assets/business-suits/woman 2 in business shirt.png'
+              '/src/assets/business-suits/women-try-out/women-suit-1/women-suit-standing.png',
+              '/src/assets/business-suits/women-try-out/women-suit-1/women-suit-chair.png',
+              '/src/assets/business-suits/women-try-out/women-suit-1/young asian lady in business attire 2 standing.png',
+              '/src/assets/business-suits/women-try-out/women-suit-1/young asian lady in party attire standing.png'
             ];
           }
         }
