@@ -8,6 +8,7 @@ const VirtualTryOnModal = ({ product, onClose, onAddToCart }) => {
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
   const fileInputRef = useRef(null);
+  const [uploadedUserImage, setUploadedUserImage] = useState(null);
 
   const handleFileSelect = async (event) => {
     const file = event.target.files[0];
@@ -25,6 +26,13 @@ const VirtualTryOnModal = ({ product, onClose, onAddToCart }) => {
 
     setModalState('processing');
 
+    // Store the uploaded user image as base64
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      setUploadedUserImage(e.target.result);
+    };
+    reader.readAsDataURL(file);
+
     // Simulate processing time (2 seconds) without backend
     setTimeout(() => {
       // Generate demo try-on results based on product category
@@ -33,27 +41,27 @@ const VirtualTryOnModal = ({ product, onClose, onAddToCart }) => {
         
         if (productName.includes('dress')) {
           return [
-            'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600&q=80', // Person wearing dress - front view
-            'https://images.unsplash.com/photo-1566479179817-c4c0dedd4cec?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600&q=80', // Person wearing dress - side view
-            'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600&q=80'  // Person wearing dress - back view
+            'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600&q=80',
+            'https://images.unsplash.com/photo-1566479179817-c4c0dedd4cec?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600&q=80',
+            'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600&q=80'
           ];
         } else if (productName.includes('shirt') || productName.includes('blouse')) {
           return [
-            'https://images.unsplash.com/photo-1556821840-3a9c6dcdb815?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600&q=80', // Person wearing white shirt - front view
-            'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600&q=80', // Person wearing white shirt - side view
-            'https://images.unsplash.com/photo-1607345366928-199ea26cfe3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600&q=80'  // Person wearing white shirt - back view
+            'https://images.unsplash.com/photo-1556821840-3a9c6dcdb815?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600&q=80',
+            'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600&q=80',
+            'https://images.unsplash.com/photo-1607345366928-199ea26cfe3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600&q=80'
           ];
         } else if (productName.includes('jeans') || productName.includes('pants') || productName.includes('trousers')) {
           return [
-            'https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600&q=80', // Person wearing jeans - front view
-            'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600&q=80', // Person wearing jeans - side view
-            'https://images.unsplash.com/photo-1603400521630-9f2de124b33b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600&q=80'  // Person wearing jeans - back view
+            'https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600&q=80',
+            'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600&q=80',
+            'https://images.unsplash.com/photo-1603400521630-9f2de124b33b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600&q=80'
           ];
         } else if (productName.includes('tank') || productName.includes('sleeveless')) {
           return [
-            'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600&q=80', // Tank top front view
-            'https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600&q=80', // Tank top side view
-            'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600&q=80'  // Tank top back view
+            'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600&q=80',
+            'https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600&q=80',
+            'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600&q=80'
           ];
         } else if (productName.includes('suit') || productName.includes('business') || productName.includes('executive')) {
           // Detect if it's men's or women's suit based on product name
@@ -63,47 +71,17 @@ const VirtualTryOnModal = ({ product, onClose, onAddToCart }) => {
           if (isMensSuit) {
             // Men's suits - show first 3 images
             return [
-              '/business-suits/man-suit-1.png', // Man in navy business suit
-              '/business-suits/man-suit-2.png', // Man in black business suit
-              '/business-suits/man-suit-3.png'  // Smart Asian man in suit
+              '/src/assets/business-suits/man in business suit.png',
+              '/src/assets/business-suits/man in business suit 2.png',
+              '/src/assets/business-suits/smart asian man.png'
             ];
           } else {
             // Women's suits - show last 2 images
             return [
-              '/business-suits/woman-suit-1.png', // Woman in business shirt
-              '/business-suits/woman-suit-2.png'  // Woman in suit
+              '/src/assets/business-suits/woman in suit.png',
+              '/src/assets/business-suits/woman 2 in business shirt.png'
             ];
           }
-        } else if (productName.includes('underwear') || productName.includes('brief')) {
-          return [
-            'https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600&q=80', // Underwear front view
-            'https://images.unsplash.com/photo-1506629905723-21f05ff4649e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600&q=80', // Underwear side view
-            'https://images.unsplash.com/photo-1576871337622-98d48d1cf531?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600&q=80'  // Underwear back view
-          ];
-        } else if (productName.includes('lingerie') || productName.includes('bralette') || productName.includes('camisole')) {
-          return [
-            'https://images.unsplash.com/photo-1571513722275-4b41940f54b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600&q=80', // Lingerie front view
-            'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600&q=80', // Lingerie side view
-            'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600&q=80'  // Lingerie back view
-          ];
-        } else if (productName.includes('shorts')) {
-          return [
-            'https://images.unsplash.com/photo-1591195853828-11db59a44f6b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600&q=80', // Shorts front view
-            'https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600&q=80', // Shorts side view
-            'https://images.unsplash.com/photo-1562157873-818bc0726f68?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600&q=80'  // Shorts back view
-          ];
-        } else if (productName.includes('hoodie') || productName.includes('sweatshirt')) {
-          return [
-            'https://images.unsplash.com/photo-1556821840-3a9c6dcdb815?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600&q=80', // Hoodie front view
-            'https://images.unsplash.com/photo-1571945153237-4929e783af4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600&q=80', // Hoodie side view
-            'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=600&q=80'  // Hoodie back view
-          ];
-        } else if (productName.includes('tank') || productName.includes('sleeveless')) {
-          return [
-            'https://assets.api.uizard.io/api/cdn/stream/1bd902b0-209c-4d5f-8e63-99d55c9016ba.png',
-            'https://assets.api.uizard.io/api/cdn/stream/fecff665-0ba6-4922-888b-84d485e1e917.png',
-            'https://assets.api.uizard.io/api/cdn/stream/d20da14a-9c71-4b23-9104-66542fb7ab2b.png'
-          ];
         }
         
         // Default demo results
@@ -134,13 +112,13 @@ const VirtualTryOnModal = ({ product, onClose, onAddToCart }) => {
 
   const nextResult = () => {
     setCurrentResultIndex((prev) => 
-      prev < tryOnResults.length - 1 ? prev + 1 : 0
+      prev < tryOnResults.length ? prev + 1 : 0
     );
   };
 
   const prevResult = () => {
     setCurrentResultIndex((prev) => 
-      prev > 0 ? prev - 1 : tryOnResults.length - 1
+      prev > 0 ? prev - 1 : tryOnResults.length
     );
   };
 
@@ -222,7 +200,7 @@ const VirtualTryOnModal = ({ product, onClose, onAddToCart }) => {
               <div className="results-header">
                 <h3>Your Virtual Try-On Results</h3>
                 <div className="result-counter">
-                  {currentResultIndex + 1} of {tryOnResults.length}
+                  {currentResultIndex === 0 ? "Comparison" : `${currentResultIndex} of ${tryOnResults.length}`}
                 </div>
               </div>
               
@@ -230,13 +208,26 @@ const VirtualTryOnModal = ({ product, onClose, onAddToCart }) => {
                    onTouchStart={handleTouchStart}
                    onTouchMove={handleTouchMove}
                    onTouchEnd={handleTouchEnd}>
-                <img 
-                  src={tryOnResults[currentResultIndex]} 
-                  alt="Try-on result"
-                  className="result-image"
-                />
+                {currentResultIndex === 0 ? (
+                  <div className="comparison-view">
+                    <div className="comparison-item">
+                      <img src={product.image || product.imageUrl} alt="Product" className="comparison-image" />
+                      <p className="comparison-label">Product</p>
+                    </div>
+                    <div className="comparison-item">
+                      <img src={uploadedUserImage || "/api/placeholder/200/300"} alt="Your Photo" className="comparison-image" />
+                      <p className="comparison-label">Your Photo</p>
+                    </div>
+                  </div>
+                ) : (
+                  <img
+                    src={tryOnResults[currentResultIndex - 1]}
+                    alt="Try-on result"
+                    className="result-image"
+                  />
+                )}
                 
-                {tryOnResults.length > 1 && (
+                {(tryOnResults.length + 1) > 1 && (
                   <>
                     <button className="nav-button prev" onClick={prevResult}>
                       ‹
@@ -252,9 +243,11 @@ const VirtualTryOnModal = ({ product, onClose, onAddToCart }) => {
                 <button className="try-again-button" onClick={handleTryAgain}>
                   🔄 Try Again
                 </button>
-                <button className="add-to-cart-button" onClick={handleAddToCart}>
-                  🛒 Add to Cart
-                </button>
+                {currentResultIndex > 0 && (
+                  <button className="add-to-cart-button" onClick={handleAddToCart}>
+                    🛒 Add to Cart
+                  </button>
+                )}
               </div>
             </div>
           )}
