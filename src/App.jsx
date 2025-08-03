@@ -110,6 +110,11 @@ const productsByCategory = {
     { name: 'Professional Blazer Set', price: '$299.99', image: '/src/assets/business-suits/woman-suit-1.png', id: 33 },
     { name: 'Executive Pantsuit', price: '$349.99', image: '/src/assets/business-suits/woman-suit-2.png', id: 34 },
   ],
+  sofa: [
+    { name: 'Yellow 3-Seater Sofa', price: '$1,499.99', image: '/src/assets/sofas/yellow-sofa.png', id: 35 },
+    { name: 'Red 3-Seater Sofa', price: '$1,399.99', image: '/src/assets/sofas/red-sofa-2.png', id: 36 },
+    { name: 'Modern 2-Seater Sofa', price: '$799.99', image: '/src/assets/sofas/red-sofa.png', id: 36 },
+  ],
 };
 
 // Function to detect clothing category from user message with gender detection for suits
@@ -145,6 +150,10 @@ const detectClothingCategory = (message) => {
   if (lowerMessage.includes('shorts')) return 'shorts';
   if (lowerMessage.includes('hoodie') || lowerMessage.includes('sweatshirt')) return 'hoodie';
   if (lowerMessage.includes('tank') || lowerMessage.includes('tank-top') || lowerMessage.includes('sleeveless')) return 'tank';
+  
+  // Furniture detection
+  if (lowerMessage.includes('sofa') || lowerMessage.includes('couch') || lowerMessage.includes('furniture') || 
+      lowerMessage.includes('sectional') || lowerMessage.includes('loveseat')) return 'sofa';
   
   return null;
 };
@@ -188,6 +197,9 @@ function App() {
     }
     if (lowerMessage.includes('dress')) {
       return "Wonderful! Here are some stunning dresses for you.";
+    }
+    if (lowerMessage.includes('sofa') || lowerMessage.includes('furniture') || lowerMessage.includes('couch')) {
+      return "Great choice! Here are some beautiful sofas perfect for your home.";
     }
     if (lowerMessage.includes('done') || lowerMessage.includes('nothing') || lowerMessage.includes('no thanks')) {
       return "Perfect! Your items are safely in your cart. You can view your cart anytime by tapping the 'Carts' tab below. Thank you for shopping with Daxedax!";
@@ -267,7 +279,8 @@ function App() {
         hoodie: 'hoodies',
         tank: 'tank tops',
         'suit-men': "men's business suits",
-        'suit-women': "women's business suits"
+        'suit-women': "women's business suits",
+        sofa: 'sofas'
       };
       
       const displayName = categoryDisplayNames[category] || `${category}s`;

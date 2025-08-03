@@ -93,6 +93,30 @@ const VirtualTryOnModal = ({ product, onClose, onAddToCart }) => {
               '/src/assets/business-suits/women-try-out/women-suit-1/young asian lady in party attire standing.png'
             ];
           }
+        } else if (productName.includes('sofa') || productName.includes('yellow sofa') || productName.includes('red sofa') || productName.includes('3-seater') || productName.includes('2-seater')) {
+          // Enhanced gender detection for business suits
+          const isRedSofa = productName.includes('red') || productName.includes('red sofa') || 
+                              productName.includes('red 2-seater sofa') || productName.includes('modern') ||
+                              productName.includes('red 3-seater sofa') ||
+                              productName.includes('modern red 2-seater');
+          
+          const isYellowSofa = productName.includes('yellow') || productName.includes('yellow sofa') || 
+                            productName.includes('yellow 2-seater sofa') || productName.includes('yellow 3-seater sofa') ||
+                            productName.includes('modern yellow 2-seater') && !isRedSofa;
+          
+          if (isRedSofa) {
+            // Red sofas
+            return [
+              '/src/assets/sofas/red-sofa-try-out/red sofa 2 in room.png',
+              '/src/assets/sofas/red-sofa-try-out/red sofa in room.jpg'
+            ];
+          } else {
+            // Yellow sofas 
+            return [
+              '/src/assets/sofas/yellow-sofa-try-out/yellow sofa in room.png',
+              '/src/assets/sofas/yellow-sofa-try-out/yellow sofa in room with table.png'
+            ];
+          }
         }
         
         // Default demo results
