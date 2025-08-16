@@ -14,6 +14,7 @@ import ShoesProductOneIndividualPriceText from './ShoesProductOneIndividualPrice
 import ShoesProductOneSizesText from './ShoesProductOneSizesText';
 import JoinGroupButtonSeven from './JoinGroupButtonSeven';
 import GroupBuyIconSeven from './GroupBuyIconSeven';
+import PriceDropdownButton from './PriceDropdownButton';
 import ShoesProductOneGroupCondition from './ShoesProductOneGroupCondition';
 import ShoesProductImageTwo from './ShoesProductImageTwo';
 import ShoesProductTextTwo from './ShoesProductTextTwo';
@@ -26,7 +27,7 @@ import ProductDetailSeven from './ProductDetailSeven';
 import ProductDetailEight from './ProductDetailEight';
 import './ShoesCard.css';
 
-const ShoesCard = ({ activeFilter, onFilterClick }) => {
+const ShoesCard = ({ activeFilter, onFilterClick, onPriceDropdownClick }) => {
   const [showProductDetailSeven, setShowProductDetailSeven] = React.useState(false);
   const [showProductDetailEight, setShowProductDetailEight] = React.useState(false);
 
@@ -96,6 +97,11 @@ const ShoesCard = ({ activeFilter, onFilterClick }) => {
                 <div onClick={handleJoinGroupClick}>
                   <JoinGroupButtonSeven />
                 </div>
+                <PriceDropdownButton 
+                  onPriceDropdownClick={onPriceDropdownClick}
+                  productName="Shoes Product One"
+                  originalPrice="$129.99"
+                />
               </div>
               <div className="group-buy-row">
                 <GroupBuyIconSeven />
@@ -112,6 +118,11 @@ const ShoesCard = ({ activeFilter, onFilterClick }) => {
                 <div onClick={handleJoinGroupClick}>
                   <JoinGroupButtonEight />
                 </div>
+                <PriceDropdownButton 
+                  onPriceDropdownClick={onPriceDropdownClick}
+                  productName="Shoes Product Two"
+                  originalPrice="$159.99"
+                />
               </div>
               <div className="group-buy-row-two">
                 <GroupBuyIconEight />

@@ -16,6 +16,7 @@ import ToysProductOneIndividualPriceText from './ToysProductOneIndividualPriceTe
 import ToysProductOneAgeRangeText from './ToysProductOneAgeRangeText';
 import JoinGroupButtonThree from './JoinGroupButtonThree'; // New component
 import GroupBuyIconThree from './GroupBuyIconThree'; // New component
+import PriceDropdownButton from './PriceDropdownButton';
 import ToysProductOneGroupCondition from './ToysProductOneGroupCondition';
 import ToysProductImageTwo from './ToysProductImageTwo';
 import ToysProductTextTwo from './ToysProductTextTwo';
@@ -28,7 +29,7 @@ import ProductDetailThree from './ProductDetailThree';
 import ProductDetailFour from './ProductDetailFour';
 import './ToysCard.css';
 
-const ToysCard = ({ activeFilter, onFilterClick }) => {
+const ToysCard = ({ activeFilter, onFilterClick, onPriceDropdownClick }) => {
   const [showProductDetailThree, setShowProductDetailThree] = React.useState(false);
   const [showProductDetailFour, setShowProductDetailFour] = React.useState(false);
 
@@ -105,6 +106,11 @@ const ToysCard = ({ activeFilter, onFilterClick }) => {
                 <div onClick={handleJoinGroupClick}>
                   <JoinGroupButtonThree /> {/* Updated to JoinGroupButtonThree */}
                 </div>
+                <PriceDropdownButton 
+                  onPriceDropdownClick={onPriceDropdownClick}
+                  productName="Toys Product One"
+                  originalPrice="$24.99"
+                />
               </div>
               <div className="group-buy-row">
                 <GroupBuyIconThree /> {/* Updated to GroupBuyIconThree */}
@@ -121,6 +127,11 @@ const ToysCard = ({ activeFilter, onFilterClick }) => {
                 <div onClick={handleJoinGroupClick}>
                   <JoinGroupButtonFour /> {/* Updated to JoinGroupButtonFour */}
                 </div>
+                <PriceDropdownButton 
+                  onPriceDropdownClick={onPriceDropdownClick}
+                  productName="Toys Product Two"
+                  originalPrice="$34.99"
+                />
               </div>
               <div className="group-buy-row-two">
                 <GroupBuyIconFour /> {/* Updated to GroupBuyIconFour */}

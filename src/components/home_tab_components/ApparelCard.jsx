@@ -16,6 +16,7 @@ import ApparelProductOneIndividualPriceText from './ApparelProductOneIndividualP
 import ApparelProductOneSizesText from './ApparelProductOneSizesText';
 import JoinGroupButtonFive from './JoinGroupButtonFive';
 import GroupBuyIconFive from './GroupBuyIconFive';
+import PriceDropdownButton from './PriceDropdownButton';
 import ApparelProductOneGroupCondition from './ApparelProductOneGroupCondition';
 import ApparelProductImageTwo from './ApparelProductImageTwo';
 import ApparelProductTextTwo from './ApparelProductTextTwo';
@@ -28,7 +29,7 @@ import ProductDetailFive from './ProductDetailFive';
 import ProductDetailSix from './ProductDetailSix';
 import './ApparelCard.css';
 
-const ApparelCard = ({ activeFilter, onFilterClick }) => {
+const ApparelCard = ({ activeFilter, onFilterClick, onPriceDropdownClick }) => {
   const [showProductDetailFive, setShowProductDetailFive] = React.useState(false);
   const [showProductDetailSix, setShowProductDetailSix] = React.useState(false);
 
@@ -105,6 +106,11 @@ const ApparelCard = ({ activeFilter, onFilterClick }) => {
                 <div onClick={handleJoinGroupClick}>
                   <JoinGroupButtonFive />
                 </div>
+                <PriceDropdownButton 
+                  onPriceDropdownClick={onPriceDropdownClick}
+                  productName="Apparel Product One"
+                  originalPrice="$79.99"
+                />
               </div>
               <div className="group-buy-row">
                 <GroupBuyIconFive />
@@ -121,6 +127,11 @@ const ApparelCard = ({ activeFilter, onFilterClick }) => {
                 <div onClick={handleJoinGroupClick}>
                   <JoinGroupButtonSix />
                 </div>
+                <PriceDropdownButton 
+                  onPriceDropdownClick={onPriceDropdownClick}
+                  productName="Apparel Product Two"
+                  originalPrice="$89.99"
+                />
               </div>
               <div className="group-buy-row-two">
                 <GroupBuyIconSix />

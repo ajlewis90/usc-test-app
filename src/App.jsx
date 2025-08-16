@@ -179,6 +179,9 @@ function App() {
   // Cart state
   const [cartItems, setCartItems] = useState([]);
 
+  // Price dropdown state
+  const [priceDropdownProduct, setPriceDropdownProduct] = useState(null);
+
   // Enhanced chat response for follow-up questions
   const handleFollowUpResponse = (message) => {
     const lowerMessage = message.toLowerCase();
@@ -337,6 +340,62 @@ function App() {
     setShowTryOnModal(true);
   };
 
+  // Price dropdown notification handler
+  const handlePriceDropdownClick = (productName, originalPrice) => {
+    setPriceDropdownProduct({ name: productName, originalPrice });
+    setActiveTab('Companion'); // Navigate to companion tab
+  };
+
+  // Effect to handle price dropdown notification when navigating to Companion
+  React.useEffect(() => {
+    if (priceDropdownProduct && activeTab === 'Companion') {
+      const discountedPrice = calculateDiscountedPrice(priceDropdownProduct.originalPrice);
+      const productWithDiscount = {
+        name: priceDropdownProduct.name,
+        price: discountedPrice,
+        originalPrice: priceDropdownProduct.originalPrice,
+        image: getProductImage(priceDropdownProduct.name),
+        id: Date.now()
+      };
+
+      setTimeout(() => {
+        setMessages((prev) => [
+          ...prev,
+          {
+            isBot: true,
+            text: `Great news! You asked for a price drop on "${priceDropdownProduct.name}" and now it's available for purchase at a lower price just for you!`,
+            avatar: 'https://assets.api.uizard.io/api/cdn/stream/57326620-2a53-4912-9b70-e6a4f364b204.png',
+            products: [productWithDiscount]
+          },
+        ]);
+      }, 500);
+
+      // Clear the price dropdown product after showing the message
+      setPriceDropdownProduct(null);
+    }
+  }, [priceDropdownProduct, activeTab]);
+
+  // Helper function to calculate discounted price (20% discount)
+  const calculateDiscountedPrice = (originalPrice) => {
+    const numericPrice = parseFloat(originalPrice.replace('$', ''));
+    const discountedPrice = numericPrice * 0.8; // 20% discount
+    return `$${discountedPrice.toFixed(2)}`;
+  };
+
+  // Helper function to get product image based on product name
+  const getProductImage = (productName) => {
+    if (productName.toLowerCase().includes('beauty')) {
+      return 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300';
+    } else if (productName.toLowerCase().includes('apparel')) {
+      return 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300';
+    } else if (productName.toLowerCase().includes('toys')) {
+      return 'https://images.unsplash.com/photo-1558060370-d644479cb6f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300';
+    } else if (productName.toLowerCase().includes('shoes')) {
+      return 'https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300';
+    }
+    return 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300';
+  };
+
   const handleAddToCart = (product) => {
     console.log('Added to cart:', product);
     
@@ -489,24 +548,28 @@ function App() {
                 onFilterClick={handleFilterClick}
                 onProductOneClick={handleProductOneClick}
                 onProductTwoClick={handleProductTwoClick}
+                onPriceDropdownClick={handlePriceDropdownClick}
               />
             )}
             {activeCategory === 'Apparel' && (
               <ApparelCard
                 activeFilter={activeFilter}
                 onFilterClick={handleFilterClick}
+                onPriceDropdownClick={handlePriceDropdownClick}
               />
             )}
             {activeCategory === 'Toys' && (
               <ToysCard
                 activeFilter={activeFilter}
                 onFilterClick={handleFilterClick}
+                onPriceDropdownClick={handlePriceDropdownClick}
               />
             )}
             {activeCategory === 'Shoes' && (
               <ShoesCard
                 activeFilter={activeFilter}
                 onFilterClick={handleFilterClick}
+                onPriceDropdownClick={handlePriceDropdownClick}
               />
             )}
           </div>

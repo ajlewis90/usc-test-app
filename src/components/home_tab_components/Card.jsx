@@ -16,6 +16,7 @@ import BeautyProductOneIndividualPriceText from './BeautyProductOneIndividualPri
 import BeautyProductOneSizesText from './BeautyProductOneSizesText';
 import JoinGroupButton from './JoinGroupButton';
 import JoinGroupButtonTwo from './JoinGroupButtonTwo';
+import PriceDropdownButton from './PriceDropdownButton';
 import GroupBuyIcon from './GroupBuyIcon';
 import GroupBuyIconTwo from './GroupBuyIconTwo';
 import BeautyProductOneGroupCondition from './BeautyProductOneGroupCondition';
@@ -26,7 +27,7 @@ import BeautyProductTwoColorsText from './BeautyProductTwoColorsText';
 import BeautyProductTwoGroupCondition from './BeautyProductTwoGroupCondition';
 import './Card.css';
 
-const Card = ({ activeFilter, onFilterClick, onProductOneClick, onProductTwoClick }) => {
+const Card = ({ activeFilter, onFilterClick, onProductOneClick, onProductTwoClick, onPriceDropdownClick }) => {
   return (
     <div className="card">
       <div className="card-content">
@@ -77,6 +78,11 @@ const Card = ({ activeFilter, onFilterClick, onProductOneClick, onProductTwoClic
                 <BeautyProductOneSizesText />
                 <div className="spacer" />
                 <JoinGroupButton />
+                <PriceDropdownButton 
+                  onPriceDropdownClick={onPriceDropdownClick}
+                  productName="Beauty Product One"
+                  originalPrice="$29.99"
+                />
               </div>
               <div className="group-buy-row">
                 <GroupBuyIcon />
@@ -91,6 +97,11 @@ const Card = ({ activeFilter, onFilterClick, onProductOneClick, onProductTwoClic
                 <BeautyProductTwoColorsText />
                 <div className="spacer" />
                 <JoinGroupButtonTwo />
+                <PriceDropdownButton 
+                  onPriceDropdownClick={onPriceDropdownClick}
+                  productName="Beauty Product Two"
+                  originalPrice="$39.99"
+                />
               </div>
               <div className="group-buy-row-two">
                 <GroupBuyIconTwo />
