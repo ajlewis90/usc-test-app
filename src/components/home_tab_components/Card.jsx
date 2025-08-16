@@ -27,7 +27,7 @@ import BeautyProductTwoColorsText from './BeautyProductTwoColorsText';
 import BeautyProductTwoGroupCondition from './BeautyProductTwoGroupCondition';
 import './Card.css';
 
-const Card = ({ activeFilter, onFilterClick, onProductOneClick, onProductTwoClick, onPriceDropdownClick }) => {
+const Card = ({ activeFilter, onFilterClick, onProductOneClick, onProductTwoClick, onPriceDropdownClick, priceDropdownProduct }) => {
   return (
     <div className="card">
       <div className="card-content">
@@ -82,6 +82,7 @@ const Card = ({ activeFilter, onFilterClick, onProductOneClick, onProductTwoClic
                   onPriceDropdownClick={onPriceDropdownClick}
                   productName="Beauty Product One"
                   originalPrice="$29.99"
+                  hasPendingRequest={priceDropdownProduct?.name === "Beauty Product One"}
                 />
               </div>
               <div className="group-buy-row">
@@ -101,6 +102,7 @@ const Card = ({ activeFilter, onFilterClick, onProductOneClick, onProductTwoClic
                   onPriceDropdownClick={onPriceDropdownClick}
                   productName="Beauty Product Two"
                   originalPrice="$39.99"
+                  hasPendingRequest={priceDropdownProduct?.name === "Beauty Product Two"}
                 />
               </div>
               <div className="group-buy-row-two">

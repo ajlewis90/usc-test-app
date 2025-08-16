@@ -23,3 +23,12 @@
 .price-dropdown-button:active {
   background-color: #004d00; /* Even darker green when pressed */
 }
+
+.price-dropdown-button.pending {
+  background-color: #32CD32; /* Lighter green to indicate pending request */
+  width: 115px; /* Slightly wider to accommodate "Requested ✓" text */
+}
+
+.price-dropdown-button.pending:hover {
+  background-color: #228B22; /* Original green on hover for pending */
+}

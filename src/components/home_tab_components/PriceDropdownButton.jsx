@@ -2,7 +2,7 @@
 import React from 'react';
 import './PriceDropdownButton.css';
 
-const PriceDropdownButton = ({ onPriceDropdownClick, productName, originalPrice }) => {
+const PriceDropdownButton = ({ onPriceDropdownClick, productName, originalPrice, hasPendingRequest }) => {
   const handleClick = (e) => {
     e.stopPropagation();
     if (onPriceDropdownClick) {
@@ -11,8 +11,11 @@ const PriceDropdownButton = ({ onPriceDropdownClick, productName, originalPrice 
   };
 
   return (
-    <button className="price-dropdown-button" onClick={handleClick}>
-      Price Drop
+    <button 
+      className={`price-dropdown-button ${hasPendingRequest ? 'pending' : ''}`} 
+      onClick={handleClick}
+    >
+      {hasPendingRequest ? 'Requested ✓' : 'Price Drop'}
     </button>
   );
 };

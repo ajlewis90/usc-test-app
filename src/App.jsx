@@ -343,7 +343,7 @@ function App() {
   // Price dropdown notification handler
   const handlePriceDropdownClick = (productName, originalPrice) => {
     setPriceDropdownProduct({ name: productName, originalPrice });
-    setActiveTab('Companion'); // Navigate to companion tab
+    // User needs to manually navigate to Companion tab to see the discount
   };
 
   // Effect to handle price dropdown notification when navigating to Companion
@@ -549,6 +549,7 @@ function App() {
                 onProductOneClick={handleProductOneClick}
                 onProductTwoClick={handleProductTwoClick}
                 onPriceDropdownClick={handlePriceDropdownClick}
+                priceDropdownProduct={priceDropdownProduct}
               />
             )}
             {activeCategory === 'Apparel' && (
@@ -556,6 +557,7 @@ function App() {
                 activeFilter={activeFilter}
                 onFilterClick={handleFilterClick}
                 onPriceDropdownClick={handlePriceDropdownClick}
+                priceDropdownProduct={priceDropdownProduct}
               />
             )}
             {activeCategory === 'Toys' && (
@@ -563,6 +565,7 @@ function App() {
                 activeFilter={activeFilter}
                 onFilterClick={handleFilterClick}
                 onPriceDropdownClick={handlePriceDropdownClick}
+                priceDropdownProduct={priceDropdownProduct}
               />
             )}
             {activeCategory === 'Shoes' && (
@@ -570,6 +573,7 @@ function App() {
                 activeFilter={activeFilter}
                 onFilterClick={handleFilterClick}
                 onPriceDropdownClick={handlePriceDropdownClick}
+                priceDropdownProduct={priceDropdownProduct}
               />
             )}
           </div>

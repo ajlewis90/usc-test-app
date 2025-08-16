@@ -29,7 +29,7 @@ import ProductDetailFive from './ProductDetailFive';
 import ProductDetailSix from './ProductDetailSix';
 import './ApparelCard.css';
 
-const ApparelCard = ({ activeFilter, onFilterClick, onPriceDropdownClick }) => {
+const ApparelCard = ({ activeFilter, onFilterClick, onPriceDropdownClick, priceDropdownProduct }) => {
   const [showProductDetailFive, setShowProductDetailFive] = React.useState(false);
   const [showProductDetailSix, setShowProductDetailSix] = React.useState(false);
 
@@ -110,6 +110,7 @@ const ApparelCard = ({ activeFilter, onFilterClick, onPriceDropdownClick }) => {
                   onPriceDropdownClick={onPriceDropdownClick}
                   productName="Apparel Product One"
                   originalPrice="$79.99"
+                  hasPendingRequest={priceDropdownProduct?.name === "Apparel Product One"}
                 />
               </div>
               <div className="group-buy-row">
@@ -131,6 +132,7 @@ const ApparelCard = ({ activeFilter, onFilterClick, onPriceDropdownClick }) => {
                   onPriceDropdownClick={onPriceDropdownClick}
                   productName="Apparel Product Two"
                   originalPrice="$89.99"
+                  hasPendingRequest={priceDropdownProduct?.name === "Apparel Product Two"}
                 />
               </div>
               <div className="group-buy-row-two">
